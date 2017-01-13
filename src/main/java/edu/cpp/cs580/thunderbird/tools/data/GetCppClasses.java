@@ -80,7 +80,7 @@ public class GetCppClasses {
 			//Read HTML and translate to data for usage 
 			//CSV file 
 			//Get Class Number + Time
-			String csvFileName = "src/main/resources/static/data/result.csv";
+			String csvFileName = "src/main/resources/static/data/cppClasses.csv";
 			FileWriter writer = new FileWriter(csvFileName);
 			
 			Elements classes = doc.select("span.ClassTitle"); //<span class="ClassTitle" >
