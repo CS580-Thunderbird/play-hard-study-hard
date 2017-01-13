@@ -1,4 +1,4 @@
-package edu.cpp.cs580.thunderbird.tools.data;
+package edu.cpp.cs580.thunderbird.tools;
 
 public class GetEventsFromGraphAPI {
 

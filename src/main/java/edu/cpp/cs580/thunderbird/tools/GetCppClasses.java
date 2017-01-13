@@ -1,4 +1,4 @@
-package edu.cpp.cs580.thunderbird.tools.data;
+package edu.cpp.cs580.thunderbird.tools;
 
 import java.io.FileWriter;
 import java.io.IOException;
