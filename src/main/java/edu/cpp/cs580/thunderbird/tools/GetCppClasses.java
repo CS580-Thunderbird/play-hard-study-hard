@@ -1,5 +1,6 @@
 package edu.cpp.cs580.thunderbird.tools;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -81,7 +82,11 @@ public class GetCppClasses {
 			//CSV file 
 			//Get Class Number + Time
 			String csvFileName = "src/main/resources/static/data/cppClasses.csv";
-			FileWriter writer = new FileWriter(csvFileName);
+			File csvFile = new File(csvFileName);
+			
+			if(!csvFile.exists()) csvFile.createNewFile();
+			
+			FileWriter writer = new FileWriter(csvFile);
 			
 			Elements classes = doc.select("span.ClassTitle"); //<span class="ClassTitle" >
 			System.out.println("Log ------- : classes -> " + classes.size());
@@ -93,23 +98,27 @@ public class GetCppClasses {
 				Element table = tables.get(index);
 				Elements rows = table.select(":not(thead) tr");
 				
-				////Need to screen data just get only info that we need
-				for(Element row:rows){
-					Elements tds = row.select("td");
-					for(Element td:tds){
-						System.out.println("Log ------- : td text --> " + td.text());
-						writer.append(td.text());
-						writer.append(",");
-					}
-				}
-				//System.out.println("Class: " + className.text());
+				writer.append(className.text());
+				writer.append(",");
 				
-				//info will be at TD part
+							for(Element row:rows){
+
+					Elements tds = row.select("td");
+					
+					if(row == rows.first()) continue;
+						
+					writer.append(tds.get(0).text());
+					writer.append(",");
+
+				}
+				
 				index++;
 				writer.append("\n");
 			}
-			//Loop to get all data 
 			
+			writer.flush();
+			writer.close();
+			System.out.println("GetCppClasses was completed");
 			
 		}
 	}
