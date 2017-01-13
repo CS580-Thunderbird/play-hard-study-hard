@@ -11,13 +11,8 @@ import org.jsoup.select.Elements;
 
 public class GetInternationalStudentEvents {
 		
-	public static void main(String args[]){
-		try {
-			parseEvents();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public GetInternationalStudentEvents(){
+		
 	}
 	
 	public static void parseEvents() throws IOException{
