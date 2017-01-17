@@ -1,6 +1,7 @@
 package edu.cpp.cs580.thunderbird.controller;
 
 import java.io.IOException;
+import java.security.Principal;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,10 +12,6 @@ import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
 public class WebController {
 
 	
-	@RequestMapping("/")
-	String home(){
-		return "Hello ! This is home";
-	}
 	
 	//Temporary Usage, Just want to try it out
 	@RequestMapping("/getCppClasses")
