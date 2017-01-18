@@ -9,6 +9,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+/**
+ * Pull events from international student website
+ * @author nchantarutai
+ *
+ */
 public class GetInternationalStudentEvents {
 		
 	public GetInternationalStudentEvents(){

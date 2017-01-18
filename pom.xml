@@ -66,7 +66,8 @@
 		<artifactId>webjars-locator</artifactId>
 	</dependency>
     
-    <!-- Security -->
+    
+    <!-- Security 
     <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-security</artifactId>
@@ -74,8 +75,33 @@
 	<dependency>
 		<groupId>org.springframework.security.oauth</groupId>
 		<artifactId>spring-security-oauth2</artifactId>
-	</dependency>
+	</dependency>-->
     
+    <!-- Google -->
+    <!-- Google HTTP Client Library For Java -->
+    <dependency>
+	    <groupId>com.google.http-client</groupId>
+	    <artifactId>google-http-client</artifactId>
+	    <version>1.22.0</version>
+	</dependency>
+    <!-- Jackson Extensions to the Google HTTP Client Library -->
+    <dependency>
+	    <groupId>com.google.http-client</groupId>
+	    <artifactId>google-http-client-jackson</artifactId>
+	    <version>1.22.0</version>
+	</dependency>
+    <!-- Java EE 7 Specification APIs -->
+    <dependency>
+	    <groupId>javax</groupId>
+	    <artifactId>javaee-api</artifactId>
+	    <version>7.0</version>
+	</dependency>
+	<!-- Google OAuth2 API -->
+    <dependency>
+	    <groupId>com.google.apis</groupId>
+	    <artifactId>google-api-services-oauth2</artifactId>
+	    <version>v2-rev124-1.22.0</version>
+	</dependency>
   </dependencies>
   
   <build>

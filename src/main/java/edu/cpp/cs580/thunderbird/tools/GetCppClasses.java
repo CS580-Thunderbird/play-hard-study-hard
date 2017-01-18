@@ -10,6 +10,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+/**
+ * A class to pull classes from http://schedule.cpp.edu/
+ * @author nchantarutai
+ *
+ */
 public class GetCppClasses {
 		
 		Document htmlCpp = null;
