@@ -15,6 +15,18 @@ import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
 
 @RestController
 public class WebController {
+	
+	
+	/**
+	 * This is Assignent #3
+	 * Done by Nanwarin
+	 */
+	@RequestMapping("/Nanwarin")
+	String helloNan(){
+		return "Hellow it's me";
+	}
+	
+	
 
 	@RequestMapping("/login")
 	String getHome(){
