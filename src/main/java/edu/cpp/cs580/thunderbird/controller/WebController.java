@@ -23,7 +23,7 @@ public class WebController {
 	 */
 	@RequestMapping("/Nanwarin")
 	String helloNan(){
-		return "Hellow it's me";
+		return "Hello it's me";
 	}
 	
 	
