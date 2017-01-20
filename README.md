@@ -9,3 +9,12 @@ CPP Student personal organizer
 * Nanwarin -- Back End developer
 * Wilson -- Front End developer 
 
+####Running the Project Locally
+
+Locate the MyApp.java in src/main/java source folder and right-click on it->Run As->Java Application
+Verify the running process in your web browser by the following URLs:
+
+
+http://localhost:8080/ 
+If everything works correctly, it will lead you to log-in with Google Account page.
+
