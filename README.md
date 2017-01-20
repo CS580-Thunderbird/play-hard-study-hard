@@ -2,3 +2,10 @@
 ## Study Hard Play Hard
 CPP Student personal organizer
 
+
+####Developers
+* Diana -- Front end developer
+* Kushal -- Front end developer
+* Nanwarin -- Back end developer
+* Wilson -- Front end developer 
+
