@@ -4,8 +4,8 @@ CPP Student personal organizer
 
 
 ####Developers
-* Diana -- Front end developer
-* Kushal -- Front end developer
-* Nanwarin -- Back end developer
-* Wilson -- Front end developer 
+* Diana -- Front End developer
+* Kushal -- Front End developer
+* Nanwarin -- Back End developer
+* Wilson -- Front End developer 
 
