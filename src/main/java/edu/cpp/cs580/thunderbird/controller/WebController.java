@@ -22,9 +22,19 @@ public class WebController {
 	 * This is Assignent #3
 	 * Done by Nanwarin
 	 */
-	@RequestMapping(value = "/Nanwarin", method = RequestMethod.GET)
+	@RequestMapping(value = "/Nanwarin")
 	String helloNan(){
 		return "Hello it's me";
+	}
+	
+	/**
+	 * Assignment 3 part 3
+	 * @return
+	 */
+	@RequestMapping(value = "/Wiehsing", method = RequestMethod.GET)
+	String wiehsingtest(){
+		
+		return "Wie Hsing Li testing";
 	}
 	
 	/**
@@ -52,7 +62,7 @@ public class WebController {
 		HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setLocation(loginURI);
 		
-		return new ResponseEntity<>(httpHeaders, HttpStatus.SEE_OTHER);
+		return new ResponseEntity<Object>(httpHeaders, HttpStatus.SEE_OTHER);
 	}
 	
 	//Temporary Usage, Just want to try it out
