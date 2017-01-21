@@ -8,6 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
@@ -21,19 +22,27 @@ public class WebController {
 	 * This is Assignent #3
 	 * Done by Nanwarin
 	 */
-	@RequestMapping("/Nanwarin")
+	@RequestMapping(value = "/Nanwarin", method = RequestMethod.GET)
 	String helloNan(){
 		return "Hello it's me";
 	}
 	
-	
-
-	@RequestMapping("/login")
+	/**
+	 * After user login with Google Account, will add index.html later	
+	 * @return
+	 */
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	String getHome(){
 		return "Welcome !!! !!";
 	}
 	
-	@RequestMapping("/")
+	/**
+	 * Require User to authorize account with Google before they can use calendar
+	 * Will come up with better method later
+	 * @throws URISyntaxException
+	 */
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ResponseEntity<Object> loginGoogle() throws URISyntaxException
 	{
 		GoogleOAuth OAuth = new GoogleOAuth();
