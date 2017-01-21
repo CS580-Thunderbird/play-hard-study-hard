@@ -8,6 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
@@ -26,6 +27,15 @@ public class WebController {
 		return "Hello it's me";
 	}
 	
+	/**
+	 * Assignment 3 part 3
+	 * @return
+	 */
+	@RequestMapping(value = "/Wiehsing", method = RequestMethod.GET)
+	String wiehsingtest(){
+		
+		return "Wie Hsing Li testing";
+	}
 	
 
 	@RequestMapping("/login")
@@ -43,7 +53,7 @@ public class WebController {
 		HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setLocation(loginURI);
 		
-		return new ResponseEntity<>(httpHeaders, HttpStatus.SEE_OTHER);
+		return new ResponseEntity<Object>(httpHeaders, HttpStatus.SEE_OTHER);
 	}
 	
 	//Temporary Usage, Just want to try it out
