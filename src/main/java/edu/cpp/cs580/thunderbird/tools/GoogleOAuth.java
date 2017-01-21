@@ -29,7 +29,7 @@ public class GoogleOAuth {
 	private static final String CLIENT_SECRET = "LpWQA9RuOIBQKoO8KbRYpEP8";
 
 	//Redirect URI, after login sucessfully
-	private static final String REDIRECT_URI = "http://localhost:8080/login";
+	private static final String REDIRECT_URI = "http://localhost:8080/home";
 	
 	// start google authentication constants
 	private static final Collection<String> SCOPES = Arrays.asList("https://www.googleapis.com/auth/userinfo.profile;https://www.googleapis.com/auth/userinfo.email".split(";"));

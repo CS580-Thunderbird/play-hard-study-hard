@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
@@ -17,6 +18,8 @@ import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
 @RestController
 public class WebController {
 	
+	String userInfo = "";
+	GoogleOAuth OAuth;
 	
 	/**
 	 * This is Assignent #3
@@ -40,9 +43,12 @@ public class WebController {
 	/**
 	 * After user login with Google Account, will add index.html later	
 	 * @return
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	String getHome(){
+	String getHome(@RequestParam("code") String code) throws IOException{
+		userInfo = OAuth.getUserInfoJson(code);
+		System.out.println("Test ----- " + userInfo);
 		return "Welcome !!! !!";
 	}
 	
@@ -55,7 +61,7 @@ public class WebController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ResponseEntity<Object> loginGoogle() throws URISyntaxException
 	{
-		GoogleOAuth OAuth = new GoogleOAuth();
+		OAuth = new GoogleOAuth();
 		String url = OAuth.buildLoginUrl();
 		URI loginURI = new URI(url);
 		
