@@ -14,5 +14,6 @@ public interface UserManager {
 	public void addClass(String userID);
 	public void addWorkTime(String userID);
 	public void addEventPreference(String userID);
+	public void updateUser(String json);
 	
 }

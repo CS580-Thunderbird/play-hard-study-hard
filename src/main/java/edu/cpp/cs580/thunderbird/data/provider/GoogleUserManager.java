@@ -9,6 +9,7 @@ import edu.cpp.cs580.thunderbird.data.GoogleUser;
  */
 public class GoogleUserManager implements UserManager{
 
+	//Temporary. will come up will better method.
 	private String jsonString;
 
 	@Override
@@ -38,6 +39,13 @@ public class GoogleUserManager implements UserManager{
 	@Override
 	public void addEventPreference(String userID) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateUser(String json) {
+		this.jsonString = json;
+		System.out.println("Test --- " + jsonString);
 		
 	}
 	
