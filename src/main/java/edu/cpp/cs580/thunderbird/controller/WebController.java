@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.cpp.cs580.thunderbird.data.provider.UserManager;
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
 import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
 
@@ -42,6 +44,7 @@ public class WebController {
 	
 	/**
 	 * After user login with Google Account, will add index.html later	
+	 * This is just for testing
 	 * @return
 	 * @throws IOException 
 	 */
