@@ -53,7 +53,7 @@ public class WebController {
     }
 
     /**
-     * After user login with Google Account, will add index.html later
+     * After user login with Google Account
      * @return
      * @throws IOException
      */
