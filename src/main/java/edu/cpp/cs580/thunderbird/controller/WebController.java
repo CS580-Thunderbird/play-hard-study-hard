@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.cpp.cs580.thunderbird.data.UserRepository;
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
 import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
@@ -60,7 +61,7 @@ public class WebController {
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     String getHome(@RequestParam("code") String code) throws IOException{
         userManager.updateUser(OAuth.getUserInfoJson(code));
-        return "Welcome !!! !!";
+        return "Welcome " + userManager.getUserName();
     }
 
     /**

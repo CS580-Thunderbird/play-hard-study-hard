@@ -6,6 +6,13 @@ public class GoogleUser {
 	private String name;
 	private String pictureLink;
 	
+	public GoogleUser(String id, String email, String name, String pictureLink){
+		this.id = id;
+		this.email = email;
+		this.name = name;
+		this.pictureLink = pictureLink;
+	}
+	
 	public void setId(String id){
 		this.id = id;
 	}

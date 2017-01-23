@@ -1,5 +1,11 @@
 package edu.cpp.cs580.thunderbird.data.provider;
 
+import java.io.IOException;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import edu.cpp.cs580.thunderbird.data.GoogleUser;
 
 /**
@@ -9,13 +15,15 @@ import edu.cpp.cs580.thunderbird.data.GoogleUser;
  */
 public class GoogleUserManager implements UserManager{
 
-	//Temporary. will come up will better method.
-	private String jsonString;
+	private GoogleUser user;
 
 	@Override
-	public GoogleUser getUserId(String userID) {
-		// TODO Auto-generated method stub
-		return null;
+	public String getUserId() {
+		return user.getId();
+	}
+	
+	public String getUserName(){
+		return user.getName();
 	}
 
 	@Override
@@ -42,10 +50,35 @@ public class GoogleUserManager implements UserManager{
 		
 	}
 
+	/**
+	 * After user authorized the email
+	 */
 	@Override
 	public void updateUser(String json) {
-		this.jsonString = json;
-		System.out.println("Test --- " + jsonString);
+		byte[] jsonData =json.getBytes();
+		ObjectMapper objMapper = new ObjectMapper();
+		JsonNode rootNode;
+		try {
+			rootNode = objMapper.readTree(jsonData);
+			//Need to come up with better method to check if we already authorize the user
+			user = new GoogleUser(rootNode.path("id").asText(), 
+								rootNode.path("email").asText(),
+								rootNode.path("name").asText(),
+								rootNode.path("picture").asText());
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	@Override
+	public void addNewUser(GoogleUser user) {
+		// TODO Auto-generated method stub
 		
 	}
 	

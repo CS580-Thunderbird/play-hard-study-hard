@@ -21,6 +21,11 @@ import com.google.api.client.json.jackson.JacksonFactory;
  * 
  * @author nchantarutai
  * Get demo from Matyas Danter, https://github.com/mdanter/OAuth2v1
+ * 
+ * More info 
+ * Another way to use oauth2 with spring boot
+ * http://dba-presents.com/index.php/jvm/java/100-getting-started-with-google-sign-in-in-spring-boot-app
+ * 
  */
 
 public class GoogleOAuth {
