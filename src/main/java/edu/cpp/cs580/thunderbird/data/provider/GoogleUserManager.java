@@ -65,14 +65,14 @@ public class GoogleUserManager implements UserManager{
 		JsonNode rootNode;
 		try {
 			rootNode = objMapper.readTree(jsonData);
-			//Need to come up with better method to check if we already authorize the user
+			
 			user = new GoogleUser(rootNode.path("id").asText(), 
 								rootNode.path("email").asText(),
 								rootNode.path("name").asText(),
 								rootNode.path("picture").asText());
 			
-			//for testing
-			addNewUser(user);
+			if(googleRepo.getUserByEmail(user.getEmail()) == null)
+				addNewUser(user);
 			
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
