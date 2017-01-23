@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
@@ -46,10 +47,12 @@ public class WebController {
 
     /**
      * Assignment 3 - Diana
+     * Basic static calendar
      */
     @RequestMapping(value = "/Diana", method = RequestMethod.GET)
-    String helloDiana() {
-        return "Hello it's me, Diana";
+    ModelAndView DianaAssignment3() {
+        ModelAndView modelAndView = new ModelAndView("BasicCalendar.html");
+        return modelAndView;
     }
 
     /*
