@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.cpp.cs580.thunderbird.data.GoogleUser;
 import edu.cpp.cs580.thunderbird.data.UserRepository;
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
@@ -22,14 +23,12 @@ import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
 @RestController
 public class WebController {
 	
-	@Autowired
-	private UserManager userManager;
-	
+	@Autowired private UserManager userManager;
+
     GoogleOAuth OAuth; // May come up with better method
 
     /**
-     * This is Assignent #3
-     * Done by Nanwarin
+     *  Nanwarin Testing
      */
     @RequestMapping(value = "/Nanwarin")
     String helloNan(){
@@ -106,5 +105,4 @@ public class WebController {
 
         return "complete";
     }
-
 }

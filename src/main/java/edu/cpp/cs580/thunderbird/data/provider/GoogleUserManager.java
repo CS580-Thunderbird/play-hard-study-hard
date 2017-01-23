@@ -2,11 +2,14 @@ package edu.cpp.cs580.thunderbird.data.provider;
 
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import edu.cpp.cs580.thunderbird.data.GoogleUser;
+import edu.cpp.cs580.thunderbird.data.UserRepository;
 
 /**
  * Example from edu.cpp.cs580.data.provider
@@ -15,6 +18,8 @@ import edu.cpp.cs580.thunderbird.data.GoogleUser;
  */
 public class GoogleUserManager implements UserManager{
 
+	@Autowired private UserRepository googleRepo;
+	
 	private GoogleUser user;
 
 	@Override
@@ -65,6 +70,10 @@ public class GoogleUserManager implements UserManager{
 								rootNode.path("email").asText(),
 								rootNode.path("name").asText(),
 								rootNode.path("picture").asText());
+			
+			//for testing
+			addNewUser(user);
+			
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,13 +81,22 @@ public class GoogleUserManager implements UserManager{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 	}
+	
+	/**
+	 * First time that user use our webapp
+	 */
 
 	@Override
 	public void addNewUser(GoogleUser user) {
-		// TODO Auto-generated method stub
+		
+		googleRepo.save(user);
+		
+		System.out.println("Test -- Fetch All Users");
+		for(GoogleUser userGoogle: googleRepo.findAll()){
+			System.out.println(userGoogle.getEmail());
+		}
 		
 	}
 	
