@@ -52,6 +52,15 @@ public class WebController {
         return "Hello it's me, Diana";
     }
 
+    /*
+     * Assignment #3
+     * Author: Kushal Patel
+     */
+    @RequestMapping(value = "/Kushal", method = RequestMethod.GET)
+    String KushalAssignment3() {
+    	return "CS580 Assignment #3";
+    }
+    
     /**
      * After user login with Google Account
      * @return
