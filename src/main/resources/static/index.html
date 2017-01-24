@@ -10,9 +10,75 @@
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+    .dropbtn {
+        max-width: 50%;
+        height: auto;
+    }
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 250px;
+        overflow: auto;
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .show {display:block;}
+
+</style>
+
 </head>
 <body ng-app="app" ng-controller="home as home">
 	<h1>Demo</h1>
-	
+
+    
+   <div class="dropdown">
+        <input type="image" src="assets/images/userMenu.jpg" onclick="myFunction()" class="dropbtn"/>
+        <div id="myDropdown" class="dropdown-content">
+            <h3>Event Preferences:</h3>
+            <form>
+                <input type="checkbox" name="event" value="fitness"> Fitness classes <br>
+                <input type="checkbox" name="event" value="ASI"> ASI Events <br>
+                <input type="checkbox" name="event" value="international"> International Student Clubs <br>
+                <input type="submit" value="Search Club From Facebook Pages">
+                <p><b>Insert Class Schedule</b></p>
+                <input type="text" name="classId" value="Input Class ID">
+                <input type="submit" value="Input class">
+                <p><b>Insert Work Schedule/Others</b></p>
+                <input type="date" name="inputdate">
+                <input type="submit" value="Add"> <br><br>
+                <input type="submit" value="SAVE">
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+            if(!event.target.matches('.dropbtn')){
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for(i = 0; i < dropdowns.length; i++){
+                    var openDropdown = dropdowns[i];
+                }
+            }
+        }
+    </script>
+
 </body>
 </html>
