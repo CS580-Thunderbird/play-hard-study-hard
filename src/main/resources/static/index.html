@@ -36,6 +36,15 @@
         display: block;
     }
     .show {display:block;}
+    
+    .filterbtn {
+        max-width: 50%;
+        height: auto;
+    }
+    .eventfilter {
+    position: relative;
+    display: inline-block;
+    }
 
 </style>
 
@@ -63,6 +72,11 @@
             </form>
         </div>
     </div>
+    
+    <div class="eventfilter">
+        <input type="image" src="assets/images/eventFilter.jpg" onclick="filterEvents()" class="filterbtn"/>
+        
+    </div>
 
     <script type="text/javascript">
         function myFunction() {
@@ -77,6 +91,9 @@
                     var openDropdown = dropdowns[i];
                 }
             }
+        }
+        
+        function filterEvents() {
         }
     </script>
 
