@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.cpp.cs580.thunderbird.data.CppClassRepository;
 import edu.cpp.cs580.thunderbird.data.GoogleUser;
 import edu.cpp.cs580.thunderbird.data.UserRepository;
+import edu.cpp.cs580.thunderbird.data.provider.CppClassManager;
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
 import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
@@ -95,8 +97,8 @@ public class WebController {
     }
 
     //Temporary Usage, Just want to try it out
-    @RequestMapping("/getCppClasses")
-    String getCppClasses(){
+    @RequestMapping("/getCppSchedule")
+    String getCppClassesSchedule(){
         try {
             GetCppClasses cppClsss = new GetCppClasses();
         } catch (IOException e) {

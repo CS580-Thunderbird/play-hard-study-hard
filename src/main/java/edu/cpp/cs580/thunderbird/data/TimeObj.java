@@ -1,5 +1,6 @@
 package edu.cpp.cs580.thunderbird.data;
 
+import java.sql.Time;
 import java.time.DayOfWeek;
 import java.util.Date;
 
@@ -8,7 +9,7 @@ import java.util.Date;
  * @author nchantarutai
  *
  */
-public class Time {
+public class TimeObj {
 	
 	
 	Date startDate;
