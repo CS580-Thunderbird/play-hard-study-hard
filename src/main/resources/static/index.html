@@ -36,22 +36,12 @@
         display: block;
     }
     .show {display:block;}
-    
-    .filterbtn {
-        max-width: 50%;
-        height: auto;
-    }
-    .eventfilter {
-    position: relative;
-    display: inline-block;
-    }
 
-</style>
+    </style>
 
 </head>
 <body ng-app="app" ng-controller="home as home">
 	<h1>Demo</h1>
-
 
    <div class="dropdown">
         <input type="image" src="assets/images/userMenu.jpg" onclick="myFunction()" class="dropbtn"/>
@@ -73,9 +63,11 @@
         </div>
     </div>
     
-    <div class="eventfilter">
-        <input type="image" src="assets/images/eventFilter.jpg" onclick="filterEvents()" class="filterbtn"/>
-        
+    <div class="dropdown">
+        <input type="image" src="assets/images/eventFilter.jpg" onclick="eventFilterFunction()" class="dropbtn"/>
+        <div id="eventFilter" class="dropdown-content">
+            <h4>Filtering events from Settings -> Event Preferences...</h4>
+        </div>
     </div>
 
     <script type="text/javascript">
@@ -93,8 +85,10 @@
             }
         }
         
-        function filterEvents() {
+        function eventFilterFunction() {
+            document.getElementById("eventFilter").classList.toggle("show");
         }
+        
     </script>
 
 </body>
