@@ -1,9 +1,12 @@
 package edu.cpp.cs580.thunderbird.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -51,10 +54,27 @@ public class WebController {
      * Assignment 3 - Diana
      * Basic static calendar
      */
-    @RequestMapping(value = "/Diana", method = RequestMethod.GET)
+    @RequestMapping(value = "/Diana-A3", method = RequestMethod.GET)
     ModelAndView DianaAssignment3() {
         ModelAndView modelAndView = new ModelAndView("BasicCalendar.html");
         return modelAndView;
+    }
+    
+    /**
+     * Assignment 4 - Diana
+     * Display International Student Club Events from intStdEvents.csv
+     * @return
+     * @throws IOException 
+     */
+    @RequestMapping(value = "/Diana-A4", method = RequestMethod.GET)
+    String DianaAssignment4() throws IOException {
+        File file = new File("src/main/resources/static/data/intStdEvents.csv");
+        List lines = FileUtils.readLines(file, "UTF-8");
+        String eventList = "";
+        for (Object event : lines) {
+            eventList += event + "<br/>";
+        }
+        return eventList;
     }
 
     /*

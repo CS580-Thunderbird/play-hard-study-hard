@@ -107,7 +107,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
     </dependency>
-	
+    
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <!-- Assignment 4 - Diana -->
+	<dependency>
+	    <groupId>commons-io</groupId>
+	    <artifactId>commons-io</artifactId>
+	    <version>2.5</version>
+	</dependency>
+    
   </dependencies>
   
   <build>
