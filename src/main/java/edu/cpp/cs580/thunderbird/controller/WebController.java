@@ -21,6 +21,7 @@ import edu.cpp.cs580.thunderbird.data.CppClassRepository;
 import edu.cpp.cs580.thunderbird.data.GoogleUser;
 import edu.cpp.cs580.thunderbird.data.UserRepository;
 import edu.cpp.cs580.thunderbird.data.provider.CppClassManager;
+import edu.cpp.cs580.thunderbird.data.provider.GoogleUserManager;
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
 import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
@@ -50,6 +51,20 @@ public class WebController {
 
         return "Wie Hsing Li testing";
     }
+    
+    /**
+     * Assignment 4 - Wie Hsing Li
+     * 
+     * Printed user email from json node using the Jackson dependency
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/Wiehsing-A4", method = RequestMethod.GET)
+    String pullUsers(){
+    	
+    	return userManager.readAllUsers();
+    }	
+    
 
     /**
      * Assignment 3 - Diana
@@ -98,6 +113,8 @@ public class WebController {
         return "Welcome " + userManager.getUserName();
     }
 
+
+    
     /**
      * Assignment#4 by Nanwarin, 
      * imported OAuth2 Library for logging in with Google Account
@@ -119,6 +136,8 @@ public class WebController {
         return new ResponseEntity<Object>(httpHeaders, HttpStatus.SEE_OTHER);
     }
 
+
+    
     //Temporary Usage, Just want to try it out
     @RequestMapping("/getCppSchedule")
     String getCppClassesSchedule() throws Exception{
