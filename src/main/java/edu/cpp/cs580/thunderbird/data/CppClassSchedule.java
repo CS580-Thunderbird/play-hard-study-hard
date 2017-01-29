@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @author nchantarutai
  *
  */
-@Document(collection = "classes")
 public class CppClassSchedule {
 
 	private String code;

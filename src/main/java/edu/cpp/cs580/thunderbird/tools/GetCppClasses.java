@@ -28,14 +28,14 @@ import edu.cpp.cs580.thunderbird.data.provider.CppClassManager;
  */
 public class GetCppClasses {
 		
-	@Autowired private CppClassManager classManager;
+		private CppClassManager classManager;
 		
-		public GetCppClasses() throws IOException{	
-			classManager = new CppClassManager(); //Autowired not work, need to recheck
+		public GetCppClasses(CppClassManager classManager) throws Exception{	
+			this.classManager = classManager; //Autowired not work, need to recheck
 			parseClasses();
 		}
 		
-		public void parseClasses() throws IOException{
+		public void parseClasses() throws Exception{
 			File codeCsv = new File("src/main/resources/static/data/classCodes.csv");
 			BufferedReader br = new BufferedReader(new FileReader(codeCsv));
 			String input = br.readLine();
@@ -107,7 +107,7 @@ public class GetCppClasses {
 			return result;
 		}
 		
-		public void insertClassScheduleToDB(Document doc){
+		public void insertClassScheduleToDB(Document doc) throws Exception{
 			
 			TimeObj classTime = new TimeObj();		
 			String classCode = "", description = "", time ="", location = "", datePeriod = "", instructor = "", building = "", room = "";
@@ -137,8 +137,8 @@ public class GetCppClasses {
 				
 				CppClassSchedule newClass = new CppClassSchedule(classCode, description, classTime, instructor, building, room);
 				
-				//Error Null Pointer Exception, need to fix
-				//classManager.addNewClassToList(newClass);
+				classManager.addNewClassToList(newClass);
+				
 			}
 			
 		}

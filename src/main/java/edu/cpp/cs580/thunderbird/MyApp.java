@@ -23,12 +23,12 @@ public class MyApp {
 		return userManager;
 	}
 	
-	/*
+	
 	@Bean
 	public CppClassManager cppClassManager(){
 		CppClassManager cppClassManager = new CppClassManager();
 		return cppClassManager;
-	}*/
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(MyApp.class, args);

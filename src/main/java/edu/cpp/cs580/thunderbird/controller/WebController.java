@@ -29,6 +29,7 @@ import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
 public class WebController {
 	
 	@Autowired private UserManager userManager;
+	@Autowired private CppClassManager cppClassManager;
 
     GoogleOAuth OAuth; // May come up with better method
 
@@ -120,9 +121,9 @@ public class WebController {
 
     //Temporary Usage, Just want to try it out
     @RequestMapping("/getCppSchedule")
-    String getCppClassesSchedule(){
+    String getCppClassesSchedule() throws Exception{
         try {
-            GetCppClasses cppClsss = new GetCppClasses();
+            GetCppClasses cppClsss = new GetCppClasses(cppClassManager);
         } catch (IOException e) {
             System.out.println("Error -- getCppClsses");
         }

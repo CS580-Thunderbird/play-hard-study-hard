@@ -11,10 +11,14 @@ import edu.cpp.cs580.thunderbird.data.CppClassSchedule;
 @Configurable
 public class CppClassManager {
 	
-	@Autowired private CppClassRepository classRepo; // Not work need to recheck
-	
+	@Autowired private CppClassRepository cppClassRepo; // Not work need to recheck
+
 	public void addNewClassToList(CppClassSchedule newClass){
-		classRepo.save(newClass);
+		cppClassRepo.save(newClass);
+	}
+	
+	public void test(){
+		
 	}
 	
 }
