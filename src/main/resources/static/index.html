@@ -7,68 +7,76 @@
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width"/>
     <base href="/"/>
+
+
+    <!-- BootStrap scripts -->
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-    <style>
-    .dropbtn {
-        max-width: 50%;
-        height: auto;
-    }
-    .dropdown {
-    position: relative;
-    display: inline-block;
-    }
 
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 350px;
-        overflow: auto;
-        z-index: 1;
-    }
 
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-    .show {display:block;}
 
-    </style>
+    <!-- Angular scripts -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <script type="text/javascript" src="/assets/scripts/angular.min.js" th:src="@{/angular.min.js}"></script>
+<!--     <script type="text/javascript" src="/assets/scripts/angular-animate.min.js" th:src="@{/angular-animate.min.js}"></script>
+    <script type="text/javascript" src="/assets/scripts/angular-aria.min.js" th:src="@{/angular-aria.min.js}"></script>
+    <script type="text/javascript" src="/assets/scripts/angular-messages.min.js" th:src="@{/angular-messages.min.js}"></script>
+    <script type="text/javascript" src="/assets/scripts/angular-material.min.js" th:src="@{/angular-material.min.js}"></script>
+ -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+
+    <script type="text/javascript" src="/assets/app/app.module.js" th:src="@{/app/app.module.js}"></script>
+    <script type="text/javascript" src="/assets/app/main.controller.js" th:src="@{/app/main.controller.js}"></script>
+
+
+    <!-- Style sheets -->
+    <link rel="stylesheet" href="/assets/css/main.css">
 
 </head>
-<body ng-app="app" ng-controller="home as home">
-	<h1>Demo</h1>
+<body ng-app="myApp" ng-controller="mainController">
 
-   <div class="dropdown">
-        <input type="image" src="assets/images/userMenu.jpg" onclick="myFunction()" class="dropbtn"/>
-        <div id="myDropdown" class="dropdown-content">
-            <h3>Event Preferences:</h3>
-            <form>
-                <input type="checkbox" name="event" value="fitness"> Fitness classes <br>
-                <input type="checkbox" name="event" value="ASI"> ASI Events <br>
-                <input type="checkbox" name="event" value="international"> International Student Clubs <br>
-                <input type="submit" value="Search Club From Facebook Pages"><br><br>
-                <p><b>Insert Class Schedule</b></p>
-                <input type="text" name="classId" value="Input Class ID">
-                <input type="submit" value="Input class"><br><br>
-                <p><b>Insert Work Schedule/Others</b></p>
-                <input type="date" name="inputdate">
-                <input type="submit" value="Add"> <br><br>
-                <input type="submit" value="SAVE">
-            </form>
-        </div>
-    </div>
-    
-    <div class="dropdown">
-        <input type="image" src="assets/images/eventFilter.jpg" onclick="eventFilterFunction()" class="dropbtn"/>
-        <div id="eventFilter" class="dropdown-content">
-            <h4>Filtering events from Settings -> Event Preferences...</h4>
-        </div>
-    </div>
+    <md-toolbar class="md-warn" color="primary">
+         <div class="md-toolbar-tools">
+            <h2 class="md-flex">Study Hard Play Hard</h2>
+         </div>
+    </md-toolbar>
+
+        <md-content flex layout-fill>
+           <div class="dropdown">
+                <input type="image" src="assets/images/userMenu.jpg" onclick="myFunction()" class="dropbtn"/>
+                <div id="myDropdown" class="dropdown-content">
+                    <h3>Event Preferences:</h3>
+                    <form>
+                        <input type="checkbox" name="event" value="fitness"> Fitness classes <br>
+                        <input type="checkbox" name="event" value="ASI"> ASI Events <br>
+                        <input type="checkbox" name="event" value="international"> International Student Clubs <br>
+                        <input type="submit" value="Search Club From Facebook Pages"><br><br>
+                        <p><b>Insert Class Schedule</b></p>
+                        <input type="text" name="classId" value="Input Class ID">
+                        <input type="submit" value="Input class"><br><br>
+                        <p><b>Insert Work Schedule/Others</b></p>
+                        <input type="date" name="inputdate">
+                        <input type="submit" value="Add"> <br><br>
+                        <input type="submit" value="SAVE">
+                    </form>
+                </div>
+            </div>
+        
+            <div class="dropdown">
+                <input type="image" src="assets/images/eventFilter.jpg" onclick="eventFilterFunction()" class="dropbtn"/>
+                <div id="eventFilter" class="dropdown-content">
+                    <h4>Filtering events from Settings -> Event Preferences...</h4>
+                </div>
+            </div>
+
+            
+
+        </md-content>
 
     <script type="text/javascript">
         function myFunction() {
