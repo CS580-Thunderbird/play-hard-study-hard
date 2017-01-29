@@ -17,5 +17,6 @@ public interface UserManager {
 	public void addEventPreference(String userID);
 	public void updateUser(String json);
 	public void addNewUser(GoogleUser user); //If this is first time with our web service
+	public void readAllUsers();
 	
 }
