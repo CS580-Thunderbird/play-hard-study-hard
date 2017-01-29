@@ -98,6 +98,7 @@ public class WebController {
     }
 
     /**
+     * Assignment#4 Nanwarin, imported OAuth2 Library for logging in with Google Account
      * Require User to authorize account with Google before they can use calendar
      * Will come up with better method later
      * @throws URISyntaxException
