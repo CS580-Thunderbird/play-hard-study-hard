@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.cpp.cs580.thunderbird.data.CppClassRepository;
-import edu.cpp.cs580.thunderbird.data.GoogleUser;
-import edu.cpp.cs580.thunderbird.data.UserRepository;
-import edu.cpp.cs580.thunderbird.data.provider.CppClassManager;
+import edu.cpp.cs580.thunderbird.data.provider.CppManager;
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
 import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
@@ -29,7 +26,7 @@ import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
 public class WebController {
 	
 	@Autowired private UserManager userManager;
-	@Autowired private CppClassManager cppClassManager;
+	@Autowired CppManager cppManager;
 
     GoogleOAuth OAuth; // May come up with better method
 
@@ -38,6 +35,7 @@ public class WebController {
      */
     @RequestMapping(value = "/Nanwarin")
     String helloNan(){
+    	cppManager.ListClasses();
         return "Hello it's me";
     }
 
@@ -123,7 +121,7 @@ public class WebController {
     @RequestMapping("/getCppSchedule")
     String getCppClassesSchedule() throws Exception{
         try {
-            GetCppClasses cppClsss = new GetCppClasses(cppClassManager);
+            GetCppClasses cppClsss = new GetCppClasses(cppManager);
         } catch (IOException e) {
             System.out.println("Error -- getCppClsses");
         }

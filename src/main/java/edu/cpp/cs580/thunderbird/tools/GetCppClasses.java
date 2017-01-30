@@ -2,24 +2,22 @@ package edu.cpp.cs580.thunderbird.tools;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.regex.Pattern;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.stereotype.Service;
 
-import edu.cpp.cs580.thunderbird.data.CppClassRepository;
-import edu.cpp.cs580.thunderbird.data.CppClassSchedule;
+import edu.cpp.cs580.thunderbird.data.CppClass;
 import edu.cpp.cs580.thunderbird.data.TimeObj;
-import edu.cpp.cs580.thunderbird.data.provider.CppClassManager;
+import edu.cpp.cs580.thunderbird.data.provider.CppManager;
 
 /**
  * A class to pull classes from http://schedule.cpp.edu/
@@ -28,10 +26,12 @@ import edu.cpp.cs580.thunderbird.data.provider.CppClassManager;
  */
 public class GetCppClasses {
 		
-		private CppClassManager classManager;
+		//private CppClassManager classManager;
+		public CppManager cppManager;
 		
-		public GetCppClasses(CppClassManager classManager) throws Exception{	
-			this.classManager = classManager; //Autowired not work, need to recheck
+		public GetCppClasses(CppManager cppManager) throws Exception{	
+			this.cppManager = cppManager; //Autowired not work, need to recheck
+			//classManager.deleteAllData();
 			parseClasses();
 		}
 		
@@ -41,12 +41,15 @@ public class GetCppClasses {
 			String input = br.readLine();
 			String[] codes = input.split(",");
 			
-			for(String code:codes){
+		/*	for(String code:codes){
 				Document result;
 				result = parseClass(code);
 				insertClassScheduleToDB(result);
 				//outputDocument(result);
-			}
+			}*/
+			
+			Document result = parseClass("CS");
+			insertClassScheduleToDB(result);
 		}
 		
 		
@@ -110,6 +113,7 @@ public class GetCppClasses {
 		public void insertClassScheduleToDB(Document doc) throws Exception{
 			
 			TimeObj classTime = new TimeObj();		
+			
 			String classCode = "", description = "", time ="", location = "", datePeriod = "", instructor = "", building = "", room = "";
 			
 			Elements classes = doc.select("span.ClassTitle"); //<span class="ClassTitle" >
@@ -132,62 +136,28 @@ public class GetCppClasses {
 					room = input[1];
 				}
 				
+				//2017-01-03 to 2017-03-10 time 1:00 PM–1:50 PM   MWF // Format
 				datePeriod = rows.get(6).text();
+				String startDates[] = datePeriod.substring(0, 10).split("-");
+				Date startDate = new Date(Integer.parseInt(startDates[0]), Integer.parseInt(startDates[1]), Integer.parseInt(startDates[2]));
+				String endDates[] = datePeriod.substring(14, datePeriod.length()).split("-");
+				Date endDate = new Date(Integer.parseInt(endDates[0]), Integer.parseInt(endDates[1]), Integer.parseInt(endDates[2]));
+		
+				//Time startTime = new Time();
+				
+				
+			//	System.out.println(datePeriod+ "time " + time);
 				instructor = rows.get(8).text();
 				
-				CppClassSchedule newClass = new CppClassSchedule(classCode, description, classTime, instructor, building, room);
-				
-				classManager.addNewClassToList(newClass);
+				CppClass newClass = new CppClass(classCode, new TimeObj(), building, room, description, instructor);
+				cppManager.saveNewClass(newClass);
+
 				
 			}
 			
 		}
 		
-		
-		public static void outputDocument(Document doc) throws IOException{
-			//Read HTML and translate to data for usage 
-			//CSV file 
-			//Get Class Number + Time
-			String csvFileName = "src/main/resources/static/data/cppClasses.csv";
-			File csvFile = new File(csvFileName);
-			
-			if(!csvFile.exists()) csvFile.createNewFile();
-			
-			FileWriter writer = new FileWriter(csvFile);
-			
-			Elements classes = doc.select("span.ClassTitle"); //<span class="ClassTitle" >
-			System.out.println("Log ------- : classes -> " + classes.size());
-			Elements tables = doc.select("table");
-			System.out.println("Log ------- : tables --> " + tables.size()); // Need to start at classes.size() + 2
-			
-			int index = 2; // Need to find better way
-			for(Element className:classes){
-				Element table = tables.get(index);
-				Elements rows = table.select(":not(thead) tr");
-				
-				writer.append(className.text());
-				writer.append(",");
-				
-							for(Element row:rows){
 
-					Elements tds = row.select("td");
-					
-					if(row == rows.first()) continue;
-						
-					writer.append(tds.get(0).text());
-					writer.append(",");
-
-				}
-				
-				index++;
-				writer.append("\n");
-			}
-			
-			writer.flush();
-			writer.close();
-			System.out.println("GetCppClasses was completed");
-			
-		}
 	}
 	
 

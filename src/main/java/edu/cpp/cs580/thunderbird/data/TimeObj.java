@@ -2,6 +2,7 @@ package edu.cpp.cs580.thunderbird.data;
 
 import java.sql.Time;
 import java.time.DayOfWeek;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Date;
  */
 public class TimeObj {
 	
-	
+	Calendar cal;
 	Date startDate;
 	Date endDate;
 	
