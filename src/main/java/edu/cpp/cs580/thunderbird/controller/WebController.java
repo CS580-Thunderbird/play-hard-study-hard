@@ -7,6 +7,10 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import edu.cpp.cs580.thunderbird.data.provider.CppManager;
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
@@ -48,6 +53,20 @@ public class WebController {
 
         return "Wie Hsing Li testing";
     }
+    
+    /**
+     * Assignment 4 - Wie Hsing Li
+     * 
+     * Printed user email from json node using the Jackson dependency
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/Wiehsing-A4", method = RequestMethod.GET)
+    String pullUsers(){
+    	
+    	return userManager.readAllUsers();
+    }	
+    
 
     /**
      * Assignment 3 - Diana
@@ -85,6 +104,26 @@ public class WebController {
     	return "CS580 Assignment #3";
     }
     
+    /*
+     * Assignment #4
+     * Author: Kushal Patel
+     * Summery: Prints out information of all of the images on the given URL. (CS580 Teams Page)
+     */
+    @RequestMapping(value = "/Kushal-A4", method = RequestMethod.GET)
+    void KushalAssignment4() throws IOException {
+    	Document doc;
+    	
+        //get all images
+        doc = Jsoup.connect("http://cs580.yusun.io/teams-winter2017/").get();
+        Elements images = doc.select("img[src~=(?i)\\.(png|jpe?g|gif)]");
+        for (Element image : images) {
+            System.out.println("\nsrc : " + image.attr("src"));
+            System.out.println("height : " + image.attr("height"));
+            System.out.println("width : " + image.attr("width"));
+            System.out.println("alt : " + image.attr("alt"));
+        }
+    }
+    
     /**
      * After user login with Google Account
      * @return
@@ -96,6 +135,8 @@ public class WebController {
         return "Welcome " + userManager.getUserName();
     }
 
+
+    
     /**
      * Assignment#4 by Nanwarin, 
      * imported OAuth2 Library for logging in with Google Account
@@ -117,6 +158,8 @@ public class WebController {
         return new ResponseEntity<Object>(httpHeaders, HttpStatus.SEE_OTHER);
     }
 
+
+    
     //Temporary Usage, Just want to try it out
     @RequestMapping("/getCppSchedule")
     String getCppClassesSchedule() throws Exception{

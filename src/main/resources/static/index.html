@@ -19,12 +19,6 @@
     <!-- Angular scripts -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
     <script type="text/javascript" src="/assets/scripts/angular.min.js" th:src="@{/angular.min.js}"></script>
-<!--     <script type="text/javascript" src="/assets/scripts/angular-animate.min.js" th:src="@{/angular-animate.min.js}"></script>
-    <script type="text/javascript" src="/assets/scripts/angular-aria.min.js" th:src="@{/angular-aria.min.js}"></script>
-    <script type="text/javascript" src="/assets/scripts/angular-messages.min.js" th:src="@{/angular-messages.min.js}"></script>
-    <script type="text/javascript" src="/assets/scripts/angular-material.min.js" th:src="@{/angular-material.min.js}"></script>
- -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
@@ -47,7 +41,7 @@
     </md-toolbar>
 
         <md-content flex layout-fill>
-           <div class="dropdown">
+<!--            <div class="dropdown">
                 <input type="image" src="assets/images/userMenu.jpg" onclick="myFunction()" class="dropbtn"/>
                 <div id="myDropdown" class="dropdown-content">
                     <h3>Event Preferences:</h3>
@@ -65,7 +59,7 @@
                         <input type="submit" value="SAVE">
                     </form>
                 </div>
-            </div>
+            </div> -->
         
             <div class="dropdown">
                 <input type="image" src="assets/images/eventFilter.jpg" onclick="eventFilterFunction()" class="dropbtn"/>
@@ -74,9 +68,92 @@
                 </div>
             </div>
 
-            
+            <div class="dropdown" layout="row" layout-wrap="" layout-margin="" layout-align="right">
+<!-- 
+                <md-button class="md-primary md-raised" ng-click="showTabDialog($event)">
+                    Tab Dialog
+                </md-button>
+ -->
+                <img src="assets/images/userMenu.jpg" ng-click="showTabDialog($event)" class="menuBtn">
+
+                <md-button class="md-primary md-raised" ng-click="showPrompt($event)">
+                    Prompt Dialog
+                </md-button>
+
+            </div>
 
         </md-content>
+
+    <script type="text/ng-template" id="tabDialog.tmpl.html">
+        <md-dialog aria-label="Mango (Fruit)" flex="66">
+            <form>
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>Mango (Fruit)</h2>
+                        <span flex></span>
+                        <!-- 
+                        <md-button class="md-icon-button" ng-click="cancel()">
+                        <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                        </md-button>
+                        -->
+                    </div>
+                </md-toolbar>
+
+                <md-dialog-content style="max-width:800px;max-height:810px;">
+                    <md-tabs md-dynamic-height md-border-bottom>
+
+                        <!-- TAB ONE -->
+                        <md-tab label="Event Pref">
+                            <md-content class="md-padding">
+                                <h4 class="md-display-1">Event Preferences</h4>
+
+                                    <md-button>
+                                        <md-checkbox ng-model="fitness" ng-true-value="1" ng-false-value="0">
+                                            Fitness Classes
+                                        </md-checkbox>
+                                    </md-button>
+                                    </br>
+                                    <md-button>
+                                        <md-checkbox ng-model="asi" ng-true-value="1" ng-false-value="0">
+                                            ASI Events
+                                        </md-checkbox>
+                                    </md-button>
+                                    </br>
+                                    <md-button>
+                                        <md-checkbox ng-model="international" ng-true-value="1" ng-false-value="0">
+                                            International Student Clubs
+                                        </md-checkbox>
+                                    </md-button>
+                                    </br>
+                                    <md-button class="md-primary md-raised">
+                                        Search Club From Facebook pages
+                                    </md-button>                                    
+
+                            </md-content>
+                        </md-tab>
+                         <!-- TAB TWO -->
+                        <md-tab label="Insert Work Schedule/Others">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">Tab Two</h1>
+
+                                <p>Test1</p>
+
+                            </md-content>
+
+                    </md-tabs>
+
+                </md-dialog-content>
+
+                <md-dialog-actions layout="row">
+                    
+                    <md-button ng-click="answer('Save')" style="margin-right:20px;" >
+                        Save
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </md-dialog>
+    </script>
+
 
     <script type="text/javascript">
         function myFunction() {
@@ -96,7 +173,6 @@
         function eventFilterFunction() {
             document.getElementById("eventFilter").classList.toggle("show");
         }
-        
     </script>
 
 </body>

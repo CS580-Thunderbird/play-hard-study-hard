@@ -92,14 +92,20 @@ public class GoogleUserManager implements UserManager{
 	public void addNewUser(GoogleUser user) {	
 		googleRepo.save(user);		
 	}
-	
-	
+
+	/**
+	 * Made as string to be printed convenient
+	 */
 	@Override
-	public void readAllUsers(){
+	public String readAllUsers(){
 		System.out.println("Read All Users ");
+		StringBuilder string = new StringBuilder();
+		
 		for(GoogleUser userGoogle: googleRepo.findAll()){
-			System.out.println(userGoogle.getEmail());
+			string.append(userGoogle.getEmail());
 		}
+		
+		return string.toString();
 	}
 	
 }
