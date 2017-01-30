@@ -7,6 +7,10 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -100,6 +104,26 @@ public class WebController {
     @RequestMapping(value = "/Kushal", method = RequestMethod.GET)
     String KushalAssignment3() {
     	return "CS580 Assignment #3";
+    }
+    
+    /*
+     * Assignment #4
+     * Author: Kushal Patel
+     * Summery: Prints out information of all of the images on the given URL. (CS580 Teams Page)
+     */
+    @RequestMapping(value = "/Kushal-A4", method = RequestMethod.GET)
+    void KushalAssignment4() throws IOException {
+    	Document doc;
+    	
+        //get all images
+        doc = Jsoup.connect("http://cs580.yusun.io/teams-winter2017/").get();
+        Elements images = doc.select("img[src~=(?i)\\.(png|jpe?g|gif)]");
+        for (Element image : images) {
+            System.out.println("\nsrc : " + image.attr("src"));
+            System.out.println("height : " + image.attr("height"));
+            System.out.println("width : " + image.attr("width"));
+            System.out.println("alt : " + image.attr("alt"));
+        }
     }
     
     /**
