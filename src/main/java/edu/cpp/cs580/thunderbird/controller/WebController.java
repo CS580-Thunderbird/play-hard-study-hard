@@ -131,9 +131,10 @@ public class WebController {
      * @throws IOException
      */
     @RequestMapping(value = "/home", method = RequestMethod.GET)
-    String getHome(@RequestParam("code") String code) throws IOException{
-        userManager.updateUser(OAuth.getUserInfoJson(code));
-        return "Welcome " + userManager.getUserName();
+    ModelAndView getHome(@RequestParam("code") String code) throws IOException{
+    	ModelAndView modelAndView = new ModelAndView("index.html");
+        return modelAndView;
+        
     }
 
 
