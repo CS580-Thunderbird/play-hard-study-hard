@@ -40,8 +40,9 @@ public class WebController {
      */
     @RequestMapping(value = "/Nanwarin")
     String helloNan(){
-    	cppManager.ListClasses();
-        return "Hello it's me";
+    	//userManager.getJSONUser();
+
+        return "Hello it's me";   
     }
 
     /**
@@ -158,7 +159,13 @@ public class WebController {
         return new ResponseEntity<Object>(httpHeaders, HttpStatus.SEE_OTHER);
     }
 
-
+    /**
+     * User has too autorize google account, it not u will not get any info
+     */
+    @RequestMapping(value = "data/user", method = RequestMethod.GET)
+    public String getUserJson(){
+    	return userManager.getJSONUser();
+    }
     
     //Temporary Usage, Just want to try it out
     @RequestMapping("/getCppSchedule")

@@ -18,5 +18,6 @@ public interface UserManager {
 	public void updateUser(String json);
 	public void addNewUser(GoogleUser user); //If this is first time with our web service
 	public String readAllUsers();
+	public String getJSONUser();
 	
 }

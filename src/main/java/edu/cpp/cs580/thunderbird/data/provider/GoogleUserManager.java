@@ -21,6 +21,7 @@ public class GoogleUserManager implements UserManager{
 	@Autowired private UserRepository googleRepo;
 	
 	private GoogleUser user;
+	private String jsonUser;
 
 	@Override
 	public String getUserId() {
@@ -60,6 +61,7 @@ public class GoogleUserManager implements UserManager{
 	 */
 	@Override
 	public void updateUser(String json) {
+		this.jsonUser = json;
 		byte[] jsonData =json.getBytes();
 		ObjectMapper objMapper = new ObjectMapper();
 		JsonNode rootNode;
@@ -106,6 +108,17 @@ public class GoogleUserManager implements UserManager{
 		}
 		
 		return string.toString();
+	}
+	
+	/**
+	 * Temorary Usage, will design it better
+	 */
+	
+	@Override
+	public String getJSONUser(){
+		System.out.println(jsonUser);
+		return jsonUser;
+		
 	}
 	
 }
