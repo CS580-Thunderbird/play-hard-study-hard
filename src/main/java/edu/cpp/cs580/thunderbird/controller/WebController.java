@@ -131,7 +131,8 @@ public class WebController {
      * @throws IOException
      */
     @RequestMapping(value = "/home", method = RequestMethod.GET)
-    ModelAndView getHome(@RequestParam("code") String code) throws IOException{
+    ModelAndView getHome(@RequestParam("code") String code) throws IOException{	
+    	userManager.updateUser(OAuth.getUserInfoJson(code));
     	ModelAndView modelAndView = new ModelAndView("index.html");
         return modelAndView;
         
@@ -156,7 +157,7 @@ public class WebController {
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setLocation(loginURI);
-        
+
         return new ResponseEntity<Object>(httpHeaders, HttpStatus.SEE_OTHER);
     }
 
@@ -165,7 +166,10 @@ public class WebController {
      */
     @RequestMapping(value = "data/user", method = RequestMethod.GET)
     public String getUserJson(){
-    	return userManager.getJSONUser();
+    	if(userManager.getJSONUser() == null) 
+    		return "Please authorize user first http://localhost:8080/"; // Temporary usage
+    	else 
+    		return userManager.getJSONUser();
     }
     
     //Temporary Usage, Just want to try it out

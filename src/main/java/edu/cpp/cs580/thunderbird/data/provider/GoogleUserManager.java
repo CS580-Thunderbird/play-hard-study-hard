@@ -61,6 +61,7 @@ public class GoogleUserManager implements UserManager{
 	 */
 	@Override
 	public void updateUser(String json) {
+		System.out.println("Test -- Update User");
 		this.jsonUser = json;
 		byte[] jsonData =json.getBytes();
 		ObjectMapper objMapper = new ObjectMapper();
