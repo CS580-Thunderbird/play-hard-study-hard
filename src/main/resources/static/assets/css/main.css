@@ -1,6 +1,16 @@
+    .spacer {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+    }
 
-    .menuBtn {
+    .userimg {
         max-width: 25px;
+        height: auto;
+    }
+   
+    .menuBtn {
+        max-width: 40px;
         height: auto;
     }
 

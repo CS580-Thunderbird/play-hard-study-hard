@@ -20,4 +20,5 @@ public interface UserManager {
 	public String readAllUsers();
 	public String getJSONUser();
 	
+	
 }

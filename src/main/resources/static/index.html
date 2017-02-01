@@ -26,6 +26,13 @@
 
     <script type="text/javascript" src="/assets/app/app.module.js" th:src="@{/app/app.module.js}"></script>
     <script type="text/javascript" src="/assets/app/main.controller.js" th:src="@{/app/main.controller.js}"></script>
+    <script type="text/javascript" src="/assets/app/user.controller.js" th:src="@{/app/main.controller.js}"></script>
+
+ <script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+
 
 
     <!-- Style sheets -->
@@ -35,8 +42,14 @@
 <body ng-app="myApp" ng-controller="mainController">
 
     <md-toolbar class="md-warn" color="primary">
-         <div class="md-toolbar-tools">
+         <div class="md-toolbar-tools" >
             <h2 class="md-flex">Study Hard Play Hard</h2>
+
+            <div class="dropdown" layout="row" layout-wrap="" layout-margin="" layout-align="right" ng-controller="userInfo">
+                <span class="spacer"></span>
+                <img src="assets/images/userMenu.jpg" ng-click="showTabDialog($event)" class="menuBtn">
+                <img src="{{ getUser.picture }}" class="menuBtn">
+            </div>
          </div>
     </md-toolbar>
 
@@ -68,16 +81,14 @@
                 </div>
             </div>
 
-            <div class="dropdown" layout="row" layout-wrap="" layout-margin="" layout-align="right">
+     
 
-                <img src="assets/images/userMenu.jpg" ng-click="showTabDialog($event)" class="menuBtn">
 
-            </div>
 
         </md-content>
 
     <script type="text/ng-template" id="tabDialog.tmpl.html">
-        <md-dialog aria-label="userSettings" class="prefDialog">
+        <md-dialog aria-label="userSettings" class="prefDialog" height="100px">
             <form>
                 <md-toolbar>
                     <div class="md-toolbar-tools">
@@ -99,33 +110,39 @@
                             <md-content class="md-padding">
                                 <h4 class="md-display-1">Event Preferences</h4>
 
-                                        <md-checkbox ng-model="fitness" ng-true-value="1" ng-false-value="0">
-                                            Fitness Classes
-                                        </md-checkbox>
-                                    </br>
-                                        <md-checkbox ng-model="asi" ng-true-value="1" ng-false-value="0">
-                                            ASI Events
-                                        </md-checkbox>
-                                    </br>
-                                        <md-checkbox ng-model="international" ng-true-value="1" ng-false-value="0">
-                                            International Student Clubs
-                                        </md-checkbox>
-                                    </br>
-                                    <md-button class="md-primary md-raised">
-                                        Search Club From Facebook pages
-                                    </md-button>
-                                    </br></br>                   
-                                    <md-input-container>
-                                        <label>Input Class ID</label>
-                                        <input type="text" ng-model="classId">
-                                    </md-input-container>
+                                <md-checkbox ng-model="fitness" ng-true-value="1" ng-false-value="0">
+                                    Fitness Classes
+                                </md-checkbox>
+                                </br>
+                                <md-checkbox ng-model="asi" ng-true-value="1" ng-false-value="0">
+                                    ASI Events
+                                </md-checkbox>
+                                </br>
+                                <md-checkbox ng-model="international" ng-true-value="1" ng-false-value="0">
+                                    International Student Clubs
+                                </md-checkbox>
+                                </br>
+                                <md-button class="md-primary md-raised">
+                                    Search Club From Facebook pages
+                                </md-button>
+                                </br></br>                   
+                                <md-input-container>
+                                    <label>Input Class ID</label>
+                                    <input type="text" ng-model="classId">
+                                </md-input-container>
 
-                                    <md-button class="md-primary md-raised">
-                                       Add Class
-                                    </md-button>
+                                <md-button class="md-primary md-raised">
+                                   Add Class
+                                </md-button>
+
+                                <br><br>
+                <!--             <md-button ng-click="answer('Save')" style="margin-right:20px;" >
+                                Close Window
+                            </md-button> -->
 
                             </md-content>
                         </md-tab>
+
                          <!-- TAB TWO -->
                         <md-tab label="Insert Work Schedule/Others">
                             <md-content class="md-padding">
@@ -134,7 +151,6 @@
                                 <p>Test1</p>
 
                             </md-content>
-
                     </md-tabs>
 
                 </md-dialog-content>
@@ -142,7 +158,7 @@
                 <md-dialog-actions layout="row">
                     
                     <md-button ng-click="answer('Save')" style="margin-right:20px;" >
-                        Save
+                        Close Window
                     </md-button>
                 </md-dialog-actions>
             </form>
