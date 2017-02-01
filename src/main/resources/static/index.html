@@ -42,13 +42,23 @@
 <body ng-app="myApp" ng-controller="mainController">
 
     <md-toolbar class="md-warn" color="primary">
-         <div class="md-toolbar-tools" >
-            <h2 class="md-flex">Study Hard Play Hard</h2>
-
+         <div class="md-toolbar-tools" ng-controller="userInfo">
+            <h2>Welcome {{ getUser.name }}</h2>
+            <span flex></span>
             <div class="dropdown" layout="row" layout-wrap="" layout-margin="" layout-align="right" ng-controller="userInfo">
-                <span class="spacer"></span>
-                <img src="assets/images/userMenu.jpg" ng-click="showTabDialog($event)" class="menuBtn">
-                <img src="{{ getUser.picture }}" class="menuBtn">
+                <img src="assets/images/userSettings2.png" ng-click="showTabDialog($event)" class="menuBtn">
+                <md-menu>
+                    <img src="{{ getUser.picture }}" class="img-circle" ng-click="$mdOpenMenu()">
+                    <md-menu-content>
+
+                    <!-- Empty Button for now.  Will have to connect with backend to log out  -->
+                        <md-button>
+                            Log Out
+                        </md-button>
+
+                        
+                    </md-menu-content>
+                </md-menu>
             </div>
          </div>
     </md-toolbar>
