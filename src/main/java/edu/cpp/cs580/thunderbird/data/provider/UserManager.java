@@ -19,6 +19,7 @@ public interface UserManager {
 	public void addNewUser(GoogleUser user); //If this is first time with our web service
 	public String readAllUsers();
 	public String getJSONUser();
+	public void logOut();
 	
 	
 }

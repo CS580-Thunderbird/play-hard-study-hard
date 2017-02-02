@@ -18,7 +18,7 @@ import edu.cpp.cs580.thunderbird.data.UserRepository;
  */
 public class GoogleUserManager implements UserManager{
 
-	@Autowired private UserRepository googleRepo;
+	@Autowired private UserRepository googleRepo; //database, may need to modify later
 	
 	private GoogleUser user;
 	private String jsonUser;
@@ -120,6 +120,12 @@ public class GoogleUserManager implements UserManager{
 		System.out.println(jsonUser);
 		return jsonUser;
 		
+	}
+	
+	@Override
+	public void logOut(){
+		user = null;
+		jsonUser = null;
 	}
 	
 }

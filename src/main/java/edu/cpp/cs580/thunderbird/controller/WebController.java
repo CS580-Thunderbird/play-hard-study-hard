@@ -138,7 +138,15 @@ public class WebController {
         
     }
 
-
+    /**
+     * Sign out
+     */
+    @RequestMapping(value = "/signout", method = RequestMethod.GET)
+    String logOut() throws IOException{	
+    	userManager.logOut();
+        return "Bye Bye";
+        
+    }
     
     /**
      * Assignment#4 by Nanwarin, 
