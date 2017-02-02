@@ -88,27 +88,42 @@
                     </form>
                 </div>
             </div> -->
-        
-            <div class="eventBar">
+            <section class="eventBar">
+            
+                <md-subheader-inner class="md-primary">
+                    <!-- Need to link to user preferences -->
+                    <md-checkbox class="md-primary md-checkbox">EVENT SUGGESTIONS</md-checkbox>
+                    
+                    <!-- Need to change to dropdown menu -->
+                    <md-button class="md-primary md-button" ng-click="showFilterTabDialog($event)">
+                          <md-icon class="fa-icon" md-font-icon="fa fa-filter fa-lg" aria-hidden="true" layout="row" layout-wrap="" layout-margin="" layout-align="left"></md-icon>
+                          EVENT FILTER
+                    </md-button>
+                </md-subheader-inner>
                 
-                <!-- Need to change icon on click -->
-                <div class="eventBtn">
-                   <i class="fa fa-check-square-o fa-3x" aria-hidden="true" layout="row" layout-wrap="" layout-margin="" layout-align="left">&nbsp; Event Suggestion</i>
-                </div>
+                <!-- <div class="eventBar">  -->
+                    
+                    <!-- Need to change icon on click -->
+                    <!-- 
+                    <div class="eventBtn">
+                       <i class="fa fa-check-square-o fa-3x" aria-hidden="true" layout="row" layout-wrap="" layout-margin="" layout-align="left">&nbsp; Event Suggestion</i>
+                    </div>
+                    
+                    <div class="eventBtn" ng-click="showFilterTabDialog($event)">
+                       <i class="fa fa-filter fa-3x" aria-hidden="true" layout="row" layout-wrap="" layout-margin="" layout-align="left">&nbsp; Event Filter</i>
+                    </div>
+                     -->
+                    
+                    <!-- 
+                    <input type="image" src="assets/images/eventFilter.jpg" onclick="eventFilterFunction()" class="dropbtn"/>
+                    <div id="eventFilter" class="dropdown-content">
+                        <h4>Filtering events from Settings -> Event Preferences...</h4>
+                    </div>
+                     -->
+                     
+                <!-- </div>  -->
                 
-                <div class="eventBtn" ng-click="showFilterTabDialog($event)">
-                   <i class="fa fa-filter fa-3x" aria-hidden="true" layout="row" layout-wrap="" layout-margin="" layout-align="left">&nbsp; Event Filter</i>
-                </div>
-                
-                <!-- 
-                <input type="image" src="assets/images/eventFilter.jpg" onclick="eventFilterFunction()" class="dropbtn"/>
-                <div id="eventFilter" class="dropdown-content">
-                    <h4>Filtering events from Settings -> Event Preferences...</h4>
-                </div>
-                 -->
-                 
-            </div>
-        
+            </section>
         </md-content>
 
     <script type="text/ng-template" id="tabDialog.tmpl.html">
