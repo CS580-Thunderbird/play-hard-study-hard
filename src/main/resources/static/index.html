@@ -38,6 +38,8 @@
 
     <!-- Style sheets -->
     <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/821313b0f0.js"></script>
 
 </head>
 <body ng-app="myApp" ng-controller="mainController">
@@ -85,17 +87,26 @@
                 </div>
             </div> -->
         
-            <div class="dropdown">
+            <div class="eventBar">
+                
+                <!-- Need to change icon on click -->
+                <div class="eventBtn">
+                   <i class="fa fa-check-square-o fa-3x" aria-hidden="true" layout="row" layout-wrap="" layout-margin="" layout-align="left">&nbsp; Event Suggestion</i>
+                </div>
+                
+                <div class="eventBtn" ng-click="showFilterTabDialog($event)">
+                   <i class="fa fa-filter fa-3x" aria-hidden="true" layout="row" layout-wrap="" layout-margin="" layout-align="left">&nbsp; Event Filter</i>
+                </div>
+                
+                <!-- 
                 <input type="image" src="assets/images/eventFilter.jpg" onclick="eventFilterFunction()" class="dropbtn"/>
                 <div id="eventFilter" class="dropdown-content">
                     <h4>Filtering events from Settings -> Event Preferences...</h4>
                 </div>
+                 -->
+                 
             </div>
-
-     
-
-
-
+        
         </md-content>
 
     <script type="text/ng-template" id="tabDialog.tmpl.html">
@@ -175,8 +186,94 @@
             </form>
         </md-dialog>
     </script>
+    
+    <!-- Need to link tabs dynamically to Event Preferences in User Settings -->
+    <script type="text/ng-template" id="filterTabDialog.tmpl.html">
+        <md-dialog aria-label="eventFilter" class="prefDialog" height="100px">
+            <form>
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>Events to Filter</h2>
+                        <span flex></span>
+                    </div>
+                </md-toolbar>
 
+                <md-dialog-content style="max-width:800px;max-height:810px;" class="md-dialog-content">
+                    <md-tabs md-dynamic-height md-border-bottom>
 
+                        <!-- TAB ONE -->
+                        <md-tab label="Fitness Classes">
+                            <md-content class="md-padding">
+                                <h4 class="md-display-1">Select events to include:</h4>
+
+                                <md-checkbox ng-model="fitness" ng-true-value="1" ng-false-value="0">
+                                    Fitness Class 1
+                                </md-checkbox>
+                                </br>
+                                <md-checkbox ng-model="asi" ng-true-value="1" ng-false-value="0">
+                                    Fitness Class 2
+                                </md-checkbox>
+                                </br>
+                                <md-checkbox ng-model="international" ng-true-value="1" ng-false-value="0">
+                                    Fitness Class 3
+                                </md-checkbox>
+                                </br>                              
+                            </md-content>
+                        </md-tab>
+
+						<!-- TAB TWO -->
+                        <md-tab label="ASI Events">
+                            <md-content class="md-padding">
+                                <h4 class="md-display-1">Select events to include:</h4>
+
+                                <md-checkbox ng-model="fitness" ng-true-value="1" ng-false-value="0">
+                                    ASI Event 1
+                                </md-checkbox>
+                                </br>
+                                <md-checkbox ng-model="asi" ng-true-value="1" ng-false-value="0">
+                                    ASI Event 2
+                                </md-checkbox>
+                                </br>
+                                <md-checkbox ng-model="international" ng-true-value="1" ng-false-value="0">
+                                    ASI Event 3
+                                </md-checkbox>
+                                </br>                                
+                            </md-content>
+                        </md-tab>
+
+						<!-- TAB THREE -->
+                        <md-tab label="International Student Club Events">
+                            <md-content class="md-padding">
+                                <h4 class="md-display-1">Select events to include:</h4>
+
+                                <md-checkbox ng-model="fitness" ng-true-value="1" ng-false-value="0">
+                                    International Student Club Event 1
+                                </md-checkbox>
+                                </br>
+                                <md-checkbox ng-model="asi" ng-true-value="1" ng-false-value="0">
+                                    International Student Club Event 2
+                                </md-checkbox>
+                                </br>
+                                <md-checkbox ng-model="international" ng-true-value="1" ng-false-value="0">
+                                    International Student Club Event 3
+                                </md-checkbox>
+                                </br>                               
+                            </md-content>
+                        </md-tab>
+
+                </md-dialog-content>
+
+                <md-dialog-actions layout="row">
+                    <md-button ng-click="answer('Save')" style="margin-right:20px;" >
+                        Close Window
+                    </md-button>
+                </md-dialog-actions>
+
+            </form>
+        </md-dialog>
+    </script>
+
+<!-- 
     <script type="text/javascript">
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
@@ -196,6 +293,7 @@
             document.getElementById("eventFilter").classList.toggle("show");
         }
     </script>
-
+ -->
+ 
 </body>
 </html>

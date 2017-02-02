@@ -16,6 +16,21 @@ app.controller("mainController", function($scope, $mdDialog){
 			$scope.status = 'You cancelled the dialog.';
 		});
 	};
+	
+	$scope.showFilterTabDialog = function(ev) {
+		$mdDialog.show({
+			controller: DialogController,
+			templateUrl: 'filterTabDialog.tmpl.html',
+			parent: angular.element(document.body),
+			targetEvent: ev,
+			clickOutsideToClose:true
+		})
+		.then(function(answer) {
+			$scope.status = 'You said the information was "' + answer + '".';
+		}, function() {
+			$scope.status = 'You cancelled the dialog.';
+		});
+	};
 
 	$scope.showPrerenderedDialog = function(ev) {
 		$mdDialog.show({
