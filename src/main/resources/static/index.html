@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Demo</title>
+    <title>Study Hard Play Hard - CPP Student Organizer</title>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width"/>
     <base href="/"/>
 
+	<!-- Add Icons -->
+	<link rel = "icon" href = "assets/images/calendarCPP.ico" >
 
     <!-- BootStrap scripts -->
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
@@ -46,7 +48,7 @@
 
     <md-toolbar class="md-warn" color="primary">
          <div class="md-toolbar-tools" ng-controller="userInfo">
-            <h2>Welcome {{ getUser.name }}</h2>
+            <h2 class = "ico"> Welcome {{ getUser.name }}</h2>
             <span flex></span>
             <div class="dropdown" layout="row" layout-wrap="" layout-margin="" layout-align="right" ng-controller="userInfo">
                 <img src="assets/images/userSettings.png" ng-click="showTabDialog($event)" class="menuBtn">
