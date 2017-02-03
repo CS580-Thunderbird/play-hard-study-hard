@@ -135,7 +135,7 @@ public class WebController {
     	userManager.updateUser(OAuth.getUserInfoJson(code));
     	ModelAndView modelAndView = new ModelAndView("index.html");
         return modelAndView;
-        
+
     }
 
     /**
