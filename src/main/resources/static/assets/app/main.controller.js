@@ -5,7 +5,7 @@ app.controller("mainController", function($scope, $mdDialog){
 	$scope.showTabDialog = function(ev) {
 		$mdDialog.show({
 			controller: DialogController,
-			templateUrl: 'tabDialog.tmpl.html',
+			templateUrl: 'userSetting.html',
 			parent: angular.element(document.body),
 			targetEvent: ev,
 			clickOutsideToClose:true
