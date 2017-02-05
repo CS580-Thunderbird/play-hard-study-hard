@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import edu.cpp.cs580.thunderbird.data.provider.CppManager;
+import edu.cpp.cs580.thunderbird.data.provider.EventOrganizerManager;
 import edu.cpp.cs580.thunderbird.data.provider.GoogleUserManager;
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
 
@@ -22,6 +23,12 @@ public class MyApp {
 	public CppManager cppManager(){
 		CppManager cppManager = new CppManager();
 		return cppManager;
+	}
+	
+	@Bean 
+	public EventOrganizerManager eventOrganizerManager(){
+		EventOrganizerManager eventOrganizerManager = new EventOrganizerManager();
+		return eventOrganizerManager;
 	}
 
 	public static void main(String[] args) {

@@ -15,14 +15,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import edu.cpp.cs580.thunderbird.data.EventOrganizer;
 import edu.cpp.cs580.thunderbird.data.provider.CppManager;
+import edu.cpp.cs580.thunderbird.data.provider.EventOrganizerManager;
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
 import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
@@ -32,6 +34,7 @@ public class WebController {
 	
 	@Autowired private UserManager userManager;
 	@Autowired CppManager cppManager;
+	@Autowired EventOrganizerManager orgManager;
 
     GoogleOAuth OAuth; // May come up with better method
 
@@ -191,4 +194,23 @@ public class WebController {
 
         return "complete";
     }
+    
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    ModelAndView getAdminPage(){
+    	ModelAndView modelAndView = new ModelAndView("adminPage.html");
+		return modelAndView;
+    }
+    
+    @RequestMapping(value = "/admin/organizer/{orgID}", method = RequestMethod.POST)
+    void addNewOrganizer(
+    		@PathVariable("userId") String id,
+			@RequestParam("name") String name,
+			@RequestParam("link") String link){
+    	EventOrganizer organizer = new EventOrganizer(id,name,link);
+    	System.out.println("Adding Organization: " + name);
+    	orgManager.addNewEventOrganizer(organizer);
+    	System.out.println("Done");
+    	//return organizer;
+    }
+    
 }
