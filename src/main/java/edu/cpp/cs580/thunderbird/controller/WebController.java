@@ -1,6 +1,7 @@
 package edu.cpp.cs580.thunderbird.controller;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -46,8 +47,14 @@ public class WebController {
     @RequestMapping(value = "/Nanwarin")
     String helloNan(){
     	//userManager.getJSONUser();
-
-        return "Hello it's me";   
+    	String result = "";
+    	try {
+    		result = orgManager.getJSonListOfOrganizer();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return result;   
     }
 
     /**
@@ -185,6 +192,13 @@ public class WebController {
     		return userManager.getJSONUser();
     }
     
+    @RequestMapping(value = "data/organizers", method = RequestMethod.GET)
+    public String getListOrganizer() throws FileNotFoundException, IOException{
+    	//Temporary Usages before set DB and AWS
+    	return orgManager.getHardCodeOrgList();
+    	//return orgManager.getJSonListOfOrganizer();
+    }
+    
     //Temporary Usage, Just want to try it out
     @RequestMapping("/getCppSchedule")
     String getCppClassesSchedule() throws Exception{
@@ -220,6 +234,8 @@ public class WebController {
     @RequestMapping(value = "admin/organizer/list", method = RequestMethod.GET)
     List<EventOrganizer> listAllOrganizers(){
     	System.out.println("Listing All users" + new Date(System.currentTimeMillis()).toString());
+    	
+  
     	return orgManager.ListAllOrganizer();
     }
 }
