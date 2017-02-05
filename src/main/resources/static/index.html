@@ -57,7 +57,6 @@
                     <img src="{{ getUser.picture }}" class="img-circle" ng-click="$mdOpenMenu()">
                     <md-menu-content>
 
-                    <!-- Empty Button for now.  Will have to connect with backend to log out  -->
                         <md-button ng-click="logout()">
                             Log Out
                         </md-button>
@@ -70,26 +69,7 @@
     </md-toolbar>
 
         <md-content flex layout-fill>
-<!--            <div class="dropdown">
-                <input type="image" src="assets/images/userMenu.jpg" onclick="myFunction()" class="dropbtn"/>
-                <div id="myDropdown" class="dropdown-content">
-                    <h3>Event Preferences:</h3>
-                    <form>
-                        <input type="checkbox" name="event" value="fitness"> Fitness classes <br>
-                        <input type="checkbox" name="event" value="ASI"> ASI Events <br>
-                        <input type="checkbox" name="event" value="international"> International Student Clubs <br>
-                        <input type="submit" value="Search Club From Facebook Pages"><br><br>
-                        <p><b>Insert Class Schedule</b></p>
-                        <input type="text" name="classId" value="Input Class ID">
-                        <input type="submit" value="Input class"><br><br>
-                        <p><b>Insert Work Schedule/Others</b></p>
-                        <input type="date" name="inputdate">
-                        <input type="submit" value="Add"> <br><br>
-                        <input type="submit" value="SAVE">
-                    </form>
-                </div>
-            </div> -->
-            
+
             <md-menu-bar class="eventBar">
                 <!-- Need to link to user preferences -->
                 <md-menu>
@@ -133,6 +113,7 @@
                 <!-- </div>  -->
                 
             </section>
+
         </md-content>
     
     <!-- Need to link tabs dynamically to Event Preferences in User Settings -->
@@ -221,6 +202,7 @@
         </md-dialog>
     </script>
 
+        
 <!-- 
     <script type="text/javascript">
         function myFunction() {
