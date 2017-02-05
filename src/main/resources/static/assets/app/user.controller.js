@@ -11,7 +11,5 @@ app.controller('userInfo', function ($scope, $http) {
 	$scope.logout = function () {
 		window.location = '/signout';
 	};
-
-
   $scope.loadUsers();
 });

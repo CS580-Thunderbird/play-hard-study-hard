@@ -1,15 +1,9 @@
-<!doctype html>
     <md-dialog aria-label="userSettings" class="prefDialog" height="100px">
         <form>
             <md-toolbar>
                 <div class="md-toolbar-tools">
                     <h2>User Settings</h2>
                     <span flex></span>
-                    <!-- 
-                    <md-button class="md-icon-button" ng-click="cancel()">
-                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
-                    </md-button>
-                    -->
                 </div>
             </md-toolbar>
 
@@ -56,23 +50,41 @@
                     </md-tab>
 
                      <!-- TAB TWO -->
-                    <md-tab label="Insert Work Schedule/Others">
+                    <md-tab label="Add Sched.">
                         <md-content class="md-padding">
-                            <h1 class="md-display-2">Tab Two</h1>
+                            <h4 class="md-display-2">Additional Input</h4>
 
-                            <p>Test1</p>
+                            <md-input-container>
+                                <label>Title</label>
+                                <input type="text" ng-model="sName">
+                            </md-input-container>
+
+                               <span class="md-padding"></span>
+                                    <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+                                    
+                                    <div>
+                                    <md-checkbox ng-checked="sRepeat" ng-click="sRepeat = !sRepeat">
+                                        Repeat
+                                    </md-checkbox>
+                                    <br>
+                                    <table>
+                                        <tr >
+                                            <td ng-repeat="day in days">{{day.name}} <md-checkbox md-no-ink aria-label="Checkbox No Ink" class=" md-primary" ng-checked="day.ck" ng-click="day.ck = !day.ck"></md-checkbox></td>
+                                        </tr>
+                                    </table>
+                                </div>
 
                         </md-content>
+                     </md-tab>
                 </md-tabs>
 
             </md-dialog-content>
 
             <md-dialog-actions layout="row">
                 
-                <md-button ng-click="answer('Save')" style="margin-right:20px;" >
+                <md-button ng-click="closeWindow()" style="margin-right:20px;" >
                     Close Window
                 </md-button>
             </md-dialog-actions>
         </form>
     </md-dialog>
-</html>
