@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -202,15 +204,22 @@ public class WebController {
     }
     
     @RequestMapping(value = "/admin/organizer/{orgID}", method = RequestMethod.POST)
-    void addNewOrganizer(
-    		@PathVariable("userId") String id,
+    EventOrganizer addNewOrganizer(
+    		@PathVariable("orgID") String id,
 			@RequestParam("name") String name,
 			@RequestParam("link") String link){
     	EventOrganizer organizer = new EventOrganizer(id,name,link);
     	System.out.println("Adding Organization: " + name);
     	orgManager.addNewEventOrganizer(organizer);
     	System.out.println("Done");
-    	//return organizer;
+    	orgManager.ListAllOrganizer();
+    	System.out.println(new Date(System.currentTimeMillis()).toString());
+    	return organizer;
     }
     
+    @RequestMapping(value = "admin/organizer/list", method = RequestMethod.GET)
+    List<EventOrganizer> listAllOrganizers(){
+    	System.out.println("Listing All users" + new Date(System.currentTimeMillis()).toString());
+    	return orgManager.ListAllOrganizer();
+    }
 }
