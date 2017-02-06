@@ -12,7 +12,6 @@ public class TimeConvertor {
 		if(time.contains("AM")){
 			localTime = LocalTime.of(Integer.parseInt(time.substring(0, time.indexOf(":"))), 
 									Integer.parseInt(time.substring(time.indexOf(":")+1, time.indexOf(":")+3)));
-			System.out.println(localTime);
 		}
 		else{
 			
@@ -24,7 +23,6 @@ public class TimeConvertor {
 			localTime = LocalTime.of( (Integer.parseInt(time.substring(0, time.indexOf(":"))) + 12), 
 						Integer.parseInt(time.substring(time.indexOf(":")+1, time.indexOf(":")+3)));
 			}
-			System.out.println(localTime);
 		}
 		
 		localTime = LocalTime.of(0, 0);

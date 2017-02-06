@@ -138,6 +138,11 @@ public class WebController {
         }
     }
     
+    @RequestMapping(value = "/setting/add_class", method = RequestMethod.GET)
+    void addClassToUserSetting(@RequestParam("code") String code){
+    	System.out.println("Class code" + code);
+    }
+    
     /**
      * After user login with Google Account
      * @return
@@ -150,6 +155,7 @@ public class WebController {
         return modelAndView;
 
     }
+    
 
     /**
      * Sign out

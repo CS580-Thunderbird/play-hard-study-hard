@@ -4,12 +4,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
-import java.util.regex.Pattern;
+
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -46,16 +43,15 @@ public class GetCppClasses {
 			String[] codes = input.split(",");
 		
 			
-		/*	for(String code:codes){
+			for(String code:codes){
 				Document result;
 				result = parseClass(code);
 				insertClassScheduleToDB(result);
-				//outputDocument(result);
-			}*/
+			}
 			
 			//Temporary Testing
-			Document result = parseClass("CS");
-			insertClassScheduleToDB(result);
+			//Document result = parseClass("CS");
+			//insertClassScheduleToDB(result);
 		}
 		
 		
@@ -153,13 +149,12 @@ public class GetCppClasses {
 				//Time startTime = new Time();
 				//Will come with better ideas later
 				//Too much hard code
-				if(time.length() != "No time set.   TBA".length()){
-					String startTimeString = time.substring(0, time.indexOf('–'));
-					System.out.println("Start time:" + startTimeString);
-					String endTimeString = time.substring(time.indexOf('–')+1,time.indexOf('–') + 9);
-					System.out.println("End time: " + endTimeString);
+				//System.out.println("time: " + time);
+				if(!time.contains("No time set.")){
+					String startTimeString = time.substring(0, time.indexOf('–'));				
+					String endTimeString = time.substring(time.indexOf('–')+1,time.indexOf('–') + 9);			
 					String repeatDateString = time.substring(time.indexOf('–') + 9);
-					System.out.println("Repeat time: " + repeatDateString);
+				
 						
 					LocalTime startTime = TimeConvertor.getLocalTime(startTimeString);
 					timeObj.setStartTime(startTime);
@@ -169,12 +164,14 @@ public class GetCppClasses {
 					
 					String[] rs = repeatDateString.split("(?=\\p{Upper})");
 					setRepeatDay(timeObj, rs);
-					System.out.println("Json:" + timeObj.getJSonRepeatDay());
+		
+					
 				}
 				else{
 					
 					timeObj.setStartTime(null);
 					timeObj.setEndTime(null);
+				
 					
 					
 				}
