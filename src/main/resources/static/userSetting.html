@@ -15,15 +15,15 @@
                         <md-content class="md-padding">
                             <h4 class="md-display-1">Event Preferences</h4>
 
-                            <md-checkbox ng-model="fitness" ng-true-value="1" ng-false-value="0">
+                            <md-checkbox ng-model="eventPref.fitness">
                                 Fitness Classes
                             </md-checkbox>
                             </br>
-                            <md-checkbox ng-model="asi" ng-true-value="1" ng-false-value="0">
+                            <md-checkbox ng-model="eventPref.asi">
                                 ASI Events
                             </md-checkbox>
                             </br>
-                            <md-checkbox ng-model="international" ng-true-value="1" ng-false-value="0">
+                            <md-checkbox ng-model="eventPref.international">
                                 International Student Clubs
                             </md-checkbox>
 
@@ -31,7 +31,7 @@
                             <md-button class="md-primary md-raised">
                                 Search Club From Facebook pages
                             </md-button>
-                            </br></br>                   
+                            </br></br>
                             <md-input-container>
                                 <label>Input Class ID</label>
                                 <input type="text" ng-model="classId">
@@ -61,7 +61,7 @@
 
                                <span class="md-padding"></span>
                                     <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
-                                    
+
                                     <div>
                                     <md-checkbox ng-checked="sRepeat" ng-click="sRepeat = !sRepeat">
                                         Repeat
@@ -74,17 +74,26 @@
                                     </table>
                                 </div>
 
+                                <div>
+
+                                    <md-button ng-click="closeWindow()" style="margin-right:20px;" >
+                                        Add
+                                    </md-button>
+                                </div>
                         </md-content>
+
+
                      </md-tab>
                 </md-tabs>
 
             </md-dialog-content>
 
+
             <md-dialog-actions layout="row">
-                
-                <md-button ng-click="closeWindow()" style="margin-right:20px;" >
+
+<!--                 <md-button ng-click="closeWindow()" style="margin-right:20px;" >
                     Close Window
-                </md-button>
+                </md-button> -->
             </md-dialog-actions>
         </form>
     </md-dialog>

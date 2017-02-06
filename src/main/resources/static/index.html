@@ -75,7 +75,7 @@
                 <md-menu>
                     <md-checkbox class="md-primary md-checkbox" ng-click="$mdOpenMenu()">EVENT SUGGESTIONS</md-checkbox>
                  </md-menu>
-                 
+
                  <!-- Need to link to user preferences -->
                  <md-menu>
                     <md-button class="md-primary md-button" ng-click="$mdOpenMenu($event)"><md-icon class="fa-icon" md-font-icon="fa fa-filter fa-lg" aria-hidden="true" layout="row" layout-wrap="" layout-margin="" layout-align="left"></md-icon>
@@ -89,33 +89,33 @@
                     </md-menu-content>
                  </md-menu>
               </md-menu-bar>
-                
+
                 <!-- <div class="eventBar">  -->
-                    
+
                     <!-- Need to change icon on click -->
-                    <!-- 
+                    <!--
                     <div class="eventBtn">
                        <i class="fa fa-check-square-o fa-3x" aria-hidden="true" layout="row" layout-wrap="" layout-margin="" layout-align="left">&nbsp; Event Suggestion</i>
                     </div>
-                    
+
                     <div class="eventBtn" ng-click="showFilterTabDialog($event)">
                        <i class="fa fa-filter fa-3x" aria-hidden="true" layout="row" layout-wrap="" layout-margin="" layout-align="left">&nbsp; Event Filter</i>
                     </div>
                      -->
-                    
-                    <!-- 
+
+                    <!--
                     <input type="image" src="assets/images/eventFilter.jpg" onclick="eventFilterFunction()" class="dropbtn"/>
                     <div id="eventFilter" class="dropdown-content">
                         <h4>Filtering events from Settings -> Event Preferences...</h4>
                     </div>
                      -->
-                     
-                <!-- </div>  -->
-                
-            </section>
 
+                <!-- </div>  -->
+
+            </section>
+            
         </md-content>
-    
+
     <!-- Need to link tabs dynamically to Event Preferences in User Settings -->
     <script type="text/ng-template" id="filterTabDialog.tmpl.html">
         <md-dialog aria-label="eventFilter" class="prefDialog" height="100px">
@@ -146,7 +146,7 @@
                                 <md-checkbox ng-model="international" ng-true-value="1" ng-false-value="0">
                                     Fitness Class 3
                                 </md-checkbox>
-                                </br>                              
+                                </br>
                             </md-content>
                         </md-tab>
 
@@ -166,7 +166,7 @@
                                 <md-checkbox ng-model="international" ng-true-value="1" ng-false-value="0">
                                     ASI Event 3
                                 </md-checkbox>
-                                </br>                                
+                                </br>
                             </md-content>
                         </md-tab>
 
@@ -186,7 +186,7 @@
                                 <md-checkbox ng-model="international" ng-true-value="1" ng-false-value="0">
                                     International Student Club Event 3
                                 </md-checkbox>
-                                </br>                               
+                                </br>
                             </md-content>
                         </md-tab>
 
@@ -202,8 +202,8 @@
         </md-dialog>
     </script>
 
-        
-<!-- 
+
+<!--
     <script type="text/javascript">
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
@@ -218,12 +218,12 @@
                 }
             }
         }
-        
+
         function eventFilterFunction() {
             document.getElementById("eventFilter").classList.toggle("show");
         }
     </script>
  -->
- 
+
 </body>
 </html>

@@ -12,6 +12,12 @@ app.controller("mainController", function($scope, $mdDialog){
 		{name:"Su", ck:false}
 	];
 
+	$scope.eventPref={
+		fitness: false,
+		asi: false,
+		international: false
+	};
+
 	$scope.showTabDialog = function(ev) {
 		$mdDialog.show({
 			controller: DigitalController2,
@@ -20,11 +26,13 @@ app.controller("mainController", function($scope, $mdDialog){
 			targetEvent: ev,
 			clickOutsideToClose:true,
 			locals: {
+				eventPref: $scope.eventPref,
 				days: $scope.days,
 				sRepeat: $scope.sRepeat
 			}
 		});
-		function DigitalController2($scope, days, sRepeat){
+		function DigitalController2($scope, days, sRepeat, eventPref){
+			$scope.eventPref = eventPref;
 			$scope.days = days;
 			$scope.sRepeat = sRepeat;
 			$scope.closeWindow = function(){
@@ -54,16 +62,6 @@ app.controller("mainController", function($scope, $mdDialog){
 		});
 	};
 
-	$scope.showPrerenderedDialog = function(ev) {
-		$mdDialog.show({
-			controller: DialogController,
-			contentElement: '#myDialog',
-			parent: angular.element(document.body),
-			targetEvent: ev,
-			clickOutsideToClose: true
-		});
-	};
-
 	function DialogController($scope, $mdDialog) {
 		$scope.hide = function() {
 			$mdDialog.hide();
@@ -77,5 +75,9 @@ app.controller("mainController", function($scope, $mdDialog){
 			$mdDialog.hide(answer);
 		};
 	}
+
+	/*Work on post for user settings*/
+	
+
 
 });
