@@ -2,8 +2,9 @@ package edu.cpp.cs580.thunderbird.data;
 
 import java.sql.Time;
 import java.time.DayOfWeek;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 /**
  * Time Model for Events and Class
@@ -11,13 +12,12 @@ import java.util.Date;
  *
  */
 public class TimeObj {
+
+	LocalDate startDate;
+	LocalDate endDate;
 	
-	Calendar cal;
-	Date startDate;
-	Date endDate;
-	
-	Time startTime;
-	Time endTime;
+	LocalTime startTime;
+	LocalTime endTime;
 	
 	/**
 	 * May need to redesign
@@ -26,35 +26,35 @@ public class TimeObj {
 	boolean[] repeatDay = {false, false, false, false, false, false, false};	
 	DayOfWeek[] dayOfWeeks = DayOfWeek.values();
 	
-	public void setStartDate(Date date){
+	public void setStartDate(LocalDate date){
 		this.startDate = date;
 	}
 	
-	public Date getStartDate(){
+	public LocalDate getStartDate(){
 		return startDate;
 	}
 	
-	public void setEndDate(Date date){
+	public void setEndDate(LocalDate date){
 		this.endDate = date;
 	}
 	
-	public Date getEndDate(){
+	public LocalDate getEndDate(){
 		return endDate;
 	}
 	
-	public void setStartTime(Time time){
+	public void setStartTime(LocalTime time){
 		this.startTime = time; 
 	}
 	
-	public Time getStartTime(){
+	public LocalTime getStartTime(){
 		return startTime;
 	}
 	
-	public void setEndTime(Time time){
+	public void setEndTime(LocalTime time){
 		this.endTime = time;
 	}
 	
-	public Time getEndTime(){
+	public LocalTime getEndTime(){
 		return endTime;
 	}
 	
@@ -78,5 +78,21 @@ public class TimeObj {
 	
 	public boolean getRepeatDay(String day){
 		return repeatDay[DayOfWeek.valueOf(day).getValue()];
+	}
+	
+	public String getJSonRepeatDay(){
+		String result = "\"repeatDay\":[";
+		
+		result += "\"Sunday\":" + repeatDay[0] + ",";
+		result += "\"Monday\":" + repeatDay[1] + ",";
+		result += "\"Tuesday\":" + repeatDay[2] + ",";
+		result += "\"Wednesday\":" + repeatDay[3] + ",";
+		result += "\"Thursday\":" + repeatDay[4] + ",";
+		result += "\"Friday\":" + repeatDay[5] + ",";
+		result += "\"Saturday\":" + repeatDay[6];
+		
+		result +="]";
+		
+		return result;
 	}
 }

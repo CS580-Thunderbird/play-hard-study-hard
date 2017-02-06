@@ -56,6 +56,7 @@ public class WebController {
 		}
         return result;   
     }
+    
 
     /**
      * Assignment 3 part 3
@@ -199,6 +200,13 @@ public class WebController {
     	//return orgManager.getJSonListOfOrganizer();
     }
     
+    @RequestMapping(value = "data/classes", method = RequestMethod.GET)
+    public String getListClasses() throws FileNotFoundException, IOException{
+    	//Temporary Usages before set DB and AWS
+    	return cppManager.listJSonClasses();
+    	//return orgManager.getJSonListOfOrganizer();
+    }
+    
     //Temporary Usage, Just want to try it out
     @RequestMapping("/getCppSchedule")
     String getCppClassesSchedule() throws Exception{
@@ -238,4 +246,5 @@ public class WebController {
   
     	return orgManager.ListAllOrganizer();
     }
+    
 }

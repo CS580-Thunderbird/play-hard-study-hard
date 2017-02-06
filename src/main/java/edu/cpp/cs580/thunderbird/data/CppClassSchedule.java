@@ -15,15 +15,14 @@ public class CppClassSchedule {
 	private String description;
 	private TimeObj classTime;
 	private String instructor;
-	//Map<Building, room>
-	private Map<String, String> location = new HashMap<String, String>(); 
+	private String location; 
 	
-	public CppClassSchedule(String code, String description, TimeObj classTime, String instructor, String building, String room){
+	public CppClassSchedule(String code, String description, TimeObj classTime, String instructor, String location){
 		this.code = code;
 		this.description = description;
 		this.classTime = classTime;
 		this.instructor = instructor; 
-		location.put(building, room);
+		this.location = location;
 	}
 	
 	public void setCode(String code){
@@ -57,4 +56,9 @@ public class CppClassSchedule {
 	public String getInstructor(){
 		return instructor;
 	}
+	
+	public String getLocation(){
+		return location;
+	}
+
 }

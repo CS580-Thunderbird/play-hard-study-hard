@@ -35,20 +35,20 @@ public class EventOrganizerManager {
 		JsonGenerator jsonGenerator = new JsonFactory().createGenerator(json);
 		jsonGenerator.setPrettyPrinter(new DefaultPrettyPrinter());
 	
-		jsonGenerator.writeStartArray();
+	
 		
 			jsonGenerator.writeStartObject();
 			jsonGenerator.writeStringField("id", "1");
 			jsonGenerator.writeStringField("name", "ASI");
 			jsonGenerator.writeStringField("link", "www.xxx.com");		
 			jsonGenerator.writeEndObject();
-			
+			jsonGenerator.writeRaw(",");
 			jsonGenerator.writeStartObject();
 			jsonGenerator.writeStringField("id", "2");
 			jsonGenerator.writeStringField("name", "Fitness");
 			jsonGenerator.writeStringField("link", "www.xxx.com");		
 			jsonGenerator.writeEndObject();
-			
+			jsonGenerator.writeRaw(",");
 			jsonGenerator.writeStartObject();
 			jsonGenerator.writeStringField("id", "3");
 			jsonGenerator.writeStringField("name", "CSS");
@@ -56,7 +56,7 @@ public class EventOrganizerManager {
 			jsonGenerator.writeEndObject();
 			
 		
-		jsonGenerator.writeEndArray();
+	
 		
 		jsonGenerator.flush();
 		jsonGenerator.close();
@@ -68,8 +68,12 @@ public class EventOrganizerManager {
 		JsonGenerator jsonGenerator = new JsonFactory().createGenerator(json);
 		jsonGenerator.setPrettyPrinter(new DefaultPrettyPrinter());
 	
-		jsonGenerator.writeStartArray();
+		//jsonGenerator.writeStartArray();
+		Boolean first = true;
 		for(EventOrganizer org: eventOrgRepo.findAll()){
+			if(!first) jsonGenerator.writeRaw(",");
+			else first = false;
+			
 			jsonGenerator.writeStartObject();
 			jsonGenerator.writeStringField("id", org.getOrganizerName());
 			jsonGenerator.writeStringField("name", org.getOrganizerName());
@@ -78,7 +82,7 @@ public class EventOrganizerManager {
 			jsonGenerator.writeEndObject();
 			
 		}
-		jsonGenerator.writeEndArray();
+		//jsonGenerator.writeEndArray();
 		
 		jsonGenerator.flush();
 		jsonGenerator.close();

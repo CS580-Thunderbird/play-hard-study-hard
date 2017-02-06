@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.regex.Pattern;
 
@@ -15,9 +17,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import edu.cpp.cs580.thunderbird.data.CppClass;
+
+import edu.cpp.cs580.thunderbird.data.CppClassSchedule;
 import edu.cpp.cs580.thunderbird.data.TimeObj;
 import edu.cpp.cs580.thunderbird.data.provider.CppManager;
+
 
 /**
  * A class to pull classes from http://schedule.cpp.edu/
@@ -40,6 +44,7 @@ public class GetCppClasses {
 			BufferedReader br = new BufferedReader(new FileReader(codeCsv));
 			String input = br.readLine();
 			String[] codes = input.split(",");
+		
 			
 		/*	for(String code:codes){
 				Document result;
@@ -48,6 +53,7 @@ public class GetCppClasses {
 				//outputDocument(result);
 			}*/
 			
+			//Temporary Testing
 			Document result = parseClass("CS");
 			insertClassScheduleToDB(result);
 		}
@@ -112,49 +118,85 @@ public class GetCppClasses {
 		
 		public void insertClassScheduleToDB(Document doc) throws Exception{
 			
-			TimeObj classTime = new TimeObj();		
-			
-			String classCode = "", description = "", time ="", location = "", datePeriod = "", instructor = "", building = "", room = "";
-			
 			Elements classes = doc.select("span.ClassTitle"); //<span class="ClassTitle" >
 			Elements tables = doc.select("table");
+
 			
 			int index = 2; // Need to find better way
 			for(Element className:classes){
+				TimeObj timeObj = new TimeObj();
+				
+				String classCode = "", description = "", time ="", location = "", datePeriod = "", instructor = "", building = "", room = "";
+				
 				Element table = tables.get(index);
 				Elements rows = table.select("td");
 			
+				//System.out.println("ROWS: " + rows);
 				
-				classCode = className.text();
+				classCode = className.text();				
 				description = rows.get(2).text();
+				
 				time = rows.get(4).text();
 				location = rows.get(5).text();
 				
-				if(!location.isEmpty()){ 
-					String input[] = location.split(" ");
-					building = input[0];
-					room = input[1];
-				}
-				
 				//2017-01-03 to 2017-03-10 time 1:00 PM–1:50 PM   MWF // Format
 				datePeriod = rows.get(6).text();
+				//System.out.println("Date Period: " + datePeriod);
 				String startDates[] = datePeriod.substring(0, 10).split("-");
-				Date startDate = new Date(Integer.parseInt(startDates[0]), Integer.parseInt(startDates[1]), Integer.parseInt(startDates[2]));
+				LocalDate startDate = LocalDate.of(Integer.parseInt(startDates[0]), Integer.parseInt(startDates[1]), Integer.parseInt(startDates[2]));
 				String endDates[] = datePeriod.substring(14, datePeriod.length()).split("-");
-				Date endDate = new Date(Integer.parseInt(endDates[0]), Integer.parseInt(endDates[1]), Integer.parseInt(endDates[2]));
+				LocalDate endDate = LocalDate.of(Integer.parseInt(endDates[0]), Integer.parseInt(endDates[1]), Integer.parseInt(endDates[2]));
 		
+				timeObj.setStartDate(startDate);
+				timeObj.setEndDate(startDate);
+				
 				//Time startTime = new Time();
-				
-				
-			//	System.out.println(datePeriod+ "time " + time);
+				//Will come with better ideas later
+				//Too much hard code
+				if(time.length() != "No time set.   TBA".length()){
+					String startTimeString = time.substring(0, time.indexOf('–'));
+					System.out.println("Start time:" + startTimeString);
+					String endTimeString = time.substring(time.indexOf('–')+1,time.indexOf('–') + 9);
+					System.out.println("End time: " + endTimeString);
+					String repeatDateString = time.substring(time.indexOf('–') + 9);
+					System.out.println("Repeat time: " + repeatDateString);
+						
+					LocalTime startTime = TimeConvertor.getLocalTime(startTimeString);
+					timeObj.setStartTime(startTime);
+					
+					LocalTime endTime = TimeConvertor.getLocalTime(endTimeString);
+					timeObj.setStartTime(endTime);
+					
+					String[] rs = repeatDateString.split("(?=\\p{Upper})");
+					setRepeatDay(timeObj, rs);
+					System.out.println("Json:" + timeObj.getJSonRepeatDay());
+				}
+				else{
+					
+					timeObj.setStartTime(null);
+					timeObj.setEndTime(null);
+					
+					
+				}
+			
 				instructor = rows.get(8).text();
 				
-				CppClass newClass = new CppClass(classCode, new TimeObj(), building, room, description, instructor);
+				CppClassSchedule newClass = new CppClassSchedule(classCode, description, timeObj, instructor, location);
 				cppManager.saveNewClass(newClass);
 
-				
+				index++;
 			}
 			
+		}
+		
+		public void setRepeatDay(TimeObj timeObj, String[] rs){
+			for(String r: rs){
+				if(r.equals("M")) timeObj.setRepeatDay("MONDAY");
+				else if(r.equals("Tu")) timeObj.setRepeatDay("TUESDAY");
+				else if(r.equals("W")) timeObj.setRepeatDay("WEDNESDAY");
+				else if(r.equals("Th")) timeObj.setRepeatDay("THURSDAY");
+				else if(r.equals("F")) timeObj.setRepeatDay("FRIDAY");		
+			}
 		}
 		
 
