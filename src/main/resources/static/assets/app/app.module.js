@@ -1,1 +1,1 @@
-var app = angular.module("myApp", ['ngMaterial','ngMessages']);
+var app = angular.module("myApp", ['ngMaterial','ngMessages', 'mwl.calendar', 'ngAnimate', 'ui.bootstrap', 'colorpicker.module']);

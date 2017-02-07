@@ -126,29 +126,19 @@
 
                 <!-- </div>  -->
 
-            </section>
+				 <!-- Calendar -->
+				    <!-- Calendar -->
+				    <div ng-controller="CalendarCtrl as vm">
+					  <h1 class="text-center">{{ vm.viewTitle }}</h1>
+					  <ng-include src="'calendarControls.html'"></ng-include>
+					  <mwl-calendar
+					    events="vm.events"
+					    view="vm.calendarView"
+					    view-title="vm.viewTitle"
+					    view-date="vm.viewDate">
+					  </mwl-calendar>
             
         </md-content>
-
-    <div ng-controller="CalendarCtrl as vm">
-        <h2 class="text-center">{{ vm.calendarTitle }}</h2>
-
-        <mwl-calendar
-            events="vm.events"
-            view="vm.calendarView"
-            view-title="vm.calendarTitle"
-            view-date="vm.viewDate"
-            on-event-click="vm.eventClicked(calendarEvent)"
-            on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
-            cell-is-open="vm.cellIsOpen"
-            day-view-start="06:00"
-            day-view-end="22:59"
-            day-view-split="30"
-            cell-modifier="vm.modifyCell(calendarCell)"
-            cell-auto-open-disabled="true"
-            on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)">
-        </mwl-calendar>
-    </div>
 
     <!-- Need to link tabs dynamically to Event Preferences in User Settings -->
     <script type="text/ng-template" id="filterTabDialog.tmpl.html">
