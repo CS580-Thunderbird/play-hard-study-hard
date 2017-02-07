@@ -4,11 +4,13 @@ public class InternationalStudentEvent implements EventObject {
 		String title;
 		String detail;
 		TimeObj timeObj;
+		String location;
 		
-		public InternationalStudentEvent(String title, String detail,TimeObj timeObj){
+		public InternationalStudentEvent(String title, String detail,TimeObj timeObj, String location){
 			this.title = title;
 			this.detail = detail;
 			this.timeObj = timeObj;
+			this.location = location;
 		}
 	
 		@Override
@@ -45,5 +47,17 @@ public class InternationalStudentEvent implements EventObject {
 		public TimeObj getTimeObj() {
 			// TODO Auto-generated method stub
 			return timeObj;
+		}
+
+		@Override
+		public void setLocation(String location) {
+			this.location = location;
+			
+		}
+
+		@Override
+		public String getLocation() {
+			// TODO Auto-generated method stub
+			return location;
 		}
 }

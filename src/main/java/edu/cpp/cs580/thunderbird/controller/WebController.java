@@ -30,6 +30,7 @@ import edu.cpp.cs580.thunderbird.data.provider.CppManager;
 import edu.cpp.cs580.thunderbird.data.provider.EventOrganizerManager;
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
+import edu.cpp.cs580.thunderbird.tools.GetInternationalStudentEvents;
 import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
 
 @RestController
@@ -57,6 +58,12 @@ public class WebController {
         return result;   
     }
     
+    @RequestMapping(value = "/Nan")
+    String nanTest() throws IOException{
+    	GetInternationalStudentEvents intEvent = new GetInternationalStudentEvents();
+    	intEvent.parseEvents();
+    	return "Complete";
+    }
 
     /**
      * Assignment 3 part 3

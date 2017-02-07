@@ -42,6 +42,8 @@ public class GetInternationalStudentEvents {
 			writer.append(details.getElementsByTag("a").text());
 			writer.append(",");
 			writer.append(details.getElementsByTag("span").text());
+			writer.append(",");
+			writer.append(details.getElementsByTag("p").text());
 			writer.append("\n");	
 		}
 		
