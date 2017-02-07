@@ -143,6 +143,11 @@ public class WebController {
     	System.out.println("Class code" + code);
     }
     
+    @RequestMapping(value = "/setting/add_org", method = RequestMethod.GET)
+    void addOrgPreference(@RequestParam("id") String id){
+    	System.out.println("Adding org preference id : " + id);
+    }
+    
     /**
      * After user login with Google Account
      * @return
