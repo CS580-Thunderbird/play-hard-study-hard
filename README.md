@@ -3,11 +3,14 @@
 CPP Student personal organizer
 
 
+
 ####Developers
-* Diana -- Front-End developer
-* Kushal -- Front-End and Test-Script developer
-* Nanwarin -- Back-End developer 
-* Wilson -- Front-End developer 
+Members | Position 
+--- | --- | ---
+Diana | Front-End developer 
+Kushal | Front-End and Test-Script developer 
+Nanwarin | Project Manager and Full-Stack Developer
+Wilson | Front-End developer 
 
 ####Running the Project Locally
 
