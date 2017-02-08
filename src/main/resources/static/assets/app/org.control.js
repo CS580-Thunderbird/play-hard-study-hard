@@ -16,8 +16,6 @@ app.controller('admin', function ($scope, $http) {
 		  	.then(function(data){
 		  		$scope.loadOrgs();
 		  	});
-		 
-		 
 	  }
 	  
 	 

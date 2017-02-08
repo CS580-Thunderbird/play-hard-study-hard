@@ -1,3 +1,4 @@
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
     .img-circle {
         border-radius: 50%;
         max-width: 50px;
@@ -9,18 +10,18 @@
         max-width: 25px;
         height: auto;
     }
-   
+
     .menuBtn {
         max-width: 40px;
         height: auto;
         cursor: pointer;
     }
     .menuBtn:hover {
-        position: relative; 
+        position: relative;
         top: -2px;
         padding-bottom: 2px;
     }
-    
+
     .eventBtn {
         position: relative;
         display: inline-block;
@@ -28,7 +29,7 @@
         background-color: #f9f9f9;
         vertical-align: middle;
     }
-    
+
     .eventBar {
         position: relative;
         display: inline-block;
@@ -37,26 +38,26 @@
         width: 100%;
         vertical-align: center;
     }
-    
+
     .md-checkbox:not([disabled]):hover {
       background-color: rgba(158, 158, 158, 0.2);
     }
-    
+
     .md-checkbox {
       padding: 8px;
       border-radius: 3px;
       border: 1px solid #ddd;
     }
-    
+
     .md-button {
         border: 1px solid #ddd;
         color: rgba(44, 65, 164, 0.96)
     }
-    
+
     .fa-icon {
         height: auto;
     }
-    
+
     .dropbtn {
         max-width: 50%;
         height: auto;
@@ -82,9 +83,9 @@
         display: block;
     }
     .show {display:block;}
-    
+
     .ico{
-    
+
     display:block;
     height:30px;
     text-decoration:none;

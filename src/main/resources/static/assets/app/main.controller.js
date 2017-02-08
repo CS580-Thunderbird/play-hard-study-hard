@@ -18,6 +18,8 @@ app.controller("mainController", function($scope, $mdDialog){
 		international: false
 	};
 
+	$scope.sTime = new Date();
+
 	$scope.showTabDialog = function(ev) {
 		$mdDialog.show({
 			controller: DigitalController2,
@@ -26,20 +28,23 @@ app.controller("mainController", function($scope, $mdDialog){
 			targetEvent: ev,
 			clickOutsideToClose:true,
 			locals: {
+				sTime: $scope.sTime,
 				eventPref: $scope.eventPref,
 				days: $scope.days,
 				sRepeat: $scope.sRepeat
 			}
 		});
-		function DigitalController2($scope, days, sRepeat, eventPref){
+		function DigitalController2($scope, days, sRepeat, eventPref, sTime){
+
 			$scope.eventPref = eventPref;
 			$scope.days = days;
 			$scope.sRepeat = sRepeat;
 			$scope.closeWindow = function(){
-
+				$scope.sTime = sTime;
 				for(var i = 0; i < $scope.days.length; i++){
 					$scope.days[i].ck = false;
 				}
+
 			$mdDialog.hide();
 			}
 		}
@@ -77,7 +82,23 @@ app.controller("mainController", function($scope, $mdDialog){
 	}
 
 	/*Work on post for user settings*/
-	
+
+	$scope.eventFilter = function() {
+
+		$http.post("user/eventPref/" + $scope.eventPref.fitness + "ASI: " + scope.eventPref.asi + "international: " + $scope.eventPref.international)
+		.then(function(data){
+
+		});
+	}
+
+	$scope.classId = '';
+
+	$scope.addClass = function(){
+
+		$http.post("user/classes/" + $scope.classId)
+		.then(function(data){
 
 
+		});
+	}
 });

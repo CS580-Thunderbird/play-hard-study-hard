@@ -28,10 +28,11 @@
                             </md-checkbox>
 
                             </br>
-                            <md-button class="md-primary md-raised">
+                            <md-button class="md-primary md-raised" ng-click="eventFilter()">
                                 Search Club From Facebook pages
                             </md-button>
                             </br></br>
+
                             <md-input-container>
                                 <label>Input Class ID</label>
                                 <input type="text" ng-model="classId">
@@ -52,7 +53,7 @@
                      <!-- TAB TWO -->
                     <md-tab label="Add Sched.">
                         <md-content class="md-padding">
-                            <h4 class="md-display-2">Additional Input</h4>
+                            <h4 class="md-display-1">Additional Input</h4>
 
                             <md-input-container>
                                 <label>Title</label>
@@ -62,10 +63,23 @@
                                <span class="md-padding"></span>
                                     <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
 
+                                    <table>
+                                      <tr>
+                                        <td>Start</td>
+                                        <td>End</td>
+                                      </tr>
+                                      <tr>
+                                        <td><md-input-container><input type="time" ng-model="sTime" placeholder="HH:mm" ></md-input-container></td>
+                                        <!-- <td><md-input-container><input type="time"></md-input-container></td> -->
+                                      </tr>
+                                    </table>
                                     <div>
-                                    <md-checkbox ng-checked="sRepeat" ng-click="sRepeat = !sRepeat">
+
+                                    <!-- <md-checkbox ng-checked="sRepeat" ng-click="sRepeat = !sRepeat">
                                         Repeat
-                                    </md-checkbox>
+                                    </md-checkbox> -->
+
+                                    Repeat On:
                                     <br>
                                     <table>
                                         <tr >
@@ -73,7 +87,7 @@
                                         </tr>
                                     </table>
                                 </div>
-
+                                <br>
                                 <div>
 
                                     <md-button ng-click="closeWindow()" style="margin-right:20px;" >
