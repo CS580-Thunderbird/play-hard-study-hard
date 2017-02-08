@@ -16,7 +16,6 @@ public class MyApp {
 
 	@Bean
 	public UserManager userManager(){
-		//What is the point of create interface ?
 		UserManager userManager = new GoogleUserManager();
 		return userManager;
 	}
@@ -24,7 +23,6 @@ public class MyApp {
 	
 	@Bean
 	public CppManager cppManager(){
-		//Can i create class without interface ? Is it good implementation.
 		CppManager cppManager = new CppManager();
 		return cppManager;
 	}
@@ -36,12 +34,9 @@ public class MyApp {
 	}
 	
 	@Bean
-	public EventManager eventManager(){
-		EventManager eventManager = new InternationalStudentEventManager();
-		
-		//If I want to create another instance for another class that implement the same interface ? 
-		//So use design pattern to fix my problem ?
-		return eventManager;
+	public EventManagers eventManagers(){
+		EventManagers eventManagers = new EventManagers();
+		return eventManagers;
 	}
 
 	

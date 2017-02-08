@@ -14,4 +14,10 @@ public class InternationalStudentEventManager implements EventManager{
 		
 	}
 
+	@Override
+	public void listEvents() {
+		System.out.println("test");
+		
+	}
+
 }

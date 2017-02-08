@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.cpp.cs580.thunderbird.EventManagers;
 import edu.cpp.cs580.thunderbird.data.EventOrganizer;
 import edu.cpp.cs580.thunderbird.data.provider.CppManager;
 import edu.cpp.cs580.thunderbird.data.provider.EventOrganizerManager;
@@ -39,6 +40,7 @@ public class WebController {
 	@Autowired private UserManager userManager;
 	@Autowired CppManager cppManager;
 	@Autowired EventOrganizerManager orgManager;
+	@Autowired EventManagers eventManager;
 
     GoogleOAuth OAuth; // May come up with better method
 
@@ -60,8 +62,9 @@ public class WebController {
     
     @RequestMapping(value = "/Nan")
     String nanTest() throws IOException{
-    	GetInternationalStudentEvents intEvent = new GetInternationalStudentEvents();
-    	intEvent.parseEvents();
+    	//GetInternationalStudentEvents intEvent = new GetInternationalStudentEvents();
+    	//intEvent.parseEvents();
+    	eventManager.internationalStudentEvent.listEvents();
     	return "Complete";
     }
 
