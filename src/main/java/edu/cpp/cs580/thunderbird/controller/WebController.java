@@ -19,6 +19,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,9 +28,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.cpp.cs580.thunderbird.EventManagers;
 import edu.cpp.cs580.thunderbird.data.EventOrganizer;
+import edu.cpp.cs580.thunderbird.data.UserOrganizerSettingList;
 import edu.cpp.cs580.thunderbird.data.provider.CppManager;
 import edu.cpp.cs580.thunderbird.data.provider.EventOrganizerManager;
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
+import edu.cpp.cs580.thunderbird.data.provider.UserPreferenceSettingManager;
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
 import edu.cpp.cs580.thunderbird.tools.GetInternationalStudentEvents;
 import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
@@ -41,6 +44,7 @@ public class WebController {
 	@Autowired CppManager cppManager;
 	@Autowired EventOrganizerManager orgManager;
 	@Autowired EventManagers eventManager;
+	//@Autowired UserPreferenceSettingManager userPreference;
 
     GoogleOAuth OAuth; // May come up with better method
 
@@ -258,6 +262,12 @@ public class WebController {
     	orgManager.ListAllOrganizer();
     	System.out.println(new Date(System.currentTimeMillis()).toString());
     	return organizer;
+    }
+    
+    @RequestMapping(value = "/setting/add_org", method = RequestMethod.POST)
+    boolean addPreferenceOrganizer(@RequestBody UserOrganizerSettingList list){
+    	System.out.println("complete ");
+    	return true;
     }
     
     @RequestMapping(value = "admin/organizer/list", method = RequestMethod.GET)

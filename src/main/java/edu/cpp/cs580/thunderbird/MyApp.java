@@ -10,6 +10,7 @@ import edu.cpp.cs580.thunderbird.data.provider.EventOrganizerManager;
 import edu.cpp.cs580.thunderbird.data.provider.GoogleUserManager;
 import edu.cpp.cs580.thunderbird.data.provider.InternationalStudentEventManager;
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
+import edu.cpp.cs580.thunderbird.data.provider.UserPreferenceSettingManager;
 
 @SpringBootApplication
 public class MyApp {
@@ -37,6 +38,13 @@ public class MyApp {
 	public EventManagers eventManagers(){
 		EventManagers eventManagers = new EventManagers();
 		return eventManagers;
+	}
+	
+
+	@Bean
+	public UserPreferenceSettingManager userPreferenceManager(){
+		UserPreferenceSettingManager userPreferenceManager = new UserPreferenceSettingManager();
+		return userPreferenceManager;
 	}
 
 	
