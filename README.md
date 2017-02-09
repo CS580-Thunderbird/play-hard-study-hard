@@ -2,6 +2,9 @@
 ## BRONCO PLANNER
 Study Hard Play Hard, CPP Student personal organizer.
 
+##DEMO
+[Bronco Planner](bronco-planner.com)
+
 ####Progress
 - [x] Phase#1 - DUE FEB 6, 207
 - [ ] Phase#2 - DUE FEB 13, 207
