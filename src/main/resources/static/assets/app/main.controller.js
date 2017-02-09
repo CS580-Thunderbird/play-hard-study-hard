@@ -1,24 +1,33 @@
 app.controller("mainController", function($scope, $mdDialog){
 	$scope.status = ' ';
 	$scope.customeFullscreen = false;
-	$scope.sRepeat=false;
-	$scope.days = [
-		{name:"Sa", ck:false},
-		{name:"M", ck:false},
-		{name:"Tu", ck:false},
-		{name:"W", ck:false},
-		{name:"Th", ck:false},
-		{name:"F", ck:false},
-		{name:"Su", ck:false}
-	];
 
-	$scope.eventPref={
-		fitness: false,
-		asi: false,
-		international: false
+	$scope.usrDialog = {
+
+		sName2: "",
+
+		eventPref2: {
+			fitness: false,
+			asi: false,
+			international: false
+		},
+
+		sTime2: {
+			myDate: new Date(),
+			startTime: new Date(),
+			endTime: new Date()
+		},
+
+		days2: [
+			{name:"Sa", ck:false},
+			{name:"M", ck:false},
+			{name:"Tu", ck:false},
+			{name:"W", ck:false},
+			{name:"Th", ck:false},
+			{name:"F", ck:false},
+			{name:"Su", ck:false}
+		]
 	};
-
-	$scope.sTime = new Date();
 
 	$scope.showTabDialog = function(ev) {
 		$mdDialog.show({
@@ -28,24 +37,19 @@ app.controller("mainController", function($scope, $mdDialog){
 			targetEvent: ev,
 			clickOutsideToClose:true,
 			locals: {
-				sTime: $scope.sTime,
-				eventPref: $scope.eventPref,
-				days: $scope.days,
-				sRepeat: $scope.sRepeat
+				usrDialog: $scope.usrDialog,
 			}
 		});
-		function DigitalController2($scope, days, sRepeat, eventPref, sTime){
+		function DigitalController2($scope, usrDialog){
+			$scope.usrDialog = usrDialog;
 
-			$scope.eventPref = eventPref;
-			$scope.days = days;
-			$scope.sRepeat = sRepeat;
-			$scope.closeWindow = function(){
-				$scope.sTime = sTime;
-				for(var i = 0; i < $scope.days.length; i++){
-					$scope.days[i].ck = false;
+
+			$scope.addBtn = function(){
+				
+				for(var i = 0; i < $scope.usrDialog.days2.length; i++){
+					$scope.usrDialog.days2[i].ck = false;
 				}
-
-			$mdDialog.hide();
+				$mdDialog.hide();
 			}
 		}
 	};

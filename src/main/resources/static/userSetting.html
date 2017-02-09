@@ -15,15 +15,15 @@
                         <md-content class="md-padding">
                             <h4 class="md-display-1">Event Preferences</h4>
 
-                            <md-checkbox ng-model="eventPref.fitness">
+                            <md-checkbox ng-model="usrDialog.eventPref2.fitness">
                                 Fitness Classes
                             </md-checkbox>
                             </br>
-                            <md-checkbox ng-model="eventPref.asi">
+                            <md-checkbox ng-model="usrDialog.eventPref2.asi">
                                 ASI Events
                             </md-checkbox>
                             </br>
-                            <md-checkbox ng-model="eventPref.international">
+                            <md-checkbox ng-model="usrDialog.eventPref2.international">
                                 International Student Clubs
                             </md-checkbox>
 
@@ -43,6 +43,7 @@
                             </md-button>
 
                             <br><br>
+
             <!--             <md-button ng-click="answer('Save')" style="margin-right:20px;" >
                             Close Window
                         </md-button> -->
@@ -57,11 +58,13 @@
 
                             <md-input-container>
                                 <label>Title</label>
-                                <input type="text" ng-model="sName">
+                                <input type="text" ng-model="usrDialog.sName2">
                             </md-input-container>
 
+                            {{ usrDialog.sName2 }}
+
                                <span class="md-padding"></span>
-                                    <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+                                    <md-datepicker ng-model="usrDialog.sTime2.myDate" md-placeholder="Enter date"></md-datepicker>
 
                                     <table>
                                       <tr>
@@ -69,7 +72,9 @@
                                         <td>End</td>
                                       </tr>
                                       <tr>
-                                        <td><md-input-container><input type="time" ng-model="sTime" placeholder="HH:mm" ></md-input-container></td>
+                                        <td><md-input-container><input type="time" ng-model="usrDialog.sTime2.startTime" placeholder="HH:mm" min="08:00:00" max="17:00:00" required ></md-input-container></td>
+
+
                                         <!-- <td><md-input-container><input type="time"></md-input-container></td> -->
                                       </tr>
                                     </table>
@@ -83,14 +88,14 @@
                                     <br>
                                     <table>
                                         <tr >
-                                            <td ng-repeat="day in days">{{day.name}} <md-checkbox md-no-ink aria-label="Checkbox No Ink" class=" md-primary" ng-checked="day.ck" ng-click="day.ck = !day.ck"></md-checkbox></td>
+                                            <td ng-repeat="day in usrDialog.days2">{{day.name}} <md-checkbox md-no-ink aria-label="Checkbox No Ink" class=" md-primary" ng-checked="day.ck" ng-click="day.ck = !day.ck"></md-checkbox></td>
                                         </tr>
                                     </table>
                                 </div>
                                 <br>
                                 <div>
 
-                                    <md-button ng-click="closeWindow()" style="margin-right:20px;" >
+                                    <md-button ng-click="addBtn()" style="margin-right:20px;" >
                                         Add
                                     </md-button>
                                 </div>
