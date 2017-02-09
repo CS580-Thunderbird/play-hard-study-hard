@@ -3,7 +3,7 @@
 Study Hard Play Hard, CPP Student personal organizer.
 
 ##DEMO
-[Bronco Planner](bronco-planner.com)
+[Bronco Planner](http:/bronco-planner.com)
 
 ####Progress
 - [x] Phase#1 - DUE FEB 6, 207
