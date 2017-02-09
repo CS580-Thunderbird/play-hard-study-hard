@@ -201,6 +201,7 @@ public class WebController {
         OAuth = new GoogleOAuth();
         String url = OAuth.buildLoginUrl();
         URI loginURI = new URI(url);
+        System.out.println("LogIn user " + loginURI);
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setLocation(loginURI);
