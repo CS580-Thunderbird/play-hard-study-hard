@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Study Hard Play Hard - CPP Student Organizer</title>
+    <title>Bronco-Planner - CPP Student Organizer</title>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width"/>
     <base href="/"/>
@@ -75,14 +75,13 @@
                             Log Out
                         </md-button>
 
-
                     </md-menu-content>
                 </md-menu>
             </div>
          </div>
     </md-toolbar>
 
-        <md-content flex layout-fill>
+       
 
             <md-menu-bar class="eventBar">
                 <!-- Need to link to user preferences -->
@@ -128,8 +127,8 @@
 
 				 <!-- Calendar -->
 				    <!-- Calendar -->
-                    
-				    <div ng-controller="CalendarCtrl as vm">
+         <md-content layout-padding>
+				    <div ng-controller="CalendarCtrl as vm" class="mainCalendar">
 					  <h1 class="text-center">{{ vm.viewTitle }}</h1>
 					  <ng-include src="'calendarControls.html'"></ng-include>
 					  <mwl-calendar
@@ -138,7 +137,7 @@
 					    view-title="vm.viewTitle"
 					    view-date="vm.viewDate">
 					  </mwl-calendar>
-
+                    </div>
 
         </md-content>
 

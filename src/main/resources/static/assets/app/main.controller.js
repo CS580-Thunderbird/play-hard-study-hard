@@ -43,9 +43,10 @@ app.controller("mainController", function($scope, $mdDialog){
 		function DigitalController2($scope, usrDialog){
 			$scope.usrDialog = usrDialog;
 
-
 			$scope.addBtn = function(){
 				
+				$scope.usrDialog.sName2 = "";
+
 				for(var i = 0; i < $scope.usrDialog.days2.length; i++){
 					$scope.usrDialog.days2[i].ck = false;
 				}
