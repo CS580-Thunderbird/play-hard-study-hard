@@ -18,8 +18,8 @@ import edu.cpp.cs580.thunderbird.data.UserRepository;
  */
 public class GoogleUserManager implements UserManager{
 
-	@Autowired private UserRepository googleRepo; //database, may need to modify later
-	@Autowired UserPreferenceSettingManager userPreference;
+//	@Autowired private UserRepository googleRepo; //database, may need to modify later
+//	@Autowired UserPreferenceSettingManager userPreference;
 	
 	private GoogleUser user;
 	private String jsonUser;
@@ -28,9 +28,9 @@ public class GoogleUserManager implements UserManager{
 		
 	}
 	
-	public GoogleUserManager(UserPreferenceSettingManager userPreference){
+/*	public GoogleUserManager(UserPreferenceSettingManager userPreference){
 		this.userPreference = userPreference;
-	}
+	}*/
 	
 	@Override
 	public String getUserId() {
@@ -91,8 +91,8 @@ public class GoogleUserManager implements UserManager{
 								rootNode.path("name").asText(),
 								rootNode.path("picture").asText());
 			
-			if(googleRepo.getUserByEmail(user.getEmail()) == null)
-				addNewUser(user);
+			/*if(googleRepo.getUserByEmail(user.getEmail()) == null)
+				addNewUser(user);*/
 
 			
 		} catch (JsonProcessingException e) {
@@ -109,7 +109,7 @@ public class GoogleUserManager implements UserManager{
 	 * First time that user use our webapp
 	 */
 
-	@Override
+	/*@Override
 	public void addNewUser(GoogleUser user) {	
 		googleRepo.save(user);		
 		
@@ -118,7 +118,7 @@ public class GoogleUserManager implements UserManager{
 		}else{
 			System.out.println("User exist in repo");
 		}
-	}
+	}*/
 
 	/**
 	 * Made as string to be printed convenient
@@ -128,10 +128,10 @@ public class GoogleUserManager implements UserManager{
 		System.out.println("Read All Users ");
 		StringBuilder string = new StringBuilder();
 		
-		for(GoogleUser userGoogle: googleRepo.findAll()){
+	/*	for(GoogleUser userGoogle: googleRepo.findAll()){
 			string.append(userGoogle.getEmail());
 		}
-		
+		*/
 		return string.toString();
 	}
 	
@@ -150,6 +150,12 @@ public class GoogleUserManager implements UserManager{
 	public void logOut(){
 		user = null;
 		jsonUser = null;
+	}
+
+	@Override
+	public void addNewUser(GoogleUser user) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
