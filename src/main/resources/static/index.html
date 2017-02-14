@@ -1,18 +1,19 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Bronco-Planner - CPP Student Organizer</title>
-    <meta name="description" content=""/>
-    <meta name="viewport" content="width=device-width"/>
-    <base href="/"/>
 
-	<!-- Add Icons -->
-	<link rel = "icon" href = "assets/images/calendarCPP.ico" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Bronco-Planner - CPP Student Organizer</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <base href="/" />
+
+    <!-- Add Icons -->
+    <link rel="icon" href="assets/images/calendarCPP.ico">
 
     <!-- BootStrap scripts -->
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 
@@ -31,10 +32,7 @@
     <script type="text/javascript" src="/assets/app/main.controller.js" th:src="@{/app/main.controller.js}"></script>
     <script type="text/javascript" src="/assets/app/user.controller.js" th:src="@{/app/main.controller.js}"></script>
 
- <script
-  src="https://code.jquery.com/jquery-3.1.1.js"
-  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
 
 
 
@@ -58,11 +56,12 @@
     <script src="/assets/app/calendar.js"></script>
     <script src="/assets/app/calendar-helpers.js"></script>
 </head>
+
 <body ng-app="myApp" ng-controller="mainController">
 
     <md-toolbar class="md-warn" color="primary">
-         <div class="md-toolbar-tools" ng-controller="userInfo">
-            <span class = "ico"></span>
+        <div class="md-toolbar-tools" ng-controller="userInfo">
+            <span class="ico"></span>
             <h2> Welcome {{ getUser.name }}</h2>
             <span flex></span>
             <div class="dropdown" layout="row" layout-wrap="" layout-margin="" layout-align="right" ng-controller="userInfo">
@@ -78,13 +77,13 @@
                     </md-menu-content>
                 </md-menu>
             </div>
-         </div>
+        </div>
     </md-toolbar>
 
-                <!-- <div class="eventBar">  -->
+    <!-- <div class="eventBar">  -->
 
-                    <!-- Need to change icon on click -->
-                    <!--
+    <!-- Need to change icon on click -->
+    <!--
                     <div class="eventBtn">
                        <i class="fa fa-check-square-o fa-3x" aria-hidden="true" layout="row" layout-wrap="" layout-margin="" layout-align="left">&nbsp; Event Suggestion</i>
                     </div>
@@ -94,30 +93,25 @@
                     </div>
                      -->
 
-                    <!--
+    <!--
                     <input type="image" src="assets/images/eventFilter.jpg" onclick="eventFilterFunction()" class="dropbtn"/>
                     <div id="eventFilter" class="dropdown-content">
                         <h4>Filtering events from Settings -> Event Preferences...</h4>
                     </div>
                      -->
 
-                <!-- </div>  -->
+    <!-- </div>  -->
 
-				 <!-- Calendar -->
-				    <!-- Calendar -->
-         <md-content layout-padding>
-				    <div ng-controller="CalendarCtrl as vm" class="mainCalendar">
-					  <h1 class="text-center">{{ vm.viewTitle }}</h1>
-					  <ng-include src="'calendarControls.html'"></ng-include>
-					  <mwl-calendar
-					    events="vm.events"
-					    view="vm.calendarView"
-					    view-title="vm.viewTitle"
-					    view-date="vm.viewDate">
-					  </mwl-calendar>
-                    </div>
+    <!-- Calendar -->
+    <md-content layout-padding>
+        <div ng-controller="CalendarCtrl as vm" class="mainCalendar">
+            <h1 class="text-center">{{ vm.viewTitle }}</h1>
+            <ng-include src="'calendarControls.html'"></ng-include>
+            <mwl-calendar events="vm.events" view="vm.calendarView" view-title="vm.viewTitle" view-date="vm.viewDate">
+            </mwl-calendar>
+        </div>
 
-        </md-content>
+    </md-content>
 
     <!-- Need to link tabs dynamically to Event Preferences in User Settings -->
     <script type="text/ng-template" id="filterTabDialog.tmpl.html">
@@ -153,7 +147,7 @@
                             </md-content>
                         </md-tab>
 
-						<!-- TAB TWO -->
+                        <!-- TAB TWO -->
                         <md-tab label="ASI Events">
                             <md-content class="md-padding">
                                 <h4 class="md-display-1">Select events to include:</h4>
@@ -173,7 +167,7 @@
                             </md-content>
                         </md-tab>
 
-						<!-- TAB THREE -->
+                        <!-- TAB THREE -->
                         <md-tab label="International Student Club Events">
                             <md-content class="md-padding">
                                 <h4 class="md-display-1">Select events to include:</h4>
@@ -196,7 +190,7 @@
                 </md-dialog-content>
 
                 <md-dialog-actions layout="row">
-                    <md-button ng-click="answer('Save')" style="margin-right:20px;" >
+                    <md-button ng-click="answer('Save')" style="margin-right:20px;">
                         Close Window
                     </md-button>
                 </md-dialog-actions>
@@ -206,7 +200,7 @@
     </script>
 
 
-<!--
+    <!--
     <script type="text/javascript">
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
@@ -229,4 +223,5 @@
  -->
 
 </body>
+
 </html>

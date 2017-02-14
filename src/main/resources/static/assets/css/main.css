@@ -132,3 +132,14 @@
     -o-animation-fill-mode:backwards;
     animation-fill-mode:backwards;
 }
+
+div.mainCalendar{
+    margin: auto;
+    width: 75%;
+    height: 75%;
+    align-self: center;
+}
+
+h1.text-center{
+    font-size: 180%;
+}
