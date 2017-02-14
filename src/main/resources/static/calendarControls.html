@@ -1,10 +1,20 @@
 
       <br>
       <div class="row">
-
-        <div class="col-md-6 text-center">
+      
+        <div class="col-md-4 text-center">
           <div class="btn-group">
-
+            <md-checkbox class="btn btn-default md-primary">
+              EVENT SUGGESTIONS
+            </md-checkbox>
+            <button class="btn btn-primary">
+              EVENT FILTER
+            </button>
+          </div>
+        </div>
+        
+        <div class="col-md-4 text-center">
+          <div class="btn-group">
             <button
               class="btn btn-primary"
               mwl-date-modifier
@@ -28,10 +38,10 @@
             </button>
           </div>
         </div>
-
+        
         <br class="visible-xs visible-sm">
 
-        <div class="col-md-6 text-center">
+        <div class="col-md-4 text-center">
           <div class="btn-group">
             <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'year'">Year</label>
             <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'month'">Month</label>

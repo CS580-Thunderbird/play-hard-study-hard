@@ -81,28 +81,6 @@
          </div>
     </md-toolbar>
 
-       
-
-            <md-menu-bar class="eventBar">
-                <!-- Need to link to user preferences -->
-                <md-menu>
-                    <md-checkbox class="md-primary md-checkbox" ng-click="$mdOpenMenu()">EVENT SUGGESTIONS</md-checkbox>
-                 </md-menu>
-
-                 <!-- Need to link to user preferences -->
-                 <md-menu>
-                    <md-button class="md-primary md-button" ng-click="$mdOpenMenu($event)"><md-icon class="fa-icon" md-font-icon="fa fa-filter fa-lg" aria-hidden="true" layout="row" layout-wrap="" layout-margin="" layout-align="left"></md-icon>
-                          EVENT FILTER</md-button>
-                    <md-menu-content>
-                          <md-menu-item ng-repeat="item in ['FITNESS CLASSES', 'ASI EVENTS', 'INTERNATIONAL STUDENT CLUBS']">
-                             <md-checkbox class="md-primary" ng-model="expression" ng-click="menuItemClick($index,$expression)">
-                                {{item}}
-                             </md-checkbox>
-                          </md-menu-item>
-                    </md-menu-content>
-                 </md-menu>
-              </md-menu-bar>
-
                 <!-- <div class="eventBar">  -->
 
                     <!-- Need to change icon on click -->

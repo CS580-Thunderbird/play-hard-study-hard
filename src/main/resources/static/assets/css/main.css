@@ -33,8 +33,6 @@
         position: relative;
         display: inline-block;
         border-radius: 4px;
-        padding-left: 10%;
-        width: 100%;
         vertical-align: center;
     }
 
@@ -47,7 +45,11 @@
       border-radius: 3px;
       border: 1px solid #ddd;
     }
-
+    
+    md-checkbox.md-primary.md-checked:not([disabled]) .md-icon {
+    background-color: rgba(53, 126, 189, 1);
+    }
+    
     .md-button {
         border: 1px solid #ddd;
         color: rgba(44, 65, 164, 0.96)
