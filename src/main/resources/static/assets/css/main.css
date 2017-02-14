@@ -9,6 +9,10 @@
         max-width: 25px;
         height: auto;
     }
+    
+    md-toolbar.md-default-theme.md-warn:not(.md-menu-toolbar), md-toolbar.md-warn:not(.md-menu-toolbar) {
+        background-color:#C4E562;
+    }
 
     .menuBtn {
         max-width: 40px;
@@ -37,7 +41,7 @@
     }
 
     .md-checkbox:not([disabled]):hover {
-      background-color: rgba(158, 158, 158, 0.2);
+      background-color: rgba(196, 229, 98, 1);
     }
 
     .md-checkbox {
@@ -47,12 +51,24 @@
     }
     
     md-checkbox.md-primary.md-checked:not([disabled]) .md-icon {
-    background-color: rgba(53, 126, 189, 1);
+        background-color: #677D01;
     }
     
     .md-button {
         border: 1px solid #ddd;
         color: rgba(44, 65, 164, 0.96)
+    }
+    
+    button.btn.btn-primary {
+        color: #fff;
+        background-color: #677D01;
+        border-color: #677D01;
+    }
+    
+    label.btn.btn-primary {
+        color: #fff;
+        background-color: #677D01;
+        border-color: #677D01;
     }
 
     .fa-icon {
@@ -85,14 +101,12 @@
     }
     .show {display:block;}
 
-    .ico{
-
-    display:block;
-    height:30px;
-    text-decoration:none;
-    padding-left:20px;
-    padding-right: 20px;
-
+    .ico {
+        display:block;
+        height:30px;
+        text-decoration:none;
+        padding-left:20px;
+        padding-right: 20px;
 	}
 	.ico:before{
 		display: inline-block;

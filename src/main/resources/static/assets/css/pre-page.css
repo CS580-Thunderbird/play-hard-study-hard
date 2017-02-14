@@ -1,5 +1,4 @@
 body {
-    
     background-color:black;
 }
 
@@ -8,15 +7,15 @@ body {
     left:33%;
     position:absolute;
     text-align:center;
-    background:black
+    background:black;
 }
 
 #welcome {
-    color:white;
+    color:#C4E562;
 }
 
 #login {
-    color:yellow;
+    color:#C4E562;
 }
 
 .btn-block {
@@ -25,7 +24,7 @@ body {
 
 .btn-google {
     color:#fff;
-    background-color:#dd4b39;
+    background-color:#357ebd;
     border-color:rgba(0,0,0,0.2);
 }
 
