@@ -193,6 +193,12 @@ public class WebController {
      */
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
+    ModelAndView welcomePage(){
+    	ModelAndView modelAndView = new ModelAndView("pre-page.html");
+		return modelAndView;
+    }
+    
+    @RequestMapping(value = "/AutorizeWithGoogle", method = RequestMethod.GET)
     public ResponseEntity<Object> loginGoogle() throws URISyntaxException
     {
         OAuth = new GoogleOAuth();
@@ -204,7 +210,6 @@ public class WebController {
 
         return new ResponseEntity<Object>(httpHeaders, HttpStatus.SEE_OTHER);
     }
-
     /**
      * User has too autorize google account, it not u will not get any info
      */
