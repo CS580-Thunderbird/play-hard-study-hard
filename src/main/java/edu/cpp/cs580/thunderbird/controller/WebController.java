@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -33,9 +32,7 @@ import edu.cpp.cs580.thunderbird.data.UserOrganizerSettingList;
 import edu.cpp.cs580.thunderbird.data.provider.CppManager;
 import edu.cpp.cs580.thunderbird.data.provider.EventOrganizerManager;
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
-import edu.cpp.cs580.thunderbird.data.provider.UserPreferenceSettingManager;
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
-import edu.cpp.cs580.thunderbird.tools.GetInternationalStudentEvents;
 import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
 
 @RestController
@@ -260,7 +257,7 @@ public class WebController {
     	System.out.println("Adding Organization: " + name);
     	orgManager.addNewEventOrganizer(organizer);
     	System.out.println("Done");
-    	orgManager.ListAllOrganizer();
+    	orgManager.listAllOrganizer();
     	System.out.println(new Date(System.currentTimeMillis()).toString());
     	return organizer;
     }
@@ -277,7 +274,7 @@ public class WebController {
     	System.out.println("Listing All users" + new Date(System.currentTimeMillis()).toString());
     	
   
-    	return orgManager.ListAllOrganizer();
+    	return orgManager.listAllOrganizer();
     }
     
 }

@@ -35,8 +35,6 @@ public class EventOrganizerManager {
 		JsonGenerator jsonGenerator = new JsonFactory().createGenerator(json);
 		jsonGenerator.setPrettyPrinter(new DefaultPrettyPrinter());
 	
-	
-		
 			jsonGenerator.writeStartObject();
 			jsonGenerator.writeStringField("id", "1");
 			jsonGenerator.writeStringField("name", "ASI");
@@ -55,9 +53,6 @@ public class EventOrganizerManager {
 			jsonGenerator.writeStringField("link", "www.xxx.com");		
 			jsonGenerator.writeEndObject();
 			
-		
-	
-		
 		jsonGenerator.flush();
 		jsonGenerator.close();
 		return json.toString();
@@ -97,7 +92,7 @@ public class EventOrganizerManager {
 		}
 	}
 	
-	public List<EventOrganizer> ListAllOrganizer(){
+	public List<EventOrganizer> listAllOrganizer(){
 		System.out.println("Size:  " + eventOrgRepo.count());
 		ArrayList<EventOrganizer> result = new ArrayList<EventOrganizer>();
 		for(EventOrganizer org: eventOrgRepo.findAll()){
