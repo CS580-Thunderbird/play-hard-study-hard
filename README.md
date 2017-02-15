@@ -15,19 +15,27 @@ Study Hard Play Hard, CPP Student personal organizer.
 Members | Position 
 --- | --- | ---
 Diana | Front-End developer 
-Kushal | Front-End and Test-Script developer 
+Kushal | Front-End 
 Nanwarin | Project Manager and Full-Stack Developer
 Wilson | Front-End developer 
 
 ####Running the Project Locally
 
-Locate the MyApp.java in src/main/java source folder and right-click on it->Run As->Java Application
+On Eclipse:
+<br />Locate the MyApp.java in src/main/java source folder and right-click on it->Run As->Java Application
 Verify the running process in your web browser by the following URLs:
 
 
-http://localhost:8080/ 
+- http://localhost:8080/ -
 <br />If everything works correctly, it will lead you to log-in with Google Account page.
+- http://localhost:8080/index.html
+<br /> This is for front-end debugging, don't recommend for real usages.
 
-####Requires
+On cmd:
+- Go to root directory, build package with maven: cmd - "mvn package"
+- Go to root/target directory, execute JAR file: cmd - "java -jar study-hard-play-hard-X.X.jar"
+
+####Requirement
+* Java 1.8
 * MongoDB to run in Server background
 
