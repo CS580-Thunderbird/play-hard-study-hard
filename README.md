@@ -29,7 +29,7 @@ Verify the running process in your web browser by the following URLs:
 - http://localhost:8080/ -
 <br />If everything works correctly, it will lead you to log-in with Google Account page.
 - http://localhost:8080/index.html
-<br /> This is for front-end debugging, don't recommend for real usages. dfsdf
+<br /> This is for front-end debugging, don't recommend for real usages.
 
 On cmd:
 - Go to root directory, build package with maven: cmd - "mvn package"
