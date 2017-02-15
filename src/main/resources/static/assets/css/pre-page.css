@@ -1,5 +1,5 @@
 body {
-    background-color:black;
+    background-color:#03112E;
 }
 
 .headerMsg {
@@ -7,7 +7,7 @@ body {
     left:33%;
     position:absolute;
     text-align:center;
-    background:black;
+    background:#03112E;
 }
 
 #welcome {
