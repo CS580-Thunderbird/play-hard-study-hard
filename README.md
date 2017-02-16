@@ -3,7 +3,7 @@
 Study Hard Play Hard, CPP Student personal organizer.
 
 ####DEMO
-[Bronco Planner](http:/ec2-52-27-156-64.us-west-2.compute.amazonaws.com:8080)
+[Bronco Planner](http://bronco-planner.com/)
 
 ####Progress
 - [x] Phase#1 - DUE FEB 6, 207
@@ -15,7 +15,7 @@ Study Hard Play Hard, CPP Student personal organizer.
 Members | Position 
 --- | --- | ---
 Diana | Front-End developer 
-Kushal | Front-End 
+Kushal | Front-End developer
 Nanwarin | Project Manager and Full-Stack Developer
 Wilson | Front-End developer 
 
