@@ -38,9 +38,9 @@ public class GoogleOAuth {
 	//private static final String REDIRECT_URI = "http://[::1]:8080/home";
 	
 	//AWS
-	//private static final String REDIRECT_URI = "http://ec2-52-36-235-139.us-west-2.compute.amazonaws.com:8080/home";
+	//private static final String REDIRECT_URI = "http://ec2-52-27-156-64.us-west-2.compute.amazonaws.com:8080/home";
 	//Domain
-	private static final String REDIRECT_URI = "http://ec2-52-27-156-64.us-west-2.compute.amazonaws.com:8080/home";
+	private static final String REDIRECT_URI = "http://bronco-planner.com/home";
 	
 	// start google authentication constants
 	private static final Collection<String> SCOPES = Arrays.asList("https://www.googleapis.com/auth/userinfo.profile;https://www.googleapis.com/auth/userinfo.email".split(";"));
