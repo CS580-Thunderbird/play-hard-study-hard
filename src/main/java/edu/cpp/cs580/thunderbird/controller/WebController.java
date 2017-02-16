@@ -168,9 +168,16 @@ public class WebController {
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     ModelAndView getHome(@RequestParam("code") String code) throws IOException{	
     	userManager.updateUser(OAuth.getUserInfoJson(code));
-    	ModelAndView modelAndView = new ModelAndView("index.html");
+    	//ModelAndView modelAndView = new ModelAndView("index.html");
+    	ModelAndView modelAndView = new ModelAndView("redirect:/calendar");
         return modelAndView;
 
+    }
+    
+    @RequestMapping(value = "/calendar", method = RequestMethod.GET)
+    ModelAndView getMain(){
+    	ModelAndView modelAndView = new ModelAndView("index.html");
+    	return modelAndView;
     }
     
 
