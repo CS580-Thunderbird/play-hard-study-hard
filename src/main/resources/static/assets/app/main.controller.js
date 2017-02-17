@@ -14,8 +14,8 @@ app.controller("mainController", function($scope, $mdDialog){
 
 		sTime2: {
 			myDate: new Date(),
-			startTime: new Date(),
-			endTime: new Date()
+			startTime: moment().seconds(0).milliseconds(0).toDate(),
+			endTime: moment().seconds(0).milliseconds(0).toDate()
 		},
 
 		days2: [
@@ -28,6 +28,7 @@ app.controller("mainController", function($scope, $mdDialog){
 			{name:"Su", ck:false}
 		]
 	};
+
 
 	$scope.showTabDialog = function(ev) {
 		$mdDialog.show({
@@ -44,17 +45,18 @@ app.controller("mainController", function($scope, $mdDialog){
 			$scope.usrDialog = usrDialog;
 
 			$scope.addBtn = function(){
-				
-				$scope.usrDialog.sName2 = "";
 
+				
+				$scope.momentStartTime = moment($scope.usrDialog.sTime2.startTime.toISOString());
+				$scope.momentEndTime = moment($scope.usrDialog.sTime2.endTime.toISOString());
+				
 				for(var i = 0; i < $scope.usrDialog.days2.length; i++){
 					$scope.usrDialog.days2[i].ck = false;
 				}
-				$mdDialog.hide();
+				// $mdDialog.hide();
 			}
 		}
 	};
-	$scope.myDate = new Date();
 
 	function DialogController($scope, $mdDialog) {
 		$scope.hide = function() {
@@ -74,10 +76,7 @@ app.controller("mainController", function($scope, $mdDialog){
 
 	$scope.eventFilter = function() {
 
-		$http.post("user/eventPref/" + $scope.eventPref.fitness + "ASI: " + scope.eventPref.asi + "international: " + $scope.eventPref.international)
-		.then(function(data){
-
-		});
+		$http.post("user/add_org?id=" + $scope.usrDialog.eventPref2.fitness);
 	}
 
 	$scope.classId = '';

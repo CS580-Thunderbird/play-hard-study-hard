@@ -72,9 +72,9 @@
                                         <td>End</td>
                                       </tr>
                                       <tr>
-                                        <td><md-input-container><input type="time" ng-model="usrDialog.sTime2.startTime" placeholder="HH:mm" min="08:00:00" max="17:00:00" required ></md-input-container></td>
+                                        <td><md-input-container><input type="time" ng-model="usrDialog.sTime2.startTime"></md-input-container></td>
 
-                                        <td><md-input-container><input type="time" ng-model="usrDialog.sTime2.endTime" placeholder="HH:mm" min="08:00:00" max="17:00:00" required ></md-input-container></td>
+                                        <td><md-input-container><input type="time" ng-model="usrDialog.sTime2.endTime"></md-input-container></td>
 
                                         <!-- <td><md-input-container><input type="time"></md-input-container></td> -->
                                       </tr>
@@ -84,6 +84,11 @@
                                     <!-- <md-checkbox ng-checked="sRepeat" ng-click="sRepeat = !sRepeat">
                                         Repeat
                                     </md-checkbox> -->
+
+                                    {{ momentStartTime }} <br>
+
+                                    {{ momentEndTime }}
+
 
                                     Repeat On:
                                     <br>
