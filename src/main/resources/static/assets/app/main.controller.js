@@ -13,7 +13,7 @@ app.controller("mainController", function($scope, $mdDialog){
 		},
 
 		sTime2: {
-			myDate: new Date(),
+			myDate: moment(),
 			startTime: moment().seconds(0).milliseconds(0).toDate(),
 			endTime: moment().seconds(0).milliseconds(0).toDate()
 		},
@@ -46,9 +46,9 @@ app.controller("mainController", function($scope, $mdDialog){
 
 			$scope.addBtn = function(){
 
-				
-				$scope.momentStartTime = moment($scope.usrDialog.sTime2.startTime.toISOString());
-				$scope.momentEndTime = moment($scope.usrDialog.sTime2.endTime.toISOString());
+				$scope.momentDate = moment($scope.usrDialog.sTime2.myDate.toISOString()).format('MM/DD/YYYY');
+				$scope.momentStartTime = moment($scope.usrDialog.sTime2.startTime.toISOString()).format('hh:mm:ss a');
+				$scope.momentEndTime = moment($scope.usrDialog.sTime2.endTime.toISOString()).format('hh:mm:ss a');
 				
 				for(var i = 0; i < $scope.usrDialog.days2.length; i++){
 					$scope.usrDialog.days2[i].ck = false;
