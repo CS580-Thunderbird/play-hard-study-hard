@@ -1,3 +1,5 @@
+    <script type="text/javascript" src="/assets/app/main.controller.js" th:src="@{/app/main.controller.js}"></script>
+
     <md-dialog aria-label="userSettings" class="prefDialog" height="100px">
         <form>
             <md-toolbar>
@@ -33,9 +35,10 @@
                             </md-button>
                             </br></br>
 
-                            <md-input-container>
+                            <md-input-container ng-controller="mainController">
                                 <label>Input Class ID</label>
-                                <input type="text" ng-model="classId">
+                                <input type="text" ng-model="classId" id="ajax" list="json-datalist">
+                                <datalist id="json-datalist"></datalist>
                             </md-input-container>
                             
                             <md-button class="md-primary md-raised">
