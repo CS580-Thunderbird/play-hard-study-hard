@@ -238,7 +238,7 @@ public class WebController {
     @RequestMapping(value = "data/classes", method = RequestMethod.GET)
     public String getListClasses() throws FileNotFoundException, IOException{
     	//Temporary Usages before set DB and AWS
-    	return cppManager.listJSonClasses();
+    	return "[" + cppManager.listJSonClasses() + "]";
     	//return orgManager.getJSonListOfOrganizer();
     }
     

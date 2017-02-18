@@ -1,4 +1,4 @@
-[ 
+[
 { "code" : "ABM 200", "description" : "Special Study for Lower Division Students", "start_date" : "2017-01-03", "end_date" : "2017-01-03", "repeatDay":[{"Sunday":false},{"Monday":false},{"Tuesday":false},{"Wednesday":false},{"Thursday":false},{"Friday":false},{"Saturday":false}]}, { "code" : "ABM 201", "description" : "Managing Agribusiness Organizations", "start_date" : "2017-01-03", "end_date" : "2017-01-03", "repeatDay":[{"Sunday":false},{"Monday":false},{"Tuesday":false},{"Wednesday":false},{"Thursday":false},{"Friday":false},{"Saturday":false}]},
 { "code" : "CS 580", "description" : "Advanced Software Engineering", "start_date" : "2017-01-03", "end_date" : "2017-01-03", "repeatDay":[{"Sunday":false},{"Monday":false},{"Tuesday":false},{"Wednesday":false},{"Thursday":false},{"Friday":false},{"Saturday":false}]},
 { "code" : "CS 599", "description" : "Special Topics for Graduate Students", "start_date" : "2017-01-03", "end_date" : "2017-01-03", "repeatDay":[{"Sunday":false},{"Monday":false},{"Tuesday":false},{"Wednesday":false},{"Thursday":false},{"Friday":false},{"Saturday":false}]},

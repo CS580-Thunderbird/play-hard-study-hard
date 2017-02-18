@@ -110,7 +110,7 @@ app.controller("mainController", function($scope, $mdDialog){
             // Create a new <option> element.
             var option = document.createElement('option');
             // Set the value using the item in the JSON array.
-            option.value = item.code;
+            option.value = item.code + " - " + item.description;
             // Add the <option> element to the <datalist>.
             dataList.appendChild(option);
           });
@@ -123,7 +123,8 @@ app.controller("mainController", function($scope, $mdDialog){
     };
     
     // Set up and make the request.
-    request.open('GET', 'data/sampleCppClasses.json', true);
+    // request.open('GET', 'data/sampleCppClasses.json', true);
+    request.open('GET', 'http://localhost:8080/data/classes', true);
     request.send();
     
 });
