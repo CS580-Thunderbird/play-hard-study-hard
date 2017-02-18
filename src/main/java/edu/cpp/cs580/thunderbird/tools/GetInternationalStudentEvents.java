@@ -50,6 +50,7 @@ public class GetInternationalStudentEvents {
 			//////Time///////
 			String rawTime = details.getElementsByTag("span").text();
 			String tt[] = rawTime.split(" to ");
+			// FORMAT Feb 21, 2017 12:00 PM
 			
 			for(String t: tt){
 				

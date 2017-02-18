@@ -83,13 +83,13 @@ public class TimeObj {
 	public String getJSonRepeatDay(){
 		String result = "\"repeatDay\":[";
 		
-		result += "\"Sunday\":" + repeatDay[0] + ",";
-		result += "\"Monday\":" + repeatDay[1] + ",";
-		result += "\"Tuesday\":" + repeatDay[2] + ",";
-		result += "\"Wednesday\":" + repeatDay[3] + ",";
-		result += "\"Thursday\":" + repeatDay[4] + ",";
-		result += "\"Friday\":" + repeatDay[5] + ",";
-		result += "\"Saturday\":" + repeatDay[6];
+		result += "{\"Sunday\":" + repeatDay[0] + "},";
+		result += "{\"Monday\":" + repeatDay[1] + "},";
+		result += "{\"Tuesday\":" + repeatDay[2] + "},";
+		result += "{\"Wednesday\":" + repeatDay[3] + "},";
+		result += "{\"Thursday\":" + repeatDay[4] + "},";
+		result += "{\"Friday\":" + repeatDay[5] + "},";
+		result += "{\"Saturday\":" + repeatDay[6] +"}";
 		
 		result +="]";
 		
