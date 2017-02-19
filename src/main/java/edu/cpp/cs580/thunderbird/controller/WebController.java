@@ -260,6 +260,13 @@ public class WebController {
 		return modelAndView;
     }
     
+    @RequestMapping(value = "/classlist", method = RequestMethod.GET)
+    ModelAndView getClasslist(){
+    	ModelAndView modelAndView = new ModelAndView("classList.html");
+    	return modelAndView;
+    }
+    
+    
     @RequestMapping(value = "/admin/organizer/{orgID}", method = RequestMethod.POST)
     EventOrganizer addNewOrganizer(
     		@PathVariable("orgID") String id,

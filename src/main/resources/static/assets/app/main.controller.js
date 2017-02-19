@@ -1,4 +1,4 @@
-app.controller("mainController", function($scope, $mdDialog){
+app.controller("mainController", function($scope, $http, $mdDialog){
 	$scope.status = ' ';
 	$scope.customeFullscreen = false;
 
@@ -13,7 +13,7 @@ app.controller("mainController", function($scope, $mdDialog){
 		},
 
 		sTime2: {
-			myDate: moment(),
+			myDate: new Date(),
 			startTime: moment().seconds(0).milliseconds(0).toDate(),
 			endTime: moment().seconds(0).milliseconds(0).toDate()
 		},
@@ -49,7 +49,7 @@ app.controller("mainController", function($scope, $mdDialog){
 				$scope.momentDate = moment($scope.usrDialog.sTime2.myDate.toISOString()).format('MM/DD/YYYY');
 				$scope.momentStartTime = moment($scope.usrDialog.sTime2.startTime.toISOString()).format('hh:mm:ss a');
 				$scope.momentEndTime = moment($scope.usrDialog.sTime2.endTime.toISOString()).format('hh:mm:ss a');
-				
+
 				for(var i = 0; i < $scope.usrDialog.days2.length; i++){
 					$scope.usrDialog.days2[i].ck = false;
 				}
@@ -81,30 +81,23 @@ app.controller("mainController", function($scope, $mdDialog){
 
 	$scope.classId = '';
 
-	$scope.addClass = function(){
-
-		$http.post("user/classes/" + $scope.classId)
-		.then(function(data){
 
 
-		});
-	}
-	
 	/* Search box suggestion for adding class */
 	// Get the <datalist> and <input> elements.
     var dataList = document.getElementById('json-datalist');
     var input = document.getElementById('ajax');
-    
+
     // Create a new XMLHttpRequest.
     var request = new XMLHttpRequest();
-    
+
     // Handle state changes for the request.
     request.onreadystatechange = function(response) {
       if (request.readyState === 4) {
         if (request.status === 200) {
           // Parse the JSON
           var jsonOptions = JSON.parse(request.responseText);
-      
+
           // Loop over the JSON array.
           jsonOptions.forEach(function(item) {
             // Create a new <option> element.
@@ -114,17 +107,15 @@ app.controller("mainController", function($scope, $mdDialog){
             // Add the <option> element to the <datalist>.
             dataList.appendChild(option);
           });
-          
+
         } else {
           // An error occured :(
           input.placeholder = "Couldn't load datalist options :(";
         }
       }
     };
-    
     // Set up and make the request.
     // request.open('GET', 'data/sampleCppClasses.json', true);
     request.open('GET', 'http://localhost:8080/data/classes', true);
     request.send();
-    
 });
