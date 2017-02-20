@@ -1,7 +1,7 @@
     <script type="text/javascript" src="/assets/app/main.controller.js" th:src="@{/app/main.controller.js}"></script>
 
-    <md-dialog aria-label="userSettings" class="prefDialog" height="100px">
-        <form>
+    <md-dialog aria-label="userSettings" class="prefDialog" height="100px" ng-controller="mainController">
+        <!-- <form> -->
             <md-toolbar>
                 <div class="md-toolbar-tools">
                     <h2>User Settings</h2>
@@ -16,32 +16,36 @@
                     <md-tab label="Event Pref">
                         <md-content class="md-padding">
                             <h4 class="md-display-1">Event Preferences</h4>
+                            <form name="eventFilterForm" ng-submit="eventFilter()">
+                              <md-checkbox ng-model="usrDialog.eventPref2.fitness">
+                                  Fitness Classes
+                              </md-checkbox>
+                              </br>
+                              <md-checkbox ng-model="usrDialog.eventPref2.asi">
+                                  ASI Events
+                              </md-checkbox>
+                              </br>
+                              <md-checkbox ng-model="usrDialog.eventPref2.international">
+                                  International Student Clubs
+                              </md-checkbox>
 
-                            <md-checkbox ng-model="usrDialog.eventPref2.fitness">
-                                Fitness Classes
-                            </md-checkbox>
-                            </br>
-                            <md-checkbox ng-model="usrDialog.eventPref2.asi">
-                                ASI Events
-                            </md-checkbox>
-                            </br>
-                            <md-checkbox ng-model="usrDialog.eventPref2.international">
-                                International Student Clubs
-                            </md-checkbox>
+                              </br>
+                              <md-button class="md-primary md-raised" type="submit">
+                                  Search Club From Facebook pages
+                              </md-button>
+                            </form>
 
-                            </br>
-                            <md-button class="md-primary md-raised" ng-click="eventFilter()">
-                                Search Club From Facebook pages
-                            </md-button>
+                            <pre> {{ addorg | json }}</pre>
                             </br></br>
 
-                            <md-input-container ng-controller="mainController">
+                            <md-input-container >
                                 <label>Input Class ID</label>
                                 <input type="text" ng-model="classId" name="classId" id="ajax" list="json-datalist">
                                 <datalist id="json-datalist"></datalist>
                             </md-input-container>
                             
                             <md-button class="md-primary md-raised" ng-click="addClass()">
+]
                                Add Class
                             </md-button>
 
@@ -83,7 +87,6 @@
                                       </tr>
                                     </table>
                                     <div>
-
                                     <!-- <md-checkbox ng-checked="sRepeat" ng-click="sRepeat = !sRepeat">
                                         Repeat
                                     </md-checkbox> -->
@@ -101,6 +104,9 @@
                                             <td ng-repeat="day in usrDialog.days2">{{day.name}} <md-checkbox md-no-ink aria-label="Checkbox No Ink" class=" md-primary" ng-checked="day.ck" ng-click="day.ck = !day.ck"></md-checkbox></td>
                                         </tr>
                                     </table>
+                                    <div>
+                                      {{ usrDialog.days2 }}
+                                    </div>
                                 </div>
                                 <br>
                                 <div>
@@ -124,5 +130,5 @@
                     Close Window
                 </md-button> -->
             </md-dialog-actions>
-        </form>
+        <!-- </form> -->
     </md-dialog>

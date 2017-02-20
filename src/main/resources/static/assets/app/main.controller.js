@@ -2,15 +2,15 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 
 	$scope.status = ' ';
 	$scope.customeFullscreen = false;
+	$scope.eventPref = {};
 
 	$scope.usrDialog = {
-
 		sName2: "",
 
 		eventPref2: {
 			fitness: false,
-			asi: false,
-			international: false
+			asi: true,
+			international: true,
 		},
 
 		sTime2: {
@@ -36,13 +36,15 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 			controller: DigitalController2,
 			templateUrl: 'userSetting.html',
 			parent: angular.element(document.body),
+			scope: $scope,
+			preserveScope: true,
 			targetEvent: ev,
 			clickOutsideToClose:true,
 			locals: {
 				usrDialog: $scope.usrDialog,
 			}
 		});
-		function DigitalController2($scope, usrDialog){
+		function DigitalController2($scope, $http, usrDialog){
 			$scope.usrDialog = usrDialog;
 
 			$scope.addBtn = function(){
@@ -54,10 +56,58 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 				for(var i = 0; i < $scope.usrDialog.days2.length; i++){
 					$scope.usrDialog.days2[i].ck = false;
 				}
-				// $mdDialog.hide();
+				$mdDialog.hide();
+			}
+
+			$scope.addorg = {
+				preferSet:[],
+			};
+			$scope.eventFilter = function() {
+				// $scope.usrDialog.eventPref2 = usrDialog.eventPref2;
+				// $http.post("user/add_org?id=" + $scope.usrDialog.eventPref2.fitness);
+				console.log("Event Filter Button Pressed");
+				if($scope.usrDialog.eventPref2.fitness == true && !$scope.addorg.preferSet.includes("1")){
+					$scope.addorg.preferSet.push("1");
+				}
+				if($scope.usrDialog.eventPref2.asi == true && !$scope.addorg.preferSet.includes("2")){
+					$scope.addorg.preferSet.push("2");
+				}
+				if($scope.usrDialog.eventPref2.international == true && !$scope.addorg.preferSet.includes("3")){
+					$scope.addorg.preferSet.push("3");
+				}
+
+				console.log($scope.addorg.preferSet);
 			}
 		}
 	};
+
+	$scope.org = {
+		preferSet: [],
+	};.,m
+	$scope.onSubmit = function() {
+		// $http.post("user/add_org?id=" + $scope.usrDialog.eventPref2.fitness);
+		console.log("Event Filter Button Pressed");
+		if($scope.eventPref.fitness == true && !$scope.org.preferSet.includes("1")){
+			$scope.org.preferSet.push("1");
+		}
+		if($scope.eventPref.fitness == false && $scope.org.preferSet.includes("1")){
+			$scope.org.preferSet.splice($scope.org.preferSet.indexOf("1"),1);
+		}
+		if($scope.eventPref.asi == true && !$scope.org.preferSet.includes("2")){
+			$scope.org.preferSet.push("2");
+		}
+		if($scope.eventPref.asi == false && $scope.org.preferSet.includes("2")){
+			$scope.org.preferSet.splice($scope.org.preferSet.indexOf("2"),1);
+		}
+		if($scope.eventPref.international == true && !$scope.org.preferSet.includes("3")){
+			$scope.org.preferSet.push("3");
+		}
+		if($scope.eventPref.international == false && $scope.org.preferSet.includes("3")){
+			$scope.org.preferSet.splice($scope.org.preferSet.indexOf("3"),1);
+		}
+		console.log($scope.org.preferSet);
+	}
+
 
 	function DialogController($scope, $mdDialog) {
 		$scope.hide = function() {
@@ -75,10 +125,7 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 
 	/*Work on post for user settings*/
 
-	$scope.eventFilter = function() {
 
-		$http.post("user/add_org?id=" + $scope.usrDialog.eventPref2.fitness);
-	}
 
 	$scope.classId = '';
 
