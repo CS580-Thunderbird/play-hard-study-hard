@@ -4,12 +4,25 @@
       
         <div class="col-md-4 text-center">
           <div class="btn-group">
-            <md-checkbox class="btn btn-default md-primary">
-              EVENT SUGGESTIONS
-            </md-checkbox>
-            <button class="btn btn-primary">
-              EVENT FILTER
-            </button>
+            <md-menu-bar class="eventBar">
+                <!-- Need to link to user preferences -->
+                <md-menu>
+                    <md-checkbox class="btn btn-default md-primary">EVENT SUGGESTIONS</md-checkbox>
+                 </md-menu>
+                 
+                 <!-- Need to link to user preferences -->
+                 <md-menu>
+                    <md-button class="btn btn-primary md-primary" ng-click="$mdOpenMenu($event)">
+                          EVENT FILTER</md-button>
+                    <md-menu-content>
+                          <md-menu-item ng-repeat="item in ['FITNESS CLASSES', 'ASI EVENTS', 'INTERNATIONAL STUDENT CLUBS']">
+                             <md-checkbox class="md-primary">
+                                {{item}}
+                             </md-checkbox>
+                          </md-menu-item>
+                    </md-menu-content>
+                 </md-menu>
+            </md-menu-bar>
           </div>
         </div>
         

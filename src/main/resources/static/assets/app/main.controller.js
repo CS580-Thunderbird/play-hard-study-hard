@@ -1,4 +1,8 @@
+<<<<<<< 0ea3d1ccca8c7001e07faa7e4cc23591a01a3fc5
 app.controller("mainController", function($scope, $http, $mdDialog){
+=======
+app.controller("mainController", function($scope, $mdDialog, $http){
+>>>>>>> Updated Event Filter dropdown
 	$scope.status = ' ';
 	$scope.customeFullscreen = false;
 
@@ -80,8 +84,7 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 	}
 
 	$scope.classId = '';
-
-
+	
 
 	/* Search box suggestion for adding class */
 	// Get the <datalist> and <input> elements.
@@ -104,6 +107,7 @@ app.controller("mainController", function($scope, $http, $mdDialog){
             var option = document.createElement('option');
             // Set the value using the item in the JSON array.
             option.value = item.code + " - " + item.description;
+            // $scope.classId = item.code;
             // Add the <option> element to the <datalist>.
             dataList.appendChild(option);
           });

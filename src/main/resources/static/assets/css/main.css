@@ -25,21 +25,6 @@
         padding-bottom: 2px;
     }
 
-    .eventBtn {
-        position: relative;
-        display: inline-block;
-        border: 1px solid #ddd;
-        background-color: #f9f9f9;
-        vertical-align: middle;
-    }
-
-    .eventBar {
-        position: relative;
-        display: inline-block;
-        border-radius: 4px;
-        vertical-align: center;
-    }
-
     .md-checkbox:not([disabled]):hover {
       background-color: rgba(196, 229, 98, 1);
     }
@@ -56,7 +41,20 @@
     
     .md-button {
         border: 1px solid #ddd;
-        color: rgba(44, 65, 164, 0.96)
+        color: #677D01
+    }
+    
+    md-button.btn.btn-primary {
+        color: #fff;
+        background-color: #677D01;
+        border-color: #677D01;
+    }
+    
+    .md-button:not([disabled]):hover {
+        background-color: #e6e6e6;
+        border-color: #ccc;
+        color: #333;
+        transition: 0.0s;
     }
     
     button.btn.btn-primary {

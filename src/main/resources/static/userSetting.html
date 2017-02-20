@@ -37,11 +37,11 @@
 
                             <md-input-container ng-controller="mainController">
                                 <label>Input Class ID</label>
-                                <input type="text" ng-model="classId" id="ajax" list="json-datalist">
+                                <input type="text" ng-model="classId" name="classId" id="ajax" list="json-datalist">
                                 <datalist id="json-datalist"></datalist>
                             </md-input-container>
                             
-                            <md-button class="md-primary md-raised">
+                            <md-button class="md-primary md-raised" ng-click="addClass()">
                                Add Class
                             </md-button>
 
