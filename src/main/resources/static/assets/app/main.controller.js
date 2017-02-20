@@ -1,8 +1,5 @@
-<<<<<<< 0ea3d1ccca8c7001e07faa7e4cc23591a01a3fc5
 app.controller("mainController", function($scope, $http, $mdDialog){
-=======
-app.controller("mainController", function($scope, $mdDialog, $http){
->>>>>>> Updated Event Filter dropdown
+
 	$scope.status = ' ';
 	$scope.customeFullscreen = false;
 
@@ -84,7 +81,6 @@ app.controller("mainController", function($scope, $mdDialog, $http){
 	}
 
 	$scope.classId = '';
-	
 
 	/* Search box suggestion for adding class */
 	// Get the <datalist> and <input> elements.
