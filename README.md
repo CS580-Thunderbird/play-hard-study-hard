@@ -1,6 +1,7 @@
 [![Stories in Ready](https://badge.waffle.io/CS580-Thunderbird/study-hard-play-hard.png?label=ready&title=Ready)](https://waffle.io/CS580-Thunderbird/study-hard-play-hard)
 ## BRONCO PLANNER
 Study Hard Play Hard, CPP Student personal organizer.
+......
 
 ####DEMO
 [Bronco Planner](http://bronco-planner.com/)
