@@ -1,5 +1,4 @@
 app.controller("mainController", function($scope, $http, $mdDialog){
-
 	$scope.status = ' ';
 	$scope.customeFullscreen = false;
 	$scope.eventPref = {};
@@ -9,8 +8,8 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 
 		eventPref2: {
 			fitness: false,
-			asi: true,
-			international: true,
+			asi: false,
+			international: false,
 		},
 
 		sTime2: {
@@ -53,6 +52,7 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 				$scope.momentStartTime = moment($scope.usrDialog.sTime2.startTime.toISOString()).format('hh:mm:ss a');
 				$scope.momentEndTime = moment($scope.usrDialog.sTime2.endTime.toISOString()).format('hh:mm:ss a');
 
+				$scope.usrDialog.days2 = this.usrDialog.days2;
 				for(var i = 0; i < $scope.usrDialog.days2.length; i++){
 					$scope.usrDialog.days2[i].ck = false;
 				}
@@ -63,51 +63,35 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 				preferSet:[],
 			};
 			$scope.eventFilter = function() {
+
+				$scope.usrDialog.eventPref2 = this.usrDialog.eventPref2;
 				// $scope.usrDialog.eventPref2 = usrDialog.eventPref2;
 				// $http.post("user/add_org?id=" + $scope.usrDialog.eventPref2.fitness);
 				console.log("Event Filter Button Pressed");
-				if($scope.usrDialog.eventPref2.fitness == true && !$scope.addorg.preferSet.includes("1")){
+				if($scope.usrDialog.eventPref2.fitness && !$scope.addorg.preferSet.includes("1")){
 					$scope.addorg.preferSet.push("1");
 				}
-				if($scope.usrDialog.eventPref2.asi == true && !$scope.addorg.preferSet.includes("2")){
-					$scope.addorg.preferSet.push("2");
-				}
-				if($scope.usrDialog.eventPref2.international == true && !$scope.addorg.preferSet.includes("3")){
-					$scope.addorg.preferSet.push("3");
+				if (!$scope.usrDialog.eventPref2.fitness && $scope.addorg.preferSet.includes("1")) {
+					$scope.addorg.preferSet.splice($scope.addorg.preferSet.indexOf("1"),1);
 				}
 
+				if($scope.usrDialog.eventPref2.asi && !$scope.addorg.preferSet.includes("2")){
+					$scope.addorg.preferSet.push("2");
+				}
+				if (!$scope.usrDialog.eventPref2.asi && $scope.addorg.preferSet.includes("2")) {
+					$scope.addorg.preferSet.splice($scope.addorg.preferSet.indexOf("2"),1);
+				}
+
+				if($scope.usrDialog.eventPref2.international && !$scope.addorg.preferSet.includes("3")){
+					$scope.addorg.preferSet.push("3");
+				}
+				if (!$scope.usrDialog.eventPref2.international && $scope.addorg.preferSet.includes("3")) {
+					$scope.addorg.preferSet.splice($scope.addorg.preferSet.indexOf("3"),1);
+				}
 				console.log($scope.addorg.preferSet);
 			}
 		}
 	};
-
-	$scope.org = {
-		preferSet: [],
-	};.,m
-	$scope.onSubmit = function() {
-		// $http.post("user/add_org?id=" + $scope.usrDialog.eventPref2.fitness);
-		console.log("Event Filter Button Pressed");
-		if($scope.eventPref.fitness == true && !$scope.org.preferSet.includes("1")){
-			$scope.org.preferSet.push("1");
-		}
-		if($scope.eventPref.fitness == false && $scope.org.preferSet.includes("1")){
-			$scope.org.preferSet.splice($scope.org.preferSet.indexOf("1"),1);
-		}
-		if($scope.eventPref.asi == true && !$scope.org.preferSet.includes("2")){
-			$scope.org.preferSet.push("2");
-		}
-		if($scope.eventPref.asi == false && $scope.org.preferSet.includes("2")){
-			$scope.org.preferSet.splice($scope.org.preferSet.indexOf("2"),1);
-		}
-		if($scope.eventPref.international == true && !$scope.org.preferSet.includes("3")){
-			$scope.org.preferSet.push("3");
-		}
-		if($scope.eventPref.international == false && $scope.org.preferSet.includes("3")){
-			$scope.org.preferSet.splice($scope.org.preferSet.indexOf("3"),1);
-		}
-		console.log($scope.org.preferSet);
-	}
-
 
 	function DialogController($scope, $mdDialog) {
 		$scope.hide = function() {
@@ -124,10 +108,9 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 	}
 
 	/*Work on post for user settings*/
-
-
-
 	$scope.classId = '';
+
+
 
 	/* Search box suggestion for adding class */
 	// Get the <datalist> and <input> elements.
@@ -150,7 +133,6 @@ app.controller("mainController", function($scope, $http, $mdDialog){
             var option = document.createElement('option');
             // Set the value using the item in the JSON array.
             option.value = item.code + " - " + item.description;
-            // $scope.classId = item.code;
             // Add the <option> element to the <datalist>.
             dataList.appendChild(option);
           });

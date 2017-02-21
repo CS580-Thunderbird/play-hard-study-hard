@@ -43,9 +43,8 @@
                                 <input type="text" ng-model="classId" name="classId" id="ajax" list="json-datalist">
                                 <datalist id="json-datalist"></datalist>
                             </md-input-container>
-                            
+
                             <md-button class="md-primary md-raised" ng-click="addClass()">
-]
                                Add Class
                             </md-button>
 
@@ -79,9 +78,9 @@
                                         <td>End</td>
                                       </tr>
                                       <tr>
-                                        <td><md-input-container><input type="time" ng-model="usrDialog.sTime2.startTime"></md-input-container></td>
+                                        <td><md-input-container><input type="time" ng-model="usrDialog.sTime2.startTime" aria-label="startTime"></md-input-container></td>
 
-                                        <td><md-input-container><input type="time" ng-model="usrDialog.sTime2.endTime"></md-input-container></td>
+                                        <td><md-input-container><input type="time" ng-model="usrDialog.sTime2.endTime" aria-label="endTime"></md-input-container></td>
 
                                         <!-- <td><md-input-container><input type="time"></md-input-container></td> -->
                                       </tr>
