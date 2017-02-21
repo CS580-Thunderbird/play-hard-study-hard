@@ -111,9 +111,27 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 	}
 
 	/*Work on post for user settings*/
+	
 	$scope.classId = '';
 
-
+    $scope.classList = {
+        classes:[],
+    };
+    
+    $scope.addClass = function() {
+        $scope.classId = document.getElementById('ajax').value.split(" -")[0];
+        console.log($scope.classId);
+        
+        $scope.classList.classes.push($scope.classId);
+        
+        $http.get("setting/add_class?code=" + $scope.classId)
+            .then(function(data) {
+                console.log("Class added");
+            },
+            function(data) {
+                console.log("ERROR GETTING - addClass");
+            });
+    }
 
 	/* Search box suggestion for adding class */
 	// Get the <datalist> and <input> elements.

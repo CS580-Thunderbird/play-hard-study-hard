@@ -152,7 +152,7 @@ public class WebController {
     
     @RequestMapping(value = "/setting/add_class", method = RequestMethod.GET)
     void addClassToUserSetting(@RequestParam("code") String code){
-    	System.out.println("Class code" + code);
+    	System.out.println("Class code " + code);
     }
     
     @RequestMapping(value = "/setting/add_org", method = RequestMethod.GET)
