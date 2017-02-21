@@ -6,11 +6,7 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 	$scope.usrDialog = {
 		sName2: "",
 
-		eventPref2: {
-			fitness: false,
-			asi: false,
-			international: false,
-		},
+		eventPref2: {},
 
 		sTime2: {
 			myDate: new Date(),
@@ -35,8 +31,6 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 			controller: DigitalController2,
 			templateUrl: 'userSetting.html',
 			parent: angular.element(document.body),
-			scope: $scope,
-			preserveScope: true,
 			targetEvent: ev,
 			clickOutsideToClose:true,
 			locals: {
@@ -52,10 +46,11 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 				$scope.momentStartTime = moment($scope.usrDialog.sTime2.startTime.toISOString()).format('hh:mm:ss a');
 				$scope.momentEndTime = moment($scope.usrDialog.sTime2.endTime.toISOString()).format('hh:mm:ss a');
 
-				$scope.usrDialog.days2 = this.usrDialog.days2;
-				for(var i = 0; i < $scope.usrDialog.days2.length; i++){
-					$scope.usrDialog.days2[i].ck = false;
-				}
+				// $scope.usrDialog.days2 = this.usrDialog.days2;
+				// for(var i = 0; i < $scope.usrDialog.days2.length; i++){
+				// 	$scope.usrDialog.days2[i].ck = false;
+				// }
+
 				$mdDialog.hide();
 			}
 
@@ -89,6 +84,14 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 					$scope.addorg.preferSet.splice($scope.addorg.preferSet.indexOf("3"),1);
 				}
 				console.log($scope.addorg.preferSet);
+
+				$http.post('setting/add_org', $scope.addorg).
+				then(function(data) {
+					console.log("Event Filter posted")
+				},
+				function(data){
+					console.log("ERROR POSTING");
+				});
 			}
 		}
 	};

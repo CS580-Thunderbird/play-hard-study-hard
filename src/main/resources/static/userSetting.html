@@ -35,7 +35,6 @@
                               </md-button>
                             </form>
 
-                            <pre> {{ addorg | json }}</pre>
                             </br></br>
 
                             <md-input-container >
@@ -96,16 +95,15 @@
 
                                     {{ momentDate }}
 
-                                    Repeat On:
-                                    <br>
+                                    Repeat On:<br>
                                     <table>
                                         <tr >
                                             <td ng-repeat="day in usrDialog.days2">{{day.name}} <md-checkbox md-no-ink aria-label="Checkbox No Ink" class=" md-primary" ng-checked="day.ck" ng-click="day.ck = !day.ck"></md-checkbox></td>
                                         </tr>
                                     </table>
-                                    <div>
+                                    <!-- <div>
                                       {{ usrDialog.days2 }}
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <br>
                                 <div>
@@ -115,8 +113,6 @@
                                     </md-button>
                                 </div>
                         </md-content>
-
-
                      </md-tab>
                 </md-tabs>
 
