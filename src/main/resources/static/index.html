@@ -57,40 +57,43 @@
 
 <body ng-app="myApp" ng-controller="mainController">
 
-    <md-toolbar class="md-warn" color="primary">
-        <div class="md-toolbar-tools" ng-controller="userInfo">
-            <span class="ico"></span>
-            <h2> Welcome {{ getUser.name }}</h2>
-            <span flex></span>
-            <div class="dropdown" layout="row" layout-wrap="" layout-margin="" layout-align="right" ng-controller="userInfo">
-                <img src="assets/images/userSettings.png" ng-click="showTabDialog($event)" class="menuBtn">
-                <md-menu>
-                    <img src="{{ getUser.picture }}" class="img-circle" ng-click="$mdOpenMenu()">
-                    <md-menu-content>
-
-                        <md-button ng-click="logout()">
-                            Log Out
-                        </md-button>
-
-                    </md-menu-content>
-                </md-menu>
-            </div>
-        </div>
-    </md-toolbar>
-
-    <!-- Calendar -->
-    <md-content layout-padding>
-
-    <!-- <td><md-input-container><input type="time"></md-input-container></td> -->
-        <div ng-controller="CalendarCtrl as vm" class="mainCalendar">
-            <h1 class="text-center">{{ vm.viewTitle }}</h1>
-            <ng-include src="'calendarControls.html'"></ng-include>
-            <mwl-calendar events="vm.events" view="vm.calendarView" view-title="vm.viewTitle" view-date="vm.viewDate">
-            </mwl-calendar>
-        </div>
-
-    </md-content>
-
+	<div class="container-fluid">
+	    <md-toolbar class="row md-warn" color="primary">
+	        <div class="md-toolbar-tools" ng-controller="userInfo">
+	            <span class="ico"></span>
+	            <h2> Welcome {{ getUser.name }}</h2>
+	            <span flex></span>
+	            <div class="dropdown" layout="row" layout-wrap="" layout-margin="" layout-align="right" ng-controller="userInfo">
+	                <img src="assets/images/userSettings.png" ng-click="showTabDialog($event)" class="menuBtn">
+	                <md-menu>
+	                    <img src="{{ getUser.picture }}" class="img-circle" ng-click="$mdOpenMenu()">
+	                    <md-menu-content>
+	
+	                        <md-button ng-click="logout()">
+	                            Log Out
+	                        </md-button>
+	
+	                    </md-menu-content>
+	                </md-menu>
+	            </div>
+	        </div>
+	    </md-toolbar>
+	
+	    <!-- Calendar -->
+	    <md-content class="row" layout-padding>
+	
+			<div class="col-md-2"></div>
+	    	<!-- <td><md-input-container><input type="time"></md-input-container></td> -->
+	        <div ng-controller="CalendarCtrl as vm" class="col-md-8 mainCalendar">
+	            <h1 class="text-center">{{ vm.viewTitle }}</h1>
+	            <ng-include src="'calendarControls.html'"></ng-include>
+	            <mwl-calendar events="vm.events" view="vm.calendarView" view-title="vm.viewTitle" view-date="vm.viewDate">
+	            </mwl-calendar>
+	        </div>
+	        <div class="col-md-1"></div>
+	
+	    </md-content>
+	</div>
 </body>
 
 </html>
