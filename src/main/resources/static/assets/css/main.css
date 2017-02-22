@@ -9,7 +9,7 @@
         max-width: 25px;
         height: auto;
     }
-    
+
     md-toolbar.md-default-theme.md-warn:not(.md-menu-toolbar), md-toolbar.md-warn:not(.md-menu-toolbar) {
         background-color:#677D01;
     }
@@ -34,35 +34,35 @@
       border-radius: 3px;
       border: 1px solid #ddd;
     }
-    
+
     md-checkbox.md-primary.md-checked:not([disabled]) .md-icon {
         background-color: #677D01;
     }
-    
+
     .md-button {
         border: 1px solid #ddd;
         color: #677D01
     }
-    
+
     md-button.btn.btn-primary {
         color: #fff;
         background-color: #677D01;
         border-color: #677D01;
     }
-    
+
     .md-button:not([disabled]):hover {
         background-color: #e6e6e6;
         border-color: #ccc;
         color: #333;
         transition: 0.0s;
     }
-    
+
     button.btn.btn-primary {
         color: #fff;
         background-color: #677D01;
         border-color: #677D01;
     }
-    
+
     label.btn.btn-primary {
         color: #fff;
         background-color: #677D01;

@@ -2,7 +2,6 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 	$scope.status = ' ';
 	$scope.customeFullscreen = false;
 	$scope.eventPref = {};
-
 	$scope.usrDialog = {
 		sName2: "",
 
@@ -86,8 +85,9 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 				console.log($scope.addorg.preferSet);
 
 				$http.post('setting/add_org', $scope.addorg).
-				then(function(data) {
-					console.log("Event Filter posted")
+				then(function(response) {
+					$scope.postedOrg = response.config.data
+					console.log("Event Filter posted" + response.config.data)
 				},
 				function(data){
 					console.log("ERROR POSTING");
@@ -111,19 +111,19 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 	}
 
 	/*Work on post for user settings*/
-	
+
 	$scope.classId = '';
 
     $scope.classList = {
         classes:[],
     };
-    
+
     $scope.addClass = function() {
         $scope.classId = document.getElementById('ajax').value.split(" -")[0];
         console.log($scope.classId);
-        
+
         $scope.classList.classes.push($scope.classId);
-        
+
         $http.get("setting/add_class?code=" + $scope.classId)
             .then(function(data) {
                 console.log("Class added");

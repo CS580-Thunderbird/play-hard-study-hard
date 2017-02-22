@@ -5,9 +5,17 @@ app.controller('CalendarCtrl', function($scope, moment, calendarConfig, calendar
     vm.events = [{
       title: 'An event',
       color: calendarConfig.colorTypes.warning,
-      startsAt: moment().startOf('week').subtract(2, 'days').add(8, 'hours').toDate(),
-      endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
-    }];
+      startsAt: moment().startOf('week').add(8, 'hours').toDate(),
+      endsAt: moment().startOf('week').add(9, 'hours').toDate(),
+    },
+    {
+      title: 'Test Event',
+      color: calendarConfig.colorTypes.warning,
+      startsAt: moment().format('llll'),
+      endsAt: moment().add(1, 'hours').format('llll'),
+    }
+    ];
+
     vm.calendarView = 'month';
     vm.viewDate = moment().startOf('month').toDate();
 
