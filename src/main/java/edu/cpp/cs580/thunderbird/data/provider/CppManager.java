@@ -64,6 +64,7 @@ public class CppManager {
 		
 		PrintWriter out = new PrintWriter(cppClassesJSON);
 		out.print("[" + json.toString() +"]");
+		out.close();
 		
 		return json.toString();
 	}
