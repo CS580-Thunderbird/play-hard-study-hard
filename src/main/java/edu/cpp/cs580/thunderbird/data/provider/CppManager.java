@@ -1,6 +1,8 @@
 package edu.cpp.cs580.thunderbird.data.provider;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 
 import edu.cpp.cs580.thunderbird.data.CppClassRepo;
 import edu.cpp.cs580.thunderbird.data.CppClassSchedule;
+import edu.cpp.cs580.thunderbird.utils.ResourceResolver;
 
 public class CppManager {
 	@Autowired CppClassRepo cppRepo;
@@ -28,6 +31,10 @@ public class CppManager {
 	}
 	
 	public String listJSonClasses() throws IOException{
+		
+		File cppClassesJSON = ResourceResolver.getClassJson();
+		
+		
 		StringWriter json = new StringWriter();
 		JsonGenerator jsonGenerator = new JsonFactory().createGenerator(json);
 		jsonGenerator.setPrettyPrinter(new DefaultPrettyPrinter());
@@ -54,6 +61,10 @@ public class CppManager {
 		
 		jsonGenerator.flush();
 		jsonGenerator.close();
+		
+		PrintWriter out = new PrintWriter(cppClassesJSON);
+		out.print("[" + json.toString() +"]");
+		
 		return json.toString();
 	}
 	

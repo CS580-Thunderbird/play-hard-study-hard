@@ -248,7 +248,7 @@ public class WebController {
         try {
             GetCppClasses cppClsss = new GetCppClasses(cppManager);
         } catch (IOException e) {
-            System.out.println("Error -- getCppClsses");
+            System.out.println("Error -- getCppClsses"+ e);
         }
 
         return "complete";
@@ -282,8 +282,11 @@ public class WebController {
     }
     
     @RequestMapping(value = "/setting/add_org", method = RequestMethod.POST, consumes = "application/json")
+   // @RequestMapping(value = "/setting/add_org", method = RequestMethod.POST)
     @ResponseBody
-    boolean addPreferenceOrganizer(@RequestBody UserOrganizerSettingList list){
+    boolean addPreferenceOrganizer(@RequestBody UserOrganizerSettingList lists){
+    //boolean addPreferenceOrganizer(@RequestBody List<String> lists){
+    	System.out.println("String :");
     	System.out.println("complete ");
     	return true;
     }

@@ -18,6 +18,7 @@ import org.jsoup.select.Elements;
 import edu.cpp.cs580.thunderbird.data.CppClassSchedule;
 import edu.cpp.cs580.thunderbird.data.TimeObj;
 import edu.cpp.cs580.thunderbird.data.provider.CppManager;
+import edu.cpp.cs580.thunderbird.utils.ResourceResolver;
 
 
 /**

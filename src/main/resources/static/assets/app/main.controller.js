@@ -165,7 +165,7 @@ app.controller("mainController", function($scope, $http, $mdDialog){
       }
     };
     // Set up and make the request.
-    // request.open('GET', 'data/sampleCppClasses.json', true);
-    request.open('GET', 'http://localhost:8080/data/classes', true);
+    request.open('GET', 'data/class-cpp.json', true);
+    //request.open('GET', 'http://localhost:8080/data/classes', true);
     request.send();
 });
