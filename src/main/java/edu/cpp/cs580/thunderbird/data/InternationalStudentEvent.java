@@ -1,6 +1,7 @@
 package edu.cpp.cs580.thunderbird.data;
 
 public class InternationalStudentEvent implements EventObject {
+		String id;
 		String title;
 		String link;
 		String details;
@@ -9,7 +10,8 @@ public class InternationalStudentEvent implements EventObject {
 		
 		public InternationalStudentEvent(){}
 		
-		public InternationalStudentEvent(String title, String link,TimeObj timeObj, String location){
+		public InternationalStudentEvent(String id, String title, String link,TimeObj timeObj, String location){
+			this.id = id;
 			this.title = title;
 			this.link = link;
 			this.timeObj = timeObj;
@@ -74,5 +76,17 @@ public class InternationalStudentEvent implements EventObject {
 		public String getLink() {
 			// TODO Auto-generated method stub
 			return link;
+		}
+
+		@Override
+		public void setID(String id) {
+			this.id = id;
+			
+		}
+
+		@Override
+		public String getID() {
+			// TODO Auto-generated method stub
+			return id;
 		}
 }
