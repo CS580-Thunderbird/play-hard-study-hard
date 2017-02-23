@@ -48,16 +48,16 @@
                             <md-button class="md-primary md-raised" ng-click="addClass()">
                                Add Class
                             </md-button>
-                            
+
                             <br>
                             <label>Current Classes</label>
-                            
+
                             <form style="max-width:400px;max-height:810px;">
                               <md-checkbox ng-repeat="x in classList.classes">
                                   {{x}}
                               </md-checkbox>
                             </form>
-                            
+
                             <br><br>
 
             <!--             <md-button ng-click="answer('Save')" style="margin-right:20px;" >
@@ -72,7 +72,7 @@
                         <md-content class="md-padding">
                             <h4 class="md-display-1">Additional Input</h4>
 
-                            <md-input-container flex>
+                            <md-input-container class="md-block">
                                 <label>Title</label>
                                 <input type="text" ng-model="usrDialog.sName2">
                             </md-input-container>
@@ -80,39 +80,20 @@
                                <!-- <span class="md-padding"></span>
                                     <md-datepicker ng-model="usrDialog.sTime2.myDate" md-placeholder="Enter date"></md-datepicker> -->
 
-                                    <table>
-                                      <tr>
-                                        <!-- <td>Start: </td> -->
-                                        <td>
                                           <md-input-container>
                                             <label>Start</label>
                                             <input type="datetime-local" ng-model="usrDialog.sTime2.startTime" aria-label="startTime">
                                           </md-input-container>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <!-- <td>End: </td> -->
-                                        <td>
                                           <md-input-container>
                                             <label>End</label>
                                             <input type="datetime-local" ng-model="usrDialog.sTime2.endTime" aria-label="endTime">
                                           </md-input-container>
-                                        </td>
 
                                         <!-- <td><md-input-container><input type="time"></md-input-container></td> -->
-                                      </tr>
-                                    </table>
                                     <div>
                                     <!-- <md-checkbox ng-checked="sRepeat" ng-click="sRepeat = !sRepeat">
                                         Repeat
                                     </md-checkbox> -->
-
-                                    {{ momentStartTime }} <br>
-
-                                    {{ momentEndTime }} <br>
-
-                                    {{ momentDate }} <br>
-
                                     Repeat On:<br>
                                     <table>
                                         <tr >

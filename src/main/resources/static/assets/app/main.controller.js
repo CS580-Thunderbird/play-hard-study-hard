@@ -54,8 +54,9 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 				// for(var i = 0; i < $scope.usrDialog.days2.length; i++){
 				// 	$scope.usrDialog.days2[i].ck = false;
 				// }
+				console.log($scope.momentStartTime + "\n" + $scope.momentEndTime);
+				$mdDialog.hide();
 
-				// $mdDialog.hide();
 			}
 
 			$scope.addorg = {
