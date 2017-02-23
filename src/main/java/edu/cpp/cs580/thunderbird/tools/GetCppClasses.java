@@ -33,7 +33,7 @@ public class GetCppClasses {
 		
 		public GetCppClasses(CppManager cppManager) throws Exception{	
 			this.cppManager = cppManager; //Autowired not work, need to recheck
-			//classManager.deleteAllData();
+			cppManager.deleteAllClasses();
 			parseClasses();
 		}
 		

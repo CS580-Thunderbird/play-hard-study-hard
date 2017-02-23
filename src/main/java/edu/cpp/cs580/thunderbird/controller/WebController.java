@@ -247,6 +247,7 @@ public class WebController {
     String getCppClassesSchedule() throws Exception{
         try {
             GetCppClasses cppClsss = new GetCppClasses(cppManager);
+            cppManager.listJSonClasses();
         } catch (IOException e) {
             System.out.println("Error -- getCppClsses"+ e);
         }
@@ -286,7 +287,7 @@ public class WebController {
     @ResponseBody
     boolean addPreferenceOrganizer(@RequestBody UserOrganizerSettingList lists){
     //boolean addPreferenceOrganizer(@RequestBody List<String> lists){
-    	System.out.println("String :");
+    	System.out.println("Log");
     	System.out.println("complete ");
     	return true;
     }

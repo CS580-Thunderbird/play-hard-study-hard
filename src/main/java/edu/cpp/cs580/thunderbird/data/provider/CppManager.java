@@ -1,6 +1,7 @@
 package edu.cpp.cs580.thunderbird.data.provider;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -30,9 +31,12 @@ public class CppManager {
 		}
 	}
 	
+	public void deleteAllClasses(){
+		cppRepo.deleteAll();
+	}
+	
 	public String listJSonClasses() throws IOException{
 		
-		File cppClassesJSON = ResourceResolver.getClassJson();
 		
 		
 		StringWriter json = new StringWriter();
@@ -62,7 +66,7 @@ public class CppManager {
 		jsonGenerator.flush();
 		jsonGenerator.close();
 		
-		PrintWriter out = new PrintWriter(cppClassesJSON);
+		PrintWriter out = new PrintWriter(new FileOutputStream(ResourceResolver.getClassJson().getPath(), false));
 		out.print("[" + json.toString() +"]");
 		out.close();
 		
