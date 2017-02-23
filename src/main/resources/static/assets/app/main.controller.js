@@ -2,15 +2,15 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 	$scope.status = ' ';
 	$scope.customeFullscreen = false;
 	$scope.eventPref = {};
+
 	$scope.usrDialog = {
 		sName2: "",
 
 		eventPref2: {},
 
 		sTime2: {
-			myDate: new Date(),
 			startTime: moment().seconds(0).milliseconds(0).toDate(),
-			endTime: moment().seconds(0).milliseconds(0).toDate()
+			endTime: moment().seconds(0).milliseconds(0).toDate(),
 		},
 
 		days2: [
@@ -23,7 +23,6 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 			{name:"Su", ck:false}
 		]
 	};
-
 
 	$scope.showTabDialog = function(ev) {
 		$mdDialog.show({
@@ -41,16 +40,15 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 
 			$scope.addBtn = function(){
 
-				$scope.momentDate = moment($scope.usrDialog.sTime2.myDate.toISOString()).format('MM/DD/YYYY');
-				$scope.momentStartTime = moment($scope.usrDialog.sTime2.startTime.toISOString()).format('hh:mm:ss a');
-				$scope.momentEndTime = moment($scope.usrDialog.sTime2.endTime.toISOString()).format('hh:mm:ss a');
+				$scope.momentStartTime = moment(this.usrDialog.sTime2.startTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
+				$scope.momentEndTime = moment(this.usrDialog.sTime2.endTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
 
 				// $scope.usrDialog.days2 = this.usrDialog.days2;
 				// for(var i = 0; i < $scope.usrDialog.days2.length; i++){
 				// 	$scope.usrDialog.days2[i].ck = false;
 				// }
 
-				$mdDialog.hide();
+				// $mdDialog.hide();
 			}
 
 			$scope.addorg = {

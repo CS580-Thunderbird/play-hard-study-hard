@@ -11,8 +11,8 @@ app.controller('CalendarCtrl', function($scope, moment, calendarConfig, calendar
     {
       title: 'Test Event',
       color: calendarConfig.colorTypes.warning,
-      startsAt: moment().format('llll'),
-      endsAt: moment().add(1, 'hours').format('llll'),
+      startsAt: moment(),
+      endsAt: moment().add(3, 'hours'),
     }
     ];
 
