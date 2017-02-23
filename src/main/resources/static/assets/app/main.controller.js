@@ -123,6 +123,7 @@ app.controller("mainController", function($scope, $http, $mdDialog){
         console.log($scope.classId);
 
         $scope.classList.classes.push($scope.classId);
+        document.getElementById('ajax').value = "";
 
         $http.get("setting/add_class?code=" + $scope.classId)
             .then(function(data) {
