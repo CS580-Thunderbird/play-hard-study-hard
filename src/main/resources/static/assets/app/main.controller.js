@@ -90,6 +90,18 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 				}
 				console.log($scope.addorg.preferSet);
 
+				/* $http.post('/setting/add_org', $scope.addorg)
+		            .success(function (data, status, headers, config) {
+		                $scope.PostDataResponse = data;
+		            })
+		            .error(function (data, status, header, config) {
+		                $scope.ResponseDetails = "Data: " + data +
+		                    "<hr />status: " + status +
+		                    "<hr />headers: " + header +
+		                    "<hr />config: " + config;
+		            });
+*/
+				
 				$http.post('setting/add_org', $scope.addorg).
 				then(function(response) {
 					$scope.postedOrg = response.config.data

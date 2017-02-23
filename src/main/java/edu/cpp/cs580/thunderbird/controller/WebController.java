@@ -285,9 +285,9 @@ public class WebController {
     @RequestMapping(value = "/setting/add_org", method = RequestMethod.POST, consumes = "application/json")
    // @RequestMapping(value = "/setting/add_org", method = RequestMethod.POST)
     @ResponseBody
-    boolean addPreferenceOrganizer(@RequestBody UserOrganizerSettingList lists){
+    boolean addPreferenceOrganizer(@RequestBody UserOrganizerSettingList preferSet){
     //boolean addPreferenceOrganizer(@RequestBody List<String> lists){
-    	System.out.println("Log");
+
     	System.out.println("complete ");
     	return true;
     }
