@@ -48,7 +48,16 @@
                             <md-button class="md-primary md-raised" ng-click="addClass()">
                                Add Class
                             </md-button>
-
+                            
+                            <br>
+                            <label>Current Classes</label>
+                            
+                            <form style="max-width:400px;max-height:810px;">
+                              <md-checkbox ng-repeat="x in classList.classes">
+                                  {{x}}
+                              </md-checkbox>
+                            </form>
+                            
                             <br><br>
 
             <!--             <md-button ng-click="answer('Save')" style="margin-right:20px;" >

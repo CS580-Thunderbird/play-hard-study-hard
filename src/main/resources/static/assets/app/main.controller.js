@@ -120,8 +120,7 @@ app.controller("mainController", function($scope, $http, $mdDialog){
         $scope.classId = document.getElementById('ajax').value.split(" -")[0];
         console.log($scope.classId);
 
-        $scope.classList.classes.push($scope.classId);
-        document.getElementById('ajax').value = "";
+        $scope.classList.classes.push(document.getElementById('ajax').value);
 
         $http.get("setting/add_class?code=" + $scope.classId)
             .then(function(data) {
@@ -129,7 +128,9 @@ app.controller("mainController", function($scope, $http, $mdDialog){
             },
             function(data) {
                 console.log("ERROR GETTING - addClass");
-            });
+        }); 
+        
+        document.getElementById('ajax').value = "";
     }
 
 	/* Search box suggestion for adding class */
