@@ -83,7 +83,7 @@ public class GoogleUserManager implements UserManager{
 			try{
 			if(rootNode.path("id").asText().equals(user.getId())) return;
 			}catch(NullPointerException e){
-				System.out.println("There are no userId in ther records");
+				System.out.println("There are no userId in the records");
 			}
 				
 			user = new GoogleUser(rootNode.path("id").asText(), 

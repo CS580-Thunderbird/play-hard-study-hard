@@ -16,13 +16,15 @@ public class CppClassSchedule {
 	private TimeObj classTime;
 	private String instructor;
 	private String location; 
+	private String classNbr;
 	
-	public CppClassSchedule(String code, String description, TimeObj classTime, String instructor, String location){
+	public CppClassSchedule(String code, String description, TimeObj classTime, String instructor, String location, String classNbr){
 		this.code = code;
 		this.description = description;
 		this.classTime = classTime;
 		this.instructor = instructor; 
 		this.location = location;
+		this.classNbr = classNbr;
 	}
 	
 	public void setCode(String code){
@@ -59,6 +61,14 @@ public class CppClassSchedule {
 	
 	public String getLocation(){
 		return location;
+	}
+	
+	public void setClassNbr(String classNbr){
+		this.classNbr = classNbr;
+	}
+	
+	public String getClassNbr(){
+		return classNbr;
 	}
 
 }

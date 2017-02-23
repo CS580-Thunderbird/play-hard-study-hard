@@ -123,14 +123,15 @@ public class GetCppClasses {
 			for(Element className:classes){
 				TimeObj timeObj = new TimeObj();
 				
-				String classCode = "", description = "", time ="", location = "", datePeriod = "", instructor = "", building = "", room = "";
+				String classCode = "", description = "", time ="", location = "", datePeriod = "", instructor = "", building = "", room = "", classNbr = "";
 				
 				Element table = tables.get(index);
 				Elements rows = table.select("td");
 			
 				//System.out.println("ROWS: " + rows);
 				
-				classCode = className.text();				
+				classCode = className.text();		
+				classNbr = rows.get(0).text();
 				description = rows.get(2).text();
 				
 				time = rows.get(4).text();
@@ -179,7 +180,7 @@ public class GetCppClasses {
 			
 				instructor = rows.get(8).text();
 				
-				CppClassSchedule newClass = new CppClassSchedule(classCode, description, timeObj, instructor, location);
+				CppClassSchedule newClass = new CppClassSchedule(classCode, description, timeObj, instructor, location, classNbr);
 				cppManager.saveNewClass(newClass);
 
 				index++;

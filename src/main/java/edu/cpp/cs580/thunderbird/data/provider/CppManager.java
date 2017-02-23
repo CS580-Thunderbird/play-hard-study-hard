@@ -51,6 +51,8 @@ public class CppManager {
 			
 			jsonGenerator.writeStartObject();
 			jsonGenerator.writeStringField("code", cpp.getCode());
+			jsonGenerator.writeStringField("class_nbr", cpp.getClassNbr());
+			jsonGenerator.writeStringField("instructor", cpp.getInstructor());
 			jsonGenerator.writeStringField("description", cpp.getDescription());
 			jsonGenerator.writeStringField("start_date", cpp.getClassTime().getStartDate().toString());
 			jsonGenerator.writeStringField("end_date", cpp.getClassTime().getEndDate().toString());

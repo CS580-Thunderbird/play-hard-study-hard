@@ -20,8 +20,9 @@ public class CppClassScheduleTest {
 		TimeObj classTime = new TimeObj();
 		String instructor = "Yu Sun";
 		String location = "Building 9";
+		String classNbr = "11734";
 		
-		schedule = new CppClassSchedule(classCode, classDesc, classTime, instructor, location);
+		schedule = new CppClassSchedule(classCode, classDesc, classTime, instructor, location, classNbr);
 	}
 	
 	@Test
