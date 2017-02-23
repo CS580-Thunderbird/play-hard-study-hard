@@ -2,6 +2,13 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 	$scope.status = ' ';
 	$scope.customeFullscreen = false;
 	$scope.eventPref = {};
+	
+	/* Need to link checked status */
+    $scope.orgList = [
+        {org: "FITNESS CLASSES", ck: false},
+        {org: "ASI EVENTS", ck: false},
+        {org: "INTERNATIONAL STUDENT CLUBS", ck: false}
+    ];
 
 	$scope.usrDialog = {
 		sName2: "",
