@@ -182,7 +182,7 @@ app.controller("mainController", function($scope, $http, $mdDialog){
             // Create a new <option> element.
             var option = document.createElement('option');
             // Set the value using the item in the JSON array.
-            option.value = item.code + " - " + item.description;
+            option.value = item.code + " - " + item.instructor + ": " + item.description;
             // Add the <option> element to the <datalist>.
             dataList.appendChild(option);
           });
