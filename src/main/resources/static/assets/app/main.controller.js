@@ -2,7 +2,7 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 	$scope.status = ' ';
 	$scope.customeFullscreen = false;
 	$scope.eventPref = {};
-	
+
 	/* Need to link checked status */
     $scope.orgList = [
         {org: "FITNESS CLASSES", ck: false},
@@ -65,9 +65,7 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 			$scope.eventFilter = function() {
 
 				$scope.usrDialog.eventPref2 = this.usrDialog.eventPref2;
-				// $scope.usrDialog.eventPref2 = usrDialog.eventPref2;
-				// $http.post("user/add_org?id=" + $scope.usrDialog.eventPref2.fitness);
-				console.log("Event Filter Button Pressed");
+
 				if($scope.usrDialog.eventPref2.fitness && !$scope.addorg.preferSet.includes("1")){
 					$scope.addorg.preferSet.push("1");
 				}
@@ -88,7 +86,6 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 				if (!$scope.usrDialog.eventPref2.international && $scope.addorg.preferSet.includes("3")) {
 					$scope.addorg.preferSet.splice($scope.addorg.preferSet.indexOf("3"),1);
 				}
-				console.log($scope.addorg.preferSet);
 
 				/* $http.post('/setting/add_org', $scope.addorg)
 		            .success(function (data, status, headers, config) {
@@ -101,11 +98,10 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 		                    "<hr />config: " + config;
 		            });
 */
-				
+
 				$http.post('setting/add_org', $scope.addorg).
 				then(function(response) {
-					$scope.postedOrg = response.config.data
-					console.log("Event Filter posted" + response.config.data)
+					console.log("Event Filter posted")
 				},
 				function(data){
 					console.log("ERROR POSTING");
@@ -148,8 +144,8 @@ app.controller("mainController", function($scope, $http, $mdDialog){
             },
             function(data) {
                 console.log("ERROR GETTING - addClass");
-        }); 
-        
+        });
+
         document.getElementById('ajax').value = "";
     }
 
