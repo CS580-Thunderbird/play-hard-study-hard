@@ -18,7 +18,7 @@ import edu.cpp.cs580.thunderbird.data.UserRepository;
  */
 public class GoogleUserManager implements UserManager{
 
-//	@Autowired private UserRepository googleRepo; //database, may need to modify later
+	@Autowired private UserRepository googleRepo; //database, may need to modify later
 //	@Autowired UserPreferenceSettingManager userPreference;
 	
 	private GoogleUser user;
@@ -40,6 +40,8 @@ public class GoogleUserManager implements UserManager{
 	public String getUserName(){
 		return user.getName();
 	}
+	
+	
 
 	@Override
 	public void logOut(String userID) {
@@ -70,8 +72,7 @@ public class GoogleUserManager implements UserManager{
 	 */
 	@Override
 	public void updateUser(String json) {
-		System.out.println("Test -- Update User");
-
+		
 		this.jsonUser = json;
 		byte[] jsonData =json.getBytes();
 		ObjectMapper objMapper = new ObjectMapper();
@@ -91,8 +92,8 @@ public class GoogleUserManager implements UserManager{
 								rootNode.path("name").asText(),
 								rootNode.path("picture").asText());
 			
-			/*if(googleRepo.getUserByEmail(user.getEmail()) == null)
-				addNewUser(user);*/
+			if(googleRepo.getUserByEmail(user.getEmail()) == null)
+				addNewUser(user);
 
 			
 		} catch (JsonProcessingException e) {
@@ -128,10 +129,10 @@ public class GoogleUserManager implements UserManager{
 		System.out.println("Read All Users ");
 		StringBuilder string = new StringBuilder();
 		
-	/*	for(GoogleUser userGoogle: googleRepo.findAll()){
+		for(GoogleUser userGoogle: googleRepo.findAll()){
 			string.append(userGoogle.getEmail());
 		}
-		*/
+		
 		return string.toString();
 	}
 	
@@ -154,8 +155,15 @@ public class GoogleUserManager implements UserManager{
 
 	@Override
 	public void addNewUser(GoogleUser user) {
-		// TODO Auto-generated method stub
+		googleRepo.save(user);
 		
+	}
+
+	@Override
+	public String getUserEmail() {
+		// TODO Auto-generated method stub
+		System.out.println("User email: " + user.getEmail());
+		return user.getEmail();
 	}
 	
 }

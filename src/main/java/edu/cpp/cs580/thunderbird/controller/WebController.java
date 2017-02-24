@@ -29,9 +29,11 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.cpp.cs580.thunderbird.EventManagers;
 import edu.cpp.cs580.thunderbird.data.EventOrganizer;
 import edu.cpp.cs580.thunderbird.data.UserOrganizerSettingList;
+import edu.cpp.cs580.thunderbird.data.UserSetting;
 import edu.cpp.cs580.thunderbird.data.provider.CppManager;
 import edu.cpp.cs580.thunderbird.data.provider.EventOrganizerManager;
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
+import edu.cpp.cs580.thunderbird.data.provider.UserSettingManager;
 import edu.cpp.cs580.thunderbird.tools.GetCppClasses;
 import edu.cpp.cs580.thunderbird.tools.GoogleOAuth;
 
@@ -42,6 +44,7 @@ public class WebController {
 	@Autowired CppManager cppManager;
 	@Autowired EventOrganizerManager orgManager;
 	@Autowired EventManagers eventManager;
+	@Autowired UserSettingManager userSettingManager;
 	//@Autowired UserPreferenceSettingManager userPreference;
 
     GoogleOAuth OAuth; // May come up with better method
@@ -168,6 +171,12 @@ public class WebController {
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     ModelAndView getHome(@RequestParam("code") String code) throws IOException{	
     	userManager.updateUser(OAuth.getUserInfoJson(code));
+    	if(userSettingManager.isNewUser(userManager.getUserId())){
+    		UserSetting user = new UserSetting();
+    		user.setUserID(userManager.getUserId());
+    		userSettingManager.saveNewUser(user);
+    		System.out.println("Save new user into database id:" + user.getUserID());
+    	}
     	//ModelAndView modelAndView = new ModelAndView("index.html");
     	ModelAndView modelAndView = new ModelAndView("redirect:/calendar");
         return modelAndView;
@@ -257,7 +266,17 @@ public class WebController {
     
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     ModelAndView getAdminPage(){
-    	ModelAndView modelAndView = new ModelAndView("adminPage.html");
+    	ModelAndView modelAndView;
+	
+    	try{
+    	if(userManager.getUserEmail().compareTo("nan2iz.ch@gmail.com") == 0)
+    		modelAndView = new ModelAndView("adminPage.html");
+    	else 
+    		modelAndView = new ModelAndView("page_not_found.html");
+    	}catch (NullPointerException e){
+    		System.out.println("null");
+    		modelAndView = new ModelAndView("page_not_found.html");
+    	}
 		return modelAndView;
     }
     

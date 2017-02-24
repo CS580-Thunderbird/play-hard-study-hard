@@ -11,6 +11,7 @@ import edu.cpp.cs580.thunderbird.data.provider.GoogleUserManager;
 import edu.cpp.cs580.thunderbird.data.provider.InternationalStudentEventManager;
 import edu.cpp.cs580.thunderbird.data.provider.UserManager;
 import edu.cpp.cs580.thunderbird.data.provider.UserPreferenceSettingManager;
+import edu.cpp.cs580.thunderbird.data.provider.UserSettingManager;
 
 @SpringBootApplication
 public class MyApp {
@@ -45,6 +46,12 @@ public class MyApp {
 	public UserPreferenceSettingManager userPreferenceManager(){
 		UserPreferenceSettingManager userPreferenceManager = new UserPreferenceSettingManager();
 		return userPreferenceManager;
+	}
+	
+	@Bean
+	public UserSettingManager getUserSettingManager(){
+		UserSettingManager userSettingManager = new UserSettingManager();
+		return userSettingManager;
 	}
 
 	

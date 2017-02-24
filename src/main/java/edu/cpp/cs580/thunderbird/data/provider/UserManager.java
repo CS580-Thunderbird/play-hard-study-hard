@@ -11,6 +11,7 @@ public interface UserManager {
 	
 	public String getUserId();
 	public String getUserName();
+	public String getUserEmail();
 	public void logOut(String userID);
 	public void addClass(String userID);
 	public void addWorkTime(String userID);
