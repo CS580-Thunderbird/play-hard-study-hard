@@ -6,16 +6,18 @@
           <div class="btn-group">
             <!-- Need to link to user preferences -->
             <md-checkbox class="btn btn-default md-primary">Event Suggestions</md-checkbox>
-            
+
             <!-- Need to link to user preferences -->
             <button class="btn btn-primary md-primary dropdown-toggle" data-toggle="dropdown">
                   Event Filter <span class="caret"</span>
             </button>
-            <ul class="dropdown-menu" onclick="event.stopPropagation();">          
-                <md-checkbox class="md-primary" ng-repeat="name in orgList">
-                    {{name.org}}
-                </md-checkbox>    
-            </ul>   
+            <ul class="dropdown-menu" onclick="event.stopPropagation();">
+              <li ng-repeat="x in orgList">
+                <md-checkbox class="md-primary">
+                    {{x.org}}
+                </md-checkbox>
+              </li>
+            </ul>
           </div>
         </div>
 

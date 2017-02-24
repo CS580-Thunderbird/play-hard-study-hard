@@ -1,169 +1,200 @@
 app.controller("mainController", function($scope, $http, $mdDialog){
-	$scope.status = ' ';
-	$scope.customeFullscreen = false;
-	$scope.eventPref = {};
+  $scope.status = ' ';
+  $scope.customeFullscreen = false;
+  $scope.eventPref = {};
 
-	/* Need to link checked status */
-    $scope.orgList = [
-        {org: "FITNESS CLASSES", ck: false},
-        {org: "ASI EVENTS", ck: false},
-        {org: "INTERNATIONAL STUDENT CLUBS", ck: false}
-    ];
+  /* Need to link checked status */
+  $scope.orgList = [ {
+    org : "Fitness Classes",
+    prefCk : false,
+    filterCk : false
+  }, {
+    org : "ASI Events",
+    prefCk : false,
+    filterCk : false
+  }, {
+    org : "International Student Clubs",
+    prefCk : false,
+    filterCk : false
+  } ];
 
-	$scope.usrDialog = {
-		sName2: "",
+  $scope.usrDialog = {
+    sName2: "",
 
-		eventPref2: {},
+    eventPref2: {},
 
-		sTime2: {
-			startTime: moment().seconds(0).milliseconds(0).toDate(),
-			endTime: moment().seconds(0).milliseconds(0).toDate(),
-		},
+    sTime2: {
+      startTime: moment().seconds(0).milliseconds(0).toDate(),
+      endTime: moment().seconds(0).milliseconds(0).toDate(),
+    },
 
-		days2: [
-			{name:"Sa", ck:false},
-			{name:"M", ck:false},
-			{name:"Tu", ck:false},
-			{name:"W", ck:false},
-			{name:"Th", ck:false},
-			{name:"F", ck:false},
-			{name:"Su", ck:false}
-		]
-	};
+    days2: [
+      {name:"Sa", ck:false},
+      {name:"M", ck:false},
+      {name:"Tu", ck:false},
+      {name:"W", ck:false},
+      {name:"Th", ck:false},
+      {name:"F", ck:false},
+      {name:"Su", ck:false}
+    ]
+  };
 
-	$scope.showTabDialog = function(ev) {
-		$mdDialog.show({
-			controller: DigitalController2,
-			templateUrl: 'userSetting.html',
-			parent: angular.element(document.body),
-			targetEvent: ev,
-			clickOutsideToClose:true,
-			locals: {
-				usrDialog: $scope.usrDialog,
-			}
-		});
-		function DigitalController2($scope, $http, usrDialog){
-			$scope.usrDialog = usrDialog;
+  $scope.showTabDialog = function(ev) {
+    $mdDialog.show({
+      controller: DigitalController2,
+      templateUrl: 'userSetting.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true,
+      locals: {
+        usrDialog: $scope.usrDialog,
+      }
+    });
+    function DigitalController2($scope, $http, usrDialog){
+      $scope.usrDialog = usrDialog;
 
-			$scope.addBtn = function(){
+      $scope.addBtn = function(){
 
-				$scope.momentStartTime = moment(this.usrDialog.sTime2.startTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
-				$scope.momentEndTime = moment(this.usrDialog.sTime2.endTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
+        $scope.momentStartTime = moment(this.usrDialog.sTime2.startTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
+        $scope.momentEndTime = moment(this.usrDialog.sTime2.endTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
 
-				// $scope.usrDialog.days2 = this.usrDialog.days2;
-				// for(var i = 0; i < $scope.usrDialog.days2.length; i++){
-				// 	$scope.usrDialog.days2[i].ck = false;
-				// }
-				console.log($scope.momentStartTime + "\n" + $scope.momentEndTime);
-				$mdDialog.hide();
+        // $scope.usrDialog.days2 = this.usrDialog.days2;
+        // for(var i = 0; i < $scope.usrDialog.days2.length; i++){
+        // 	$scope.usrDialog.days2[i].ck = false;
+        // }
+        console.log($scope.momentStartTime + "\n" + $scope.momentEndTime);
+        $mdDialog.hide();
 
-			}
+      }
 
-			$scope.addorg = {
-				preferSet:[],
-			};
-			$scope.eventFilter = function() {
+      $scope.addorg = {
+        preferSet:[],
+      };
+      $scope.eventFilter = function() {
 
-				$scope.usrDialog.eventPref2 = this.usrDialog.eventPref2;
+        $scope.usrDialog.eventPref2 = this.usrDialog.eventPref2;
 
-				if($scope.usrDialog.eventPref2.fitness && !$scope.addorg.preferSet.includes("1")){
-					$scope.addorg.preferSet.push("1");
-				}
-				if (!$scope.usrDialog.eventPref2.fitness && $scope.addorg.preferSet.includes("1")) {
-					$scope.addorg.preferSet.splice($scope.addorg.preferSet.indexOf("1"),1);
-				}
+        if($scope.usrDialog.eventPref2.fitness && !$scope.addorg.preferSet.includes("1")){
+          $scope.addorg.preferSet.push("1");
+        }
+        if (!$scope.usrDialog.eventPref2.fitness && $scope.addorg.preferSet.includes("1")) {
+          $scope.addorg.preferSet.splice($scope.addorg.preferSet.indexOf("1"),1);
+        }
 
-				if($scope.usrDialog.eventPref2.asi && !$scope.addorg.preferSet.includes("2")){
-					$scope.addorg.preferSet.push("2");
-				}
-				if (!$scope.usrDialog.eventPref2.asi && $scope.addorg.preferSet.includes("2")) {
-					$scope.addorg.preferSet.splice($scope.addorg.preferSet.indexOf("2"),1);
-				}
+        if($scope.usrDialog.eventPref2.asi && !$scope.addorg.preferSet.includes("2")){
+          $scope.addorg.preferSet.push("2");
+        }
+        if (!$scope.usrDialog.eventPref2.asi && $scope.addorg.preferSet.includes("2")) {
+          $scope.addorg.preferSet.splice($scope.addorg.preferSet.indexOf("2"),1);
+        }
 
-				if($scope.usrDialog.eventPref2.international && !$scope.addorg.preferSet.includes("3")){
-					$scope.addorg.preferSet.push("3");
-				}
-				if (!$scope.usrDialog.eventPref2.international && $scope.addorg.preferSet.includes("3")) {
-					$scope.addorg.preferSet.splice($scope.addorg.preferSet.indexOf("3"),1);
-				}
+        if($scope.usrDialog.eventPref2.international && !$scope.addorg.preferSet.includes("3")){
+          $scope.addorg.preferSet.push("3");
+        }
+        if (!$scope.usrDialog.eventPref2.international && $scope.addorg.preferSet.includes("3")) {
+          $scope.addorg.preferSet.splice($scope.addorg.preferSet.indexOf("3"),1);
+        }
 
-				/* $http.post('/setting/add_org', $scope.addorg)
-		            .success(function (data, status, headers, config) {
-		                $scope.PostDataResponse = data;
-		            })
-		            .error(function (data, status, header, config) {
-		                $scope.ResponseDetails = "Data: " + data +
-		                    "<hr />status: " + status +
-		                    "<hr />headers: " + header +
-		                    "<hr />config: " + config;
-		            });
+        /* $http.post('/setting/add_org', $scope.addorg)
+                .success(function (data, status, headers, config) {
+                    $scope.PostDataResponse = data;
+                })
+                .error(function (data, status, header, config) {
+                    $scope.ResponseDetails = "Data: " + data +
+                        "<hr />status: " + status +
+                        "<hr />headers: " + header +
+                        "<hr />config: " + config;
+                });
 */
 
-				$http.post('setting/add_org', $scope.addorg).
-				then(function(response) {
-					console.log("Event Filter posted")
-				},
-				function(data){
-					console.log("ERROR POSTING");
-				});
-			}
-		}
-	};
-
-	function DialogController($scope, $mdDialog) {
-		$scope.hide = function() {
-			$mdDialog.hide();
-		};
-
-		$scope.cancel = function() {
-			$mdDialog.cancel();
-		};
-
-		$scope.answer = function(answer) {
-			$mdDialog.hide(answer);
-		};
-	}
-
-	/*Work on post for user settings*/
-
-	$scope.classId = '';
-
-    $scope.classList =[];
-
-    $scope.addClass = function() {
-        $scope.classId = document.getElementById('ajax').value.split(" -")[0];
-        console.log($scope.classId);
-
-        var name = document.getElementById('ajax').value;
-        var selected = false;
-        tmp = {
-            'name': name,
-            'selected': selected
-        };
-        $scope.classList.push(tmp); 
-        
-        $http.get("setting/add_class?code=" + $scope.classId)
-            .then(function(data) {
-                console.log("Class added");
-            },
-            function(data) {
-                console.log("ERROR GETTING - addClass");
+        $http.post('setting/add_org', $scope.addorg).
+        then(function(response) {
+          console.log("Event Filter posted")
+        },
+        function(data){
+          console.log("ERROR POSTING");
         });
-        
-        document.getElementById('ajax').value = "";
+      }
     }
-    
-    $scope.deleteClass = function() {
-        index = $scope.classList.length;
-        while (index--) {
-            if ($scope.classList[index].selected == true) {
-                $scope.classList.splice(index,1);
-            }
-        }
+  };
+
+  $scope.addorg2 = {
+    preferSet: [],
+  };
+
+  $scope.saveEventPref = function() {
+    $scope.addorg2.preferSet = [];
+    for (i = 0; i < $scope.orgList.length; i++) {
+      if ($scope.orgList[i].prefCk == true) {
+        num = i + 1;
+        $scope.addorg2.preferSet.push(num.toString());
+      }
     }
 
-	/* Search box suggestion for adding class */
-	// Get the <datalist> and <input> elements.
+    $http.post('setting/add_org', $scope.addorg).
+      then(function(response) {
+        console.log("Event Filter posted")
+      },
+      function(data){
+        console.log("ERROR POSTING");
+      });
+
+  }
+
+  function DialogController($scope, $mdDialog) {
+    $scope.hide = function() {
+      $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+
+    $scope.answer = function(answer) {
+      $mdDialog.hide(answer);
+    };
+  }
+
+  /*Work on post for user settings*/
+
+  $scope.classId = '';
+
+  $scope.classList =[];
+
+  $scope.addClass = function() {
+      $scope.classId = document.getElementById('ajax').value.split(" -")[0];
+      console.log($scope.classId);
+
+      var name = document.getElementById('ajax').value;
+      var selected = false;
+      tmp = {
+          'name': name,
+          'selected': selected
+      };
+      $scope.classList.push(tmp);
+
+      $http.get("setting/add_class?code=" + $scope.classId)
+          .then(function(data) {
+              console.log("Class added");
+          },
+          function(data) {
+              console.log("ERROR GETTING - addClass");
+      });
+
+      document.getElementById('ajax').value = "";
+  }
+
+  $scope.deleteClass = function() {
+    index = $scope.classList.length;
+    while (index--) {
+      if ($scope.classList[index].selected == true) {
+        $scope.classList.splice(index,1);
+      }
+    }
+  }
+
+  /* Search box suggestion for adding class */
+  // Get the <datalist> and <input> elements.
     var dataList = document.getElementById('json-datalist');
     var input = document.getElementById('ajax');
 

@@ -14,7 +14,6 @@
         background-color:#00BCD4;
     }
 
-
     .menuBtn {
         max-width: 40px;
         height: auto;
@@ -69,7 +68,12 @@
         background-color: #26C6DA;
         border-color: #26C6DA;
     }
-    
+
+    ul {
+      list-style:none;
+      padding-left:0;
+    }
+
     .fa-icon {
         height: auto;
     }
@@ -106,17 +110,17 @@
         text-decoration:none;
         padding-left:20px;
         padding-right: 20px;
-	}
-	.ico:before{
-		display: inline-block;
-	    content: '';
-	    background:url('../images/calendarCPP.ico');
-	    background-size:cover;
-	        position:absolute;
-	    width:35px;
-	    height:35px;
-	    margin-left:-30px;
-	}
+  }
+  .ico:before{
+    display: inline-block;
+      content: '';
+      background:url('../images/calendarCPP.ico');
+      background-size:cover;
+          position:absolute;
+      width:35px;
+      height:35px;
+      margin-left:-30px;
+  }
 
 /* The starting CSS styles for the enter animation */
 .fade.ng-enter {

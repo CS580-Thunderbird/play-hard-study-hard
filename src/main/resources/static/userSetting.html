@@ -16,6 +16,7 @@
                     <md-tab label="Event Pref">
                         <md-content class="md-padding">
                             <h4 class="md-display-1">Event Preferences</h4>
+                            <!--
                             <form name="eventFilterForm" ng-submit="eventFilter()">
                               <md-checkbox ng-model="usrDialog.eventPref2.fitness">
                                   Fitness Classes
@@ -28,12 +29,26 @@
                               <md-checkbox ng-model="usrDialog.eventPref2.international">
                                   International Student Clubs
                               </md-checkbox>
+                               -->
+
+                              <ul>
+                                <li ng-repeat="x in orgList">
+                                  <md-checkbox ng-model="x.prefCk">
+                                    {{x.org}}
+                                  </md-checkbox>
+                                </li>
+                              </ul>
 
                               </br>
-                              <md-button class="md-primary md-raised" type="submit">
+                              <md-button class="md-primary md-raised" ng-click="saveEventPref()">
                                   Save
                               </md-button>
                             </form>
+
+                            </pre> <pre>
+                                {{addorg2 | json}}
+                            </pre>
+
                             </br></br>
 
                             <md-input-container ng-controller="mainController">
@@ -54,11 +69,11 @@
                                   {{x.name}}
                               </md-checkbox>
                             </form>
-                            
+
                             <md-button class="md-primary md-raised" ng-click="deleteClass()">
                                Delete
                             </md-button>
-                            
+
                             <br><br>
 
             <!--             <md-button ng-click="answer('Save')" style="margin-right:20px;" >
