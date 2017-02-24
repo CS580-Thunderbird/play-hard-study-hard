@@ -50,11 +50,15 @@
                             <label>Current Classes</label>
 
                             <form style="max-width:400px;max-height:810px;">
-                              <md-checkbox ng-repeat="x in classList.classes">
-                                  {{x}}
+                              <md-checkbox ng-repeat="x in classList" ng-model="x.selected">
+                                  {{x.name}}
                               </md-checkbox>
                             </form>
-
+                            
+                            <md-button class="md-primary md-raised" ng-click="deleteClass()">
+                               Delete
+                            </md-button>
+                            
                             <br><br>
 
             <!--             <md-button ng-click="answer('Save')" style="margin-right:20px;" >

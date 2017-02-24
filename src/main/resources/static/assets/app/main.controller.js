@@ -128,16 +128,20 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 
 	$scope.classId = '';
 
-    $scope.classList = {
-        classes:[],
-    };
+    $scope.classList =[];
 
     $scope.addClass = function() {
         $scope.classId = document.getElementById('ajax').value.split(" -")[0];
         console.log($scope.classId);
 
-        $scope.classList.classes.push(document.getElementById('ajax').value);
-
+        var name = document.getElementById('ajax').value;
+        var selected = false;
+        tmp = {
+            'name': name,
+            'selected': selected
+        };
+        $scope.classList.push(tmp); 
+        
         $http.get("setting/add_class?code=" + $scope.classId)
             .then(function(data) {
                 console.log("Class added");
@@ -145,8 +149,17 @@ app.controller("mainController", function($scope, $http, $mdDialog){
             function(data) {
                 console.log("ERROR GETTING - addClass");
         });
-
+        
         document.getElementById('ajax').value = "";
+    }
+    
+    $scope.deleteClass = function() {
+        index = $scope.classList.length;
+        while (index--) {
+            if ($scope.classList[index].selected == true) {
+                $scope.classList.splice(index,1);
+            }
+        }
     }
 
 	/* Search box suggestion for adding class */
