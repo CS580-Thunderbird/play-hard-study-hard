@@ -3,9 +3,11 @@ package edu.cpp.cs580.thunderbird.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+
 public class UserSetting {
 	
-	private String userID;
+	@Id private String userID;
 	private List<String> eventPreference = new ArrayList<String>();
 	private List<EventObject> attendingEvents = new ArrayList<EventObject>();
 	private List<CppClassSchedule> classLists = new ArrayList<CppClassSchedule>();

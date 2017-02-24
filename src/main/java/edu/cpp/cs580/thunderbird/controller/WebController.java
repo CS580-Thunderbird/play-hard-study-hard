@@ -251,6 +251,11 @@ public class WebController {
     	//return orgManager.getJSonListOfOrganizer();
     }
     
+    @RequestMapping(value = "data/eventOrgList", method = RequestMethod.GET)
+    public String getOrgPreferenceSetting() throws IOException{
+    	return userSettingManager.getJsonOfPreferenceSetting(userManager.getUserId());
+    }
+    
     //Temporary Usage, Just want to try it out
     @RequestMapping("/getCppSchedule")
     String getCppClassesSchedule() throws Exception{
@@ -306,8 +311,7 @@ public class WebController {
     @ResponseBody
     boolean addPreferenceOrganizer(@RequestBody UserOrganizerSettingList preferSet){
     //boolean addPreferenceOrganizer(@RequestBody List<String> lists){
-
-    	System.out.println("complete ");
+    	userSettingManager.setEventPreference(preferSet.preferSet, userManager.getUserId());
     	return true;
     }
     
