@@ -11,8 +11,9 @@
     }
 
     md-toolbar.md-default-theme.md-warn:not(.md-menu-toolbar), md-toolbar.md-warn:not(.md-menu-toolbar) {
-        background-color:#677D01;
+        background-color:#00BCD4;
     }
+
 
     .menuBtn {
         max-width: 40px;
@@ -36,18 +37,18 @@
     }
 
     md-checkbox.md-primary.md-checked:not([disabled]) .md-icon {
-        background-color: #677D01;
+        background-color: #26C6DA;
     }
 
     .md-button {
         border: 1px solid #ddd;
-        color: #677D01
+        color: #26C6DA
     }
 
     md-button.btn.btn-primary {
         color: #fff;
-        background-color: #677D01;
-        border-color: #677D01;
+        background-color: #26C6DA;
+        border-color: #26C6DA;
     }
 
     .md-button:not([disabled]):hover {
@@ -59,14 +60,14 @@
 
     button.btn.btn-primary {
         color: #fff;
-        background-color: #677D01;
-        border-color: #677D01;
+        background-color: #26C6DA;
+        border-color: #26C6DA;
     }
 
     label.btn.btn-primary {
         color: #fff;
-        background-color: #677D01;
-        border-color: #677D01;
+        background-color: #26C6DA;
+        border-color: #26C6DA;
     }
     
     .fa-icon {
@@ -138,3 +139,5 @@ div.mainCalendar{
 h1.text-center{
     font-size: 180%;
 }
+
+
