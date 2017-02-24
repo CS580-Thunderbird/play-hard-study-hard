@@ -67,67 +67,19 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 
       }
 
-      $scope.addorg = {
-        preferSet:[],
-      };
-      $scope.eventFilter = function() {
-
-        $scope.usrDialog.eventPref2 = this.usrDialog.eventPref2;
-
-        if($scope.usrDialog.eventPref2.fitness && !$scope.addorg.preferSet.includes("1")){
-          $scope.addorg.preferSet.push("1");
-        }
-        if (!$scope.usrDialog.eventPref2.fitness && $scope.addorg.preferSet.includes("1")) {
-          $scope.addorg.preferSet.splice($scope.addorg.preferSet.indexOf("1"),1);
-        }
-
-        if($scope.usrDialog.eventPref2.asi && !$scope.addorg.preferSet.includes("2")){
-          $scope.addorg.preferSet.push("2");
-        }
-        if (!$scope.usrDialog.eventPref2.asi && $scope.addorg.preferSet.includes("2")) {
-          $scope.addorg.preferSet.splice($scope.addorg.preferSet.indexOf("2"),1);
-        }
-
-        if($scope.usrDialog.eventPref2.international && !$scope.addorg.preferSet.includes("3")){
-          $scope.addorg.preferSet.push("3");
-        }
-        if (!$scope.usrDialog.eventPref2.international && $scope.addorg.preferSet.includes("3")) {
-          $scope.addorg.preferSet.splice($scope.addorg.preferSet.indexOf("3"),1);
-        }
-
-        /* $http.post('/setting/add_org', $scope.addorg)
-                .success(function (data, status, headers, config) {
-                    $scope.PostDataResponse = data;
-                })
-                .error(function (data, status, header, config) {
-                    $scope.ResponseDetails = "Data: " + data +
-                        "<hr />status: " + status +
-                        "<hr />headers: " + header +
-                        "<hr />config: " + config;
-                });
-*/
-
-        $http.post('setting/add_org', $scope.addorg).
-        then(function(response) {
-          console.log("Event Filter posted")
-        },
-        function(data){
-          console.log("ERROR POSTING");
-        });
-      }
     }
   };
 
-  $scope.addorg2 = {
+  $scope.addorg = {
     preferSet: [],
   };
 
   $scope.saveEventPref = function() {
-    $scope.addorg2.preferSet = [];
-    for (i = 0; i < $scope.orgList.length; i++) {
-      if ($scope.orgList[i].prefCk == true) {
-        num = i + 1;
-        $scope.addorg2.preferSet.push(num.toString());
+    $scope.addorg.preferSet = [];
+    for (index = 0; index < $scope.orgList.length; index++) {
+      if ($scope.orgList[index].prefCk == true) {
+        num = index + 1;
+        $scope.addorg.preferSet.push(num.toString());
       }
     }
 
