@@ -1,4 +1,4 @@
-app.controller("mainController", function($scope, $http, $mdDialog){
+app.controller("mainController", function($scope, $http, $mdDialog, calendarConfig){
   $scope.status = ' ';
   $scope.customeFullscreen = false;
   $scope.eventPref = {};
@@ -92,7 +92,6 @@ app.controller("mainController", function($scope, $http, $mdDialog){
       function(data){
         console.log("ERROR POSTING");
       });
-
   }
 
 
@@ -107,14 +106,23 @@ app.controller("mainController", function($scope, $http, $mdDialog){
       $scope.classNbr = $scope.classNbr.split(")")[0];
       console.log($scope.classNbr);
 
-      var name = document.getElementById('ajax').value;
+      $scope.name = document.getElementById('ajax').value;
+      document.getElementById('ajax').value = "";
+
       var selected = false;
       tmp = {
-          'name': name,
+          'name': $scope.name,
           'selected': selected,
           'classNbr': $scope.classNbr
       };
       $scope.classList.push(tmp);
+
+      addedClass = {
+          title: $scope.name,
+          color: calendarConfig.colorTypes.warning,
+          startsAt: moment(),
+          endsAt: moment().add(3, 'hours'),
+      };
 
       $http.get("setting/add_class?code=" + $scope.classNbr)
           .then(function(data) {
@@ -124,7 +132,9 @@ app.controller("mainController", function($scope, $http, $mdDialog){
               console.log("ERROR GETTING - addClass");
       });
 
-      document.getElementById('ajax').value = "";
+      var name = $scope.classNbr + "=";
+      document.cookie = name + $scope.name.split(" -")[0];
+
   }
 
   $scope.deleteClass = function() {
