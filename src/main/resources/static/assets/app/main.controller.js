@@ -103,18 +103,20 @@ app.controller("mainController", function($scope, $http, $mdDialog){
   $scope.classList =[];
 
   $scope.addClass = function() {
-      $scope.classId = document.getElementById('ajax').value.split(" -")[0];
-      console.log($scope.classId);
+      $scope.classNbr = document.getElementById('ajax').value.split("(")[1];
+      $scope.classNbr = $scope.classNbr.split(")")[0];
+      console.log($scope.classNbr);
 
       var name = document.getElementById('ajax').value;
       var selected = false;
       tmp = {
           'name': name,
-          'selected': selected
+          'selected': selected,
+          'classNbr': $scope.classNbr
       };
       $scope.classList.push(tmp);
 
-      $http.get("setting/add_class?code=" + $scope.classId)
+      $http.get("setting/add_class?code=" + $scope.classNbr)
           .then(function(data) {
               console.log("Class added");
           },
@@ -129,6 +131,13 @@ app.controller("mainController", function($scope, $http, $mdDialog){
     index = $scope.classList.length;
     while (index--) {
       if ($scope.classList[index].selected == true) {
+        $http.get("/setting/delete_class?classNbr=" + $scope.classList[index].classNbr)
+            .then(function(data) {
+                console.log("Class deleted");
+            },
+            function(data) {
+                console.log("ERROR GETTING - deleteClass");
+        });
         $scope.classList.splice(index,1);
       }
     }
@@ -154,7 +163,7 @@ app.controller("mainController", function($scope, $http, $mdDialog){
             // Create a new <option> element.
             var option = document.createElement('option');
             // Set the value using the item in the JSON array.
-            option.value = item.code + " - " + item.instructor + ": " + item.description;
+            option.value = item.code + " - " + item.instructor + ": " + item.description + " (" + item.class_nbr + ")";
             // Add the <option> element to the <datalist>.
             dataList.appendChild(option);
           });
