@@ -4,7 +4,6 @@
         height: auto;
         cursor: pointer;
     }
-
     .userimg {
         max-width: 25px;
         height: auto;
@@ -143,5 +142,3 @@ div.mainCalendar{
 h1.text-center{
     font-size: 180%;
 }
-
-

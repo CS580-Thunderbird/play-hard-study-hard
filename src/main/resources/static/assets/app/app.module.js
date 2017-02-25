@@ -1,4 +1,4 @@
-var app = angular.module("myApp", ['ngMaterial','ngMessages', 'mwl.calendar', 'ngAnimate', 'ui.bootstrap', 'colorpicker.module']);
+var app = angular.module("myApp", ['ngMaterial', 'ngMessages', 'mwl.calendar', 'ngAnimate', 'ui.bootstrap', 'colorpicker.module', 'material.svgAssetsCache']);
 
 
 

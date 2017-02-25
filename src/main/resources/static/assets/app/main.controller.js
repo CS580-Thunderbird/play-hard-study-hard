@@ -65,8 +65,10 @@ app.controller("mainController", function($scope, $http, $mdDialog){
         console.log($scope.momentStartTime + "\n" + $scope.momentEndTime);
         $mdDialog.hide();
 
-      }
-
+      };
+			$scope.cancel = function() {
+				$mdDialog.cancel();
+			};
     }
   };
 
@@ -93,19 +95,6 @@ app.controller("mainController", function($scope, $http, $mdDialog){
 
   }
 
-  function DialogController($scope, $mdDialog) {
-    $scope.hide = function() {
-      $mdDialog.hide();
-    };
-
-    $scope.cancel = function() {
-      $mdDialog.cancel();
-    };
-
-    $scope.answer = function(answer) {
-      $mdDialog.hide(answer);
-    };
-  }
 
   /*Work on post for user settings*/
 
