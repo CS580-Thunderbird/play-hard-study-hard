@@ -66,9 +66,9 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
         $mdDialog.hide();
 
       };
-			$scope.cancel = function() {
-				$mdDialog.cancel();
-			};
+      $scope.cancel = function() {
+        $mdDialog.cancel();
+      };
     }
   };
 
@@ -116,13 +116,6 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
           'classNbr': $scope.classNbr
       };
       $scope.classList.push(tmp);
-
-      addedClass = {
-          title: $scope.name,
-          color: calendarConfig.colorTypes.warning,
-          startsAt: moment(),
-          endsAt: moment().add(3, 'hours'),
-      };
 
       $http.get("setting/add_class?code=" + $scope.classNbr)
           .then(function(data) {
