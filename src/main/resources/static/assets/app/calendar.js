@@ -1,5 +1,7 @@
 app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig, calendarEventTitle, $mdDialog) {
 
+    calendarConfig.templates.calendarMonthCellEvents = '/calendarMonthCellEvents.html';
+
     var vm = this;
 
     vm.events = [{
