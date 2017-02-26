@@ -1,4 +1,4 @@
-app.controller('CalendarCtrl', function($scope, moment, calendarConfig, calendarEventTitle, $mdDialog) {
+app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig, calendarEventTitle, $mdDialog) {
 
     var vm = this;
 
@@ -31,6 +31,10 @@ app.controller('CalendarCtrl', function($scope, moment, calendarConfig, calendar
 
     vm.calendarView = 'month';
     vm.viewDate = moment().startOf('month').toDate();
+
+    vm.timespanClicked = function(date) {
+      $scope.showTabDialog();
+    }
 
     var originalEventTitle = angular.copy(calendarEventTitle);
 
