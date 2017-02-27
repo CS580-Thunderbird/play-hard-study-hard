@@ -24,6 +24,19 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
         endsAt: moment().add(3, 'hours'),
       },
       {
+        title: 'Second Test Event',
+        color: calendarConfig.colorTypes.info,
+        startsAt: moment().startOf('month').toDate(),
+        actions: [{
+          label: '<i class=\'glyphicon glyphicon-remove\'></i>',
+          onClick: function(args) {
+            $scope.deleteEvent();
+          }
+        }],
+        startsAt: moment(),
+        endsAt: moment().add(3, 'hours'),
+      },
+      {
         title: $scope.orgList[0].org,
         color: calendarConfig.colorTypes.warning,
         startsAt: moment(),
