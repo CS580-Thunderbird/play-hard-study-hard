@@ -34,8 +34,10 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
     vm.calendarView = 'month';
     vm.viewDate = moment().startOf('month').toDate();
 
-    vm.timespanClicked = function(date) {
-      $scope.showTabDialog();
+    vm.timespanClicked = function(date, cellInfo) {
+      if (cellInfo.badgeTotal == 0) {
+        $scope.showTabDialog();
+      }
     }
 
     var originalEventTitle = angular.copy(calendarEventTitle);
