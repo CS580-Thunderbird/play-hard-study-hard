@@ -4,15 +4,27 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
 
     var vm = this;
 
+    var classColor = '#c1d0ef';
+    var asiColor = '#cfefc1';
+    var intlClubColor = '#d9c1ef';
+    var fitnessColor = '#efe9c1';
+    var secondaryColor = '#ffffff';
+
     vm.events = [{
-      title: 'An event',
-      color: calendarConfig.colorTypes.warning,
+      title: 'ASI Event',
+      color: {
+        primary: asiColor, // the primary event color (should be darker than secondary)
+        secondary: secondaryColor // the secondary event color (should be lighter than primary)
+      },
       startsAt: moment().startOf('week').add(8, 'hours').toDate(),
       endsAt: moment().startOf('week').add(9, 'hours').toDate(),
     },
     {
-        title: 'Test Event',
-        color: calendarConfig.colorTypes.info,
+        title: 'CS 580',
+        color: {
+          primary: classColor, // the primary event color (should be darker than secondary)
+          secondary: secondaryColor // the secondary event color (should be lighter than primary)
+        },
         startsAt: moment().startOf('month').toDate(),
         actions: [{
           label: '<i class=\'glyphicon glyphicon-remove\'></i>',
@@ -24,8 +36,11 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
         endsAt: moment().add(3, 'hours'),
       },
       {
-        title: 'Second Test Event',
-        color: calendarConfig.colorTypes.info,
+        title: 'International Student Club',
+        color: {
+          primary: intlClubColor, // the primary event color (should be darker than secondary)
+          secondary: 'secondaryColor' // the secondary event color (should be lighter than primary)
+        },
         startsAt: moment().startOf('month').toDate(),
         actions: [{
           label: '<i class=\'glyphicon glyphicon-remove\'></i>',
@@ -38,7 +53,10 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
       },
       {
         title: $scope.orgList[0].org,
-        color: calendarConfig.colorTypes.warning,
+        color: {
+          primary: fitnessColor, // the primary event color (should be darker than secondary)
+          secondary: 'secondaryColor' // the secondary event color (should be lighter than primary)
+        },
         startsAt: moment(),
         endsAt: moment().add(3, 'hours'),
       }
@@ -87,7 +105,10 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
           c = c.split("=")[1];
           addedClass = {
               title: c,
-              color: calendarConfig.colorTypes.warning,
+              color: { // color for Class event
+                primary: classColor,
+                secondary: 'secondaryColor'
+              },
               actions: [{
                 label: '<i class=\'glyphicon glyphicon-remove\'></i>',
                 onClick: function(args) {
