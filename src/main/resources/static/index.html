@@ -58,52 +58,51 @@
 
 <body ng-app="myApp" ng-controller="mainController">
 
-  <div class="container-fluid">
-      <md-toolbar class="row md-warn" color="primary" flex>
-          <div class="md-toolbar-tools" ng-controller="userInfo">
-              <span class="ico"></span>
-              <h2> Welcome {{ getUser.name }}</h2>
-              <span flex></span>
-              <div class="dropdown" layout="row" layout-wrap="" layout-margin="" layout-align="right" ng-controller="userInfo">
-                  <img src="assets/images/userSettings.png" ng-click="showTabDialog($event)" class="menuBtn">
-                  <md-menu>
-                      <img src="{{ getUser.picture }}" class="img-circle" ng-click="$mdOpenMenu()">
-                      <md-menu-content>
 
-                          <md-button ng-click="logout()">
-                              Log Out
-                          </md-button>
+    <md-toolbar class="md-warn" color="primary" flex>
+        <div class="md-toolbar-tools" ng-controller="userInfo">
+            <span class="ico"></span>
+            <h2> Welcome {{ getUser.name }}</h2>
+            <span flex></span>
+            <div class="dropdown" layout="row" layout-wrap="" layout-margin="" layout-align="right" ng-controller="userInfo">
+                <img src="assets/images/userSettings.png" ng-click="showTabDialog($event)" class="menuBtn">
+                <md-menu>
+                    <img src="{{ getUser.picture }}" class="img-circle" ng-click="$mdOpenMenu()">
+                    <md-menu-content>
 
-                      </md-menu-content>
-                  </md-menu>
-              </div>
-          </div>
-      </md-toolbar>
+                        <md-button ng-click="logout()">
+                            Log Out
+                        </md-button>
 
-      <!-- Calendar -->
-      <md-content layout-padding>
+                    </md-menu-content>
+                </md-menu>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <!-- Calendar -->
+    <md-content layout-padding>
 
         <!-- <td><md-input-container><input type="time"></md-input-container></td> -->
-          <div ng-controller="CalendarCtrl as vm" class="mainCalendar">
-              <h1 class="text-center">{{ vm.viewTitle }}</h1>
-              <ng-include src="'calendarControls.html'"></ng-include>
-              <mwl-calendar
-                events="eventList"
-                view="vm.calendarView"
-                view-title="vm.viewTitle"
-                view-date="vm.viewDate"
+        <div ng-controller="CalendarCtrl as vm" class="mainCalendar">
+            <h1 class="text-center">{{ vm.viewTitle }}</h1>
+            <ng-include src="'calendarControls.html'"></ng-include>
+            <mwl-calendar 
+                events="eventList" 
+                view="vm.calendarView" 
+                view-title="vm.viewTitle" 
+                view-date="vm.viewDate" 
                 on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)">
-              </mwl-calendar>
+            </mwl-calendar>
 
-              <!-- Temporary fix -->
-              </br>
-              <button ng-click="addToCalendar()">Update Calendar</button>
-          </div>
+            <!-- Temporary fix -->
+            </br>
+            <button ng-click="addToCalendar()">Update Calendar</button>
+        </div>
 
-      </md-content>
-  </div>
+    </md-content>
+
 
 </body>
 
 </html>
-
