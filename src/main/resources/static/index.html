@@ -88,7 +88,7 @@
               <h1 class="text-center">{{ vm.viewTitle }}</h1>
               <ng-include src="'calendarControls.html'"></ng-include>
               <mwl-calendar
-                events="vm.events"
+                events="eventList"
                 view="vm.calendarView"
                 view-title="vm.viewTitle"
                 view-date="vm.viewDate"
@@ -97,7 +97,7 @@
 
               <!-- Temporary fix -->
               </br>
-              <button ng-click="addClassToCalendar()">Update Calendar</button>
+              <button ng-click="addToCalendar()">Update Calendar</button>
           </div>
 
       </md-content>
