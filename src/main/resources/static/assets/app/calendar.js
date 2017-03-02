@@ -151,7 +151,7 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
     $scope.addEventToCalendar = function() {
 
       // temporary load data from JSON file
-      $scope.asiJSON = "data/sampleASIEvents.json";
+      $scope.asiJSON = "data/sampleEvents.json";
       $scope.loadJSON($scope.asiJSON, function(response) {
         var actual_JSON = JSON.parse(response);
 
@@ -159,7 +159,7 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
           var momentObjStart = moment(item.startsAt, moment.ISO_8601);
           var momentObjEnd = moment(item.endsAt, moment.ISO_8601);
 
-          var addedEvent = $scope.makeEvent(item.title, momentObjStart, momentObjEnd, asiColor);
+          var addedEvent = $scope.makeEvent(item.title, momentObjStart, momentObjEnd, eval(item.orgColor));
 
           console.log(addedEvent);
           $scope.eventList.push(addedEvent);
