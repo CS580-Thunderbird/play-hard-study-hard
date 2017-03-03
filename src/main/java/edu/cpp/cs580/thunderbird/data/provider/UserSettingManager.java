@@ -11,11 +11,14 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 
+import edu.cpp.cs580.thunderbird.data.CppClassRepo;
+import edu.cpp.cs580.thunderbird.data.CppClassSchedule;
 import edu.cpp.cs580.thunderbird.data.UserSetting;
 import edu.cpp.cs580.thunderbird.data.UserSettingRepo;
 
 public class UserSettingManager {
 	@Autowired UserSettingRepo userSettingRepo;
+	@Autowired CppClassRepo classRepo;
 	
 	Query query = new Query();
 	
@@ -32,6 +35,12 @@ public class UserSettingManager {
 	public void setEventPreference(List<String> list, String userID){
 		UserSetting user = userSettingRepo.findOne(userID);
 		user.setEventPreference(list);
+		userSettingRepo.save(user);
+	}
+	
+	public void addClassToList(String newCode, String userID){
+		UserSetting user = userSettingRepo.findOne(userID);
+		user.addClassList(classRepo.findByclassNbr(newCode));
 		userSettingRepo.save(user);
 	}
 	

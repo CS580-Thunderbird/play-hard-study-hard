@@ -160,13 +160,15 @@ public class WebController {
     @RequestMapping(value = "/setting/add_class", method = RequestMethod.GET)
     void addClassToUserSetting(@RequestParam("code") String code){
     	System.out.println("Class code " + code);
+    	userSettingManager.addClassToList(code, userManager.getUserId());
+    	System.out.println("Complete add class to user setting");
     }
+ 
     
     @RequestMapping(value = "/setting/delete_class", method = RequestMethod.DELETE)
     void deleteClassToUserSetting(@RequestParam("classNbr") String code){
     	System.out.println("Class code " + code);
     }
-    
     
     @RequestMapping(value = "/setting/add_org", method = RequestMethod.GET)
     void addOrgPreference(@RequestParam("id") String id){
@@ -273,6 +275,12 @@ public class WebController {
     	//Temporary Usages before set DB and AWS
     	return "[" + cppManager.listJSonClasses() + "]";
     	//return orgManager.getJSonListOfOrganizer();
+    }
+    
+    @RequestMapping(value = "data/user/classes", method = RequestMethod.GET)
+    public String getUserClasses(){
+    	
+    	return "";
     }
     
     @RequestMapping(value = "data/eventOrgList", method = RequestMethod.GET)

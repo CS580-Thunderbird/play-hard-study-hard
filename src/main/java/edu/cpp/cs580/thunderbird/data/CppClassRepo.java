@@ -4,5 +4,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 
 public interface CppClassRepo extends MongoRepository<CppClassSchedule, String>{
-	
+	public CppClassSchedule findByclassNbr(String classNbr);
 }
