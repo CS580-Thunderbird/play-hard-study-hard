@@ -1,7 +1,7 @@
-app.controller("mainController", function($scope, $http, $mdDialog, calendarConfig){
+app.controller("mainController", function($scope, $http, $mdDialog, calendarConfig, $window){
   $scope.status = ' ';
   $scope.customeFullscreen = false;
-
+  $scope.status="";
   // $scope.eventOrgList = [];
   /* Need to link checked status */
     if($scope.eventOrgList == undefined){
@@ -99,6 +99,7 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
   $scope.cancel = function() {
     // $scope.getEventOrgList();
     $mdDialog.cancel();
+    $window.location.reload();
   };
 
   $scope.addorg = {
@@ -129,6 +130,9 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
       function(data){
         console.log("ERROR POSTING");
       });
+
+      $scope.status="Preferences Saved.";
+
       var temp = [];
       // for (var i = 0; i < $scope.orgList.length; i++) {
       //   temp.push(angular.extend({}, $scope.orgList[i], {prefCk: true}));
