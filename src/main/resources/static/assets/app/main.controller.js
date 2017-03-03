@@ -1,22 +1,32 @@
 app.controller("mainController", function($scope, $http, $mdDialog, calendarConfig){
   $scope.status = ' ';
   $scope.customeFullscreen = false;
-  $scope.eventPref = {};
 
+  // $scope.eventOrgList = [];
   /* Need to link checked status */
-  $scope.orgList = [ {
-    org : "Fitness Classes",
-    prefCk : false,
-    filterCk : false
-  }, {
-    org : "ASI Events",
-    prefCk : false,
-    filterCk : false
-  }, {
-    org : "International Student Clubs",
-    prefCk : false,
-    filterCk : false
-  } ];
+    if($scope.eventOrgList == undefined){
+      $http.get("data/eventOrgList").then(function(response) {
+        $scope.eventOrgList = response.data;
+        console.log("Get Result: " + $scope.eventOrgList);
+      });
+    }
+
+    // console.log("Event Org List: " + $scope.eventOrgList);
+    if($scope.orgList == undefined){
+      $scope.orgList = [ {
+        org : "Fitness Classes",
+        prefCk : false,
+        filterCk : false
+      }, {
+        org : "ASI Events",
+        prefCk : false,
+        filterCk : false
+      }, {
+        org : "International Student Clubs",
+        prefCk : false,
+        filterCk : false
+      } ];
+    }
 
   $scope.usrDialog = {
     sName2: "",
@@ -40,6 +50,21 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
   };
 
   $scope.showTabDialog = function(ev) {
+    // $scope.getEventOrgList();
+    // console.log("Get Result: " + $scope.eventOrgList);
+
+    for (var i = 0; i < $scope.orgList.length; i++) {
+      if($scope.eventOrgList.includes((i+1).toString())){
+        $scope.orgList[i].prefCk = true;
+      }
+      if ($scope.orgList[i].prefCk && !$scope.eventOrgList.includes((i+1).toString())) {
+        $scope.orgList[i].prefCk = false;
+      }
+    }
+    // if($scope.eventOrgList.includes("1")){
+    //   $scope.orgList[0].prefCk = true;
+    // }
+
     $mdDialog.show({
       controller: DigitalController2,
       templateUrl: 'userSetting.html',
@@ -48,33 +73,44 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
       clickOutsideToClose:true,
       locals: {
         usrDialog: $scope.usrDialog,
+        orgList: $scope.orgList,
       }
     });
-    function DigitalController2($scope, $http, usrDialog){
+    function DigitalController2($scope, $http, usrDialog, orgList){
       $scope.usrDialog = usrDialog;
+      $scope.orgList = orgList;
 
       $scope.addBtn = function(){
 
         $scope.momentStartTime = moment(this.usrDialog.sTime2.startTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
         $scope.momentEndTime = moment(this.usrDialog.sTime2.endTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
 
-        // $scope.usrDialog.days2 = this.usrDialog.days2;
-        // for(var i = 0; i < $scope.usrDialog.days2.length; i++){
-        // 	$scope.usrDialog.days2[i].ck = false;
-        // }
+          // $scope.usrDialog.days2 = this.usrDialog.days2;
+          // for(var i = 0; i < $scope.usrDialog.days2.length; i++){
+          // 	$scope.usrDialog.days2[i].ck = false;
+          // }
         console.log($scope.momentStartTime + "\n" + $scope.momentEndTime);
         $mdDialog.hide();
 
       };
-      $scope.cancel = function() {
-        $mdDialog.cancel();
-      };
+
     }
+  };
+  $scope.cancel = function() {
+    // $scope.getEventOrgList();
+    $mdDialog.cancel();
   };
 
   $scope.addorg = {
     preferSet: [],
   };
+
+  $scope.getEventOrgList = function(){
+    $http.get("data/eventOrgList").then(function(response) {
+      $scope.eventOrgList = response.data;
+      console.log("Get Result: " + $scope.eventOrgList);
+    });
+  }
 
   $scope.saveEventPref = function() {
     $scope.addorg.preferSet = [];
@@ -82,16 +118,25 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
       if ($scope.orgList[index].prefCk == true) {
         num = index + 1;
         $scope.addorg.preferSet.push(num.toString());
+//        this.orgList[index].prefCk = $scope.orgList[index].prefCk;
       }
     }
-
     $http.post('setting/add_org', $scope.addorg).
       then(function(response) {
+        $scope.getEventOrgList();
         console.log("Event Filter posted")
       },
       function(data){
         console.log("ERROR POSTING");
       });
+      var temp = [];
+      // for (var i = 0; i < $scope.orgList.length; i++) {
+      //   temp.push(angular.extend({}, $scope.orgList[i], {prefCk: true}));
+      // }
+      // $scope.orgList = temp;
+    // if(this.addorg.preferSet.includes("1")){
+    //   $scope.orgList[0].prefCk = true;
+    // }
   }
 
 

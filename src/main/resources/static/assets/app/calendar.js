@@ -25,7 +25,7 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
           primary: classColor, // the primary event color (should be darker than secondary)
           secondary: secondaryColor // the secondary event color (should be lighter than primary)
         },
-        startsAt: moment().startOf('month').toDate(),
+        // startsAt: moment().startOf('month').toDate(),
         actions: [{
           label: '<i class=\'glyphicon glyphicon-remove\'></i>',
           onClick: function(args) {
@@ -41,7 +41,7 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
           primary: intlClubColor, // the primary event color (should be darker than secondary)
           secondary: 'secondaryColor' // the secondary event color (should be lighter than primary)
         },
-        startsAt: moment().startOf('month').toDate(),
+        // startsAt: moment().startOf('month').toDate(),
         actions: [{
           label: '<i class=\'glyphicon glyphicon-remove\'></i>',
           onClick: function(args) {

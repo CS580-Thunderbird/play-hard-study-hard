@@ -58,7 +58,6 @@
 
 <body ng-app="myApp" ng-controller="mainController">
 
-
     <md-toolbar class="md-warn" color="primary" flex>
         <div class="md-toolbar-tools" ng-controller="userInfo">
             <span class="ico"></span>
@@ -82,16 +81,17 @@
 
     <!-- Calendar -->
     <md-content layout-padding>
-
+      <pre>{{ eventOrgList }}</pre> <br>
+      <!-- <pre>{{ orgList | json}}</pre> -->
         <!-- <td><md-input-container><input type="time"></md-input-container></td> -->
         <div ng-controller="CalendarCtrl as vm" class="mainCalendar">
             <h1 class="text-center">{{ vm.viewTitle }}</h1>
             <ng-include src="'calendarControls.html'"></ng-include>
-            <mwl-calendar 
-                events="eventList" 
-                view="vm.calendarView" 
-                view-title="vm.viewTitle" 
-                view-date="vm.viewDate" 
+            <mwl-calendar
+                events="eventList"
+                view="vm.calendarView"
+                view-title="vm.viewTitle"
+                view-date="vm.viewDate"
                 on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)">
             </mwl-calendar>
 
@@ -101,8 +101,6 @@
         </div>
 
     </md-content>
-
-
 </body>
 
 </html>
