@@ -10,6 +10,19 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
     var fitnessColor = '#efe9c1';
     var secondaryColor = '#ffffff';
 
+    var actions=[{
+        label: '<i class=\'glyphicon glyphicon-remove\'></i>',
+        onClick: function(args) {
+          $scope.deleteEvent();
+        }
+      },
+      {
+        label: '<i class=\'glyphicon glyphicon-plus\'></i>',
+        onClick: function(args) {
+          $scope.addSuggestedEvent();
+        }
+      }
+    ];
     vm.events = [{
       title: 'ASI Event',
       color: {
@@ -26,12 +39,7 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
           secondary: secondaryColor // the secondary event color (should be lighter than primary)
         },
         // startsAt: moment().startOf('month').toDate(),
-        actions: [{
-          label: '<i class=\'glyphicon glyphicon-remove\'></i>',
-          onClick: function(args) {
-            $scope.deleteEvent();
-          }
-        }],
+        actions: actions,
         startsAt: moment(),
         endsAt: moment().add(3, 'hours'),
       },
@@ -42,12 +50,7 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
           secondary: 'secondaryColor' // the secondary event color (should be lighter than primary)
         },
         // startsAt: moment().startOf('month').toDate(),
-        actions: [{
-          label: '<i class=\'glyphicon glyphicon-remove\'></i>',
-          onClick: function(args) {
-            $scope.deleteEvent();
-          }
-        }],
+        actions: actions,
         startsAt: moment(),
         endsAt: moment().add(3, 'hours'),
       },
@@ -57,6 +60,7 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
           primary: fitnessColor, // the primary event color (should be darker than secondary)
           secondary: 'secondaryColor' // the secondary event color (should be lighter than primary)
         },
+        actions: actions,
         startsAt: moment(),
         endsAt: moment().add(3, 'hours'),
       }
@@ -86,6 +90,18 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
           .clickOutsideToClose(true)
           .title('Event Deleted')
           .textContent('You have decided to delete this event.')
+          .ariaLabel('Alert Dialog Demo')
+          .ok('Close')
+      );
+    }
+
+    $scope.addSuggestedEvent = function() {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .parent(angular.element(document.querySelector('#popupContainer')))
+          .clickOutsideToClose(true)
+          .title('Added Event')
+          .textContent('This event has been added to your Calendar.')
           .ariaLabel('Alert Dialog Demo')
           .ok('Close')
       );
