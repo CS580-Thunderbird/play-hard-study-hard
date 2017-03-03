@@ -2,31 +2,32 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
   $scope.status = ' ';
   $scope.customeFullscreen = false;
   $scope.status="";
+  $scope.event_Suggestions = false;
   // $scope.eventOrgList = [];
   /* Need to link checked status */
-    if($scope.eventOrgList == undefined){
-      $http.get("data/eventOrgList").then(function(response) {
-        $scope.eventOrgList = response.data;
-        console.log("Get Result: " + $scope.eventOrgList);
-      });
-    }
+  if($scope.eventOrgList == undefined){
+    $http.get("data/eventOrgList").then(function(response) {
+      $scope.eventOrgList = response.data;
+      console.log("Get Result: " + $scope.eventOrgList);
+    });
+  }
 
-    // console.log("Event Org List: " + $scope.eventOrgList);
-    if($scope.orgList == undefined){
-      $scope.orgList = [ {
-        org : "Fitness Classes",
-        prefCk : false,
-        filterCk : false
-      }, {
-        org : "ASI Events",
-        prefCk : false,
-        filterCk : false
-      }, {
-        org : "International Student Clubs",
-        prefCk : false,
-        filterCk : false
-      } ];
-    }
+  // console.log("Event Org List: " + $scope.eventOrgList);
+  if($scope.orgList == undefined){
+    $scope.orgList = [ {
+      org : "Fitness Classes",
+      prefCk : false,
+      filterCk : false
+    }, {
+      org : "ASI Events",
+      prefCk : false,
+      filterCk : false
+    }, {
+      org : "International Student Clubs",
+      prefCk : false,
+      filterCk : false
+    } ];
+  }
 
   $scope.usrDialog = {
     sName2: "",
@@ -132,7 +133,6 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
       });
 
       $scope.status="Preferences Saved.";
-
       var temp = [];
       // for (var i = 0; i < $scope.orgList.length; i++) {
       //   temp.push(angular.extend({}, $scope.orgList[i], {prefCk: true}));
@@ -141,6 +141,20 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
     // if(this.addorg.preferSet.includes("1")){
     //   $scope.orgList[0].prefCk = true;
     // }
+  }
+  $scope.Events = [];
+  $scope.eventSuggestions = function() {
+    $scope.event_Suggestions = !$scope.event_Suggestions
+    $http.post('data/events', $scope.addorg).
+      then(function(response) {
+        $scope.Events = response.data;
+          // console.log("Get Result: " + $scope.eventOrgList);
+        console.log("Event Filter posted")
+      },
+      function(data){
+        console.log("ERROR POSTING");
+      });
+    console.log("Event suggestions pressed: " + $scope.event_Suggestions);
   }
 
 

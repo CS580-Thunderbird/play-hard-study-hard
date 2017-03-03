@@ -5,7 +5,7 @@
         <div class="col-md-4 text-center">
           <div class="btn-group">
             <!-- Need to link to user preferences -->
-            <md-checkbox class="btn btn-default md-primary">Event Suggestions</md-checkbox>
+            <md-checkbox class="btn btn-default md-primary" ng-model="event_Suggestions" ng-change="eventSuggestions()">Event Suggestions</md-checkbox>
 
             <!-- Need to link to user preferences -->
             <button class="btn btn-primary md-primary dropdown-toggle" data-toggle="dropdown">
@@ -13,7 +13,7 @@
             </button>
             <ul class="dropdown-menu" onclick="event.stopPropagation();">
               <li ng-repeat="x in orgList">
-                <md-checkbox class="md-primary">
+                <md-checkbox class="md-primary" ng-model="x.filterCk">
                     {{x.org}}
                 </md-checkbox>
               </li>
