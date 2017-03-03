@@ -5,8 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.Paths;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
@@ -25,6 +27,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.google.common.io.Files;
 
 import edu.cpp.cs580.thunderbird.EventManagers;
 import edu.cpp.cs580.thunderbird.data.EventOrganizer;
@@ -158,6 +162,12 @@ public class WebController {
     	System.out.println("Class code " + code);
     }
     
+    @RequestMapping(value = "/setting/delete_class", method = RequestMethod.DELETE)
+    void deleteClassToUserSetting(@RequestParam("classNbr") String code){
+    	System.out.println("Class code " + code);
+    }
+    
+    
     @RequestMapping(value = "/setting/add_org", method = RequestMethod.GET)
     void addOrgPreference(@RequestParam("id") String id){
     	System.out.println("Adding org preference id : " + id);
@@ -243,6 +253,20 @@ public class WebController {
     	return orgManager.getHardCodeOrgList();
     	//return orgManager.getJSonListOfOrganizer();
     }
+    
+      @RequestMapping(value = "/data/events", method = RequestMethod.POST, consumes = "application/json")
+      //@RequestMapping(value = "/data/events", method = RequestMethod.GET)
+      @ResponseBody
+      String getEventByOrgs(@RequestBody UserOrganizerSettingList preferSet) throws FileNotFoundException{
+      //String getEventByOrgs() throws FileNotFoundException{
+     //boolean addPreferenceOrganizer(@RequestBody List<String> lists){
+     	
+    	String dummy_event = new Scanner(new File("src/main/resources/static/data/sampleEvents.json")).useDelimiter("\\Z").next();
+
+    	//"src/main/resources/static/data/sampleEvents.json"
+    	
+     	return dummy_event;
+     }
     
     @RequestMapping(value = "data/classes", method = RequestMethod.GET)
     public String getListClasses() throws FileNotFoundException, IOException{
