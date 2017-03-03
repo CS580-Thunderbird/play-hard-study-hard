@@ -23,12 +23,14 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
         }
       }
     ];
+
     vm.events = [{
       title: 'ASI Event',
       color: {
         primary: asiColor, // the primary event color (should be darker than secondary)
         secondary: secondaryColor // the secondary event color (should be lighter than primary)
       },
+      actions: actions,
       startsAt: moment().startOf('week').add(8, 'hours').toDate(),
       endsAt: moment().startOf('week').add(9, 'hours').toDate(),
     },
@@ -38,8 +40,8 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
           primary: classColor, // the primary event color (should be darker than secondary)
           secondary: secondaryColor // the secondary event color (should be lighter than primary)
         },
+        actions: null,
         // startsAt: moment().startOf('month').toDate(),
-        actions: actions,
         startsAt: moment(),
         endsAt: moment().add(3, 'hours'),
       },
@@ -146,19 +148,14 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
       xobj.send(null);
     }
 
-    $scope.makeEvent = function(title, startTime, endTime, color) {
+    $scope.makeEvent = function(title, startTime, endTime, color, actionArray) {
       return {
         title: title,
         color: { // color for event
           primary: color,
           secondary: 'secondaryColor'
         },
-        actions: [{
-          label: '<i class=\'glyphicon glyphicon-remove\'></i>',
-          onClick: function(args) {
-            $scope.deleteEvent();
-          }
-        }],
+        actions: actionArray,
         startsAt: startTime,
         endsAt: endTime,
       };
@@ -175,7 +172,7 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
           var momentObjStart = moment(item.startsAt, moment.ISO_8601);
           var momentObjEnd = moment(item.endsAt, moment.ISO_8601);
 
-          var addedEvent = $scope.makeEvent(item.title, momentObjStart, momentObjEnd, eval(item.orgColor));
+          var addedEvent = $scope.makeEvent(item.title, momentObjStart, momentObjEnd, eval(item.orgColor), actions);
 
           console.log(addedEvent);
           $scope.eventList.push(addedEvent);
@@ -197,7 +194,7 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
           var momentObjStart = moment(item.start_date, 'YYYY-MM-DD');
           var momentObjEnd = moment(item.end_date, 'YYYY-MM-DD');
 
-          var addedClass = $scope.makeEvent(item.code, momentObjStart, momentObjEnd, classColor);
+          var addedClass = $scope.makeEvent(item.code, momentObjStart, momentObjEnd, classColor, []);
 
           console.log(addedClass);
           $scope.eventList.push(addedClass);
