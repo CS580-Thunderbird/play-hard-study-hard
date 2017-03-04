@@ -103,6 +103,12 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
       }
     }
 
+    vm.dateClicked = function (date) {
+      $scope.showTabDialog();
+
+      return false;
+    }
+
     var originalEventTitle = angular.copy(calendarEventTitle);
 
     calendarEventTitle.monthViewTooltip = calendarEventTitle.weekViewTooltip = calendarEventTitle.dayViewTooltip = function() {

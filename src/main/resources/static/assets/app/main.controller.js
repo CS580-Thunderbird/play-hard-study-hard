@@ -3,7 +3,7 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
   $scope.customeFullscreen = false;
   $scope.status="";
   // $scope.event_Suggestions = false;
-  // $scope.eventOrgList = [];
+  $scope.eventOrgList = [];
   /* Need to link checked status */
   // $scope.eventPost = {
   //   eventArray: [],
@@ -14,7 +14,6 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
       console.log("Get Result: " + $scope.eventOrgList);
     });
   }
-
 
   // console.log("Event Org List: " + $scope.eventOrgList);
   if($scope.orgList == undefined){

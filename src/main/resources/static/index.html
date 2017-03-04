@@ -91,7 +91,8 @@
                 view="vm.calendarView"
                 view-title="vm.viewTitle"
                 view-date="vm.viewDate"
-                on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)">
+                on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)"
+                on-view-change-click="vm.dateClicked(calendarDate)">
             </mwl-calendar>
 
             <!-- Temporary fix -->
