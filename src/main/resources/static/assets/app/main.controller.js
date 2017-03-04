@@ -2,6 +2,7 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
   $scope.status = ' ';
   $scope.customeFullscreen = false;
   $scope.status="";
+  $scope.selectedTabIndex = 0;
   // $scope.event_Suggestions = false;
   $scope.eventOrgList = [];
   /* Need to link checked status */
@@ -53,9 +54,10 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
     ]
   };
 
-  $scope.showTabDialog = function(ev) {
+  $scope.showTabDialog = function(ev, selectedTab) {
     // $scope.getEventOrgList();
     // console.log("Get Result: " + $scope.eventOrgList);
+    $scope.selectedTabIndex = selectedTab;
 
     for (var i = 0; i < $scope.orgList.length; i++) {
       if($scope.eventOrgList.includes((i+1).toString())){
@@ -78,11 +80,13 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
       locals: {
         usrDialog: $scope.usrDialog,
         orgList: $scope.orgList,
+        selectedTabIndex: $scope.selectedTabIndex,
       }
     });
     function DigitalController2($scope, $http, usrDialog, orgList){
       $scope.usrDialog = usrDialog;
       $scope.orgList = orgList;
+      $scope.selectedTabIndex = selectedTab;
 
       $scope.addBtn = function(){
 
@@ -97,19 +101,18 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
         $mdDialog.hide();
 
       };
+      $scope.cancel = function() {
+        // $scope.getEventOrgList();
+        $mdDialog.cancel();
+        $window.location.reload();
+      };
 
     }
-  };
-  $scope.cancel = function() {
-    // $scope.getEventOrgList();
-    $mdDialog.cancel();
-    $window.location.reload();
   };
 
   $scope.addorg = {
     preferSet: [],
   };
-
 
   $scope.getEventOrgList = function(){
     $http.get("data/eventOrgList").then(function(response) {

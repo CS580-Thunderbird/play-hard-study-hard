@@ -64,7 +64,7 @@
             <h2> Welcome {{ getUser.name }}</h2>
             <span flex></span>
             <div class="dropdown" layout="row" layout-wrap="" layout-margin="" layout-align="right" ng-controller="userInfo">
-                <img src="assets/images/userSettings.png" ng-click="showTabDialog($event)" class="menuBtn">
+                <img src="assets/images/userSettings.png" ng-click="showTabDialog($event, 0)" class="menuBtn">
                 <md-menu>
                     <img src="{{ getUser.picture }}" class="img-circle" ng-click="$mdOpenMenu()">
                     <md-menu-content>
@@ -92,7 +92,7 @@
                 view-title="vm.viewTitle"
                 view-date="vm.viewDate"
                 on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)"
-                on-view-change-click="vm.dateClicked(calendarDate)">
+                on-view-change-click="vm.dateClicked(calendarDate, calendarCell)">
             </mwl-calendar>
 
             <!-- Temporary fix -->

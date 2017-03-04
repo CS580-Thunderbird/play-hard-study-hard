@@ -96,16 +96,15 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
       console.log("Event suggestions pressed: " + $scope.event_Suggestions);
     }
 
-
     vm.timespanClicked = function(date, cellInfo) {
-      if (cellInfo.badgeTotal == 0) {
-        $scope.showTabDialog();
+      if (cellInfo.badgeTotal == 0 || $scope.dateClicked == true) {
+        $scope.showTabDialog(this, 1);
+        $scope.dateClicked == false;
       }
     }
 
-    vm.dateClicked = function (date) {
-      $scope.showTabDialog();
-
+    vm.dateClicked = function (date, cellInfo) {
+      $scope.dateClicked = true;
       return false;
     }
 
