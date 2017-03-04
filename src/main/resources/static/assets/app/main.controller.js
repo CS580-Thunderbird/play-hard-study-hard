@@ -2,15 +2,19 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
   $scope.status = ' ';
   $scope.customeFullscreen = false;
   $scope.status="";
-  $scope.event_Suggestions = false;
+  // $scope.event_Suggestions = false;
   // $scope.eventOrgList = [];
   /* Need to link checked status */
+  // $scope.eventPost = {
+  //   eventArray: [],
+  // };
   if($scope.eventOrgList == undefined){
     $http.get("data/eventOrgList").then(function(response) {
       $scope.eventOrgList = response.data;
       console.log("Get Result: " + $scope.eventOrgList);
     });
   }
+
 
   // console.log("Event Org List: " + $scope.eventOrgList);
   if($scope.orgList == undefined){
@@ -107,6 +111,7 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
     preferSet: [],
   };
 
+
   $scope.getEventOrgList = function(){
     $http.get("data/eventOrgList").then(function(response) {
       $scope.eventOrgList = response.data;
@@ -143,19 +148,22 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
     // }
   }
   $scope.Events = [];
-  $scope.eventSuggestions = function() {
-    $scope.event_Suggestions = !$scope.event_Suggestions
-    $http.post('data/events', $scope.addorg).
-      then(function(response) {
-        $scope.Events = response.data;
-          // console.log("Get Result: " + $scope.eventOrgList);
-        console.log("Event Filter posted")
-      },
-      function(data){
-        console.log("ERROR POSTING");
-      });
-    console.log("Event suggestions pressed: " + $scope.event_Suggestions);
-  }
+
+  // $scope.eventSuggestions = function() {
+  //   $scope.event_Suggestions = !$scope.event_Suggestions
+  //   $scope.eventPost.eventArray = angular.copy($scope.eventOrgList);
+  //   if($scope.event_Suggestions){
+  //     $http.post('data/events', $scope.eventPost).
+  //       then(function(response) {
+  //         $scope.Events = response.data;
+  //         console.log("Event Filter posted: " + $scope.eventPost.eventArray);
+  //       },
+  //       function(data){
+  //         console.log("ERROR POSTING");
+  //       });
+  //   }
+  //   console.log("Event suggestions pressed: " + $scope.event_Suggestions);
+  // }
 
 
   /*Work on post for user settings*/

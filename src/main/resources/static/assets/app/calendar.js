@@ -1,4 +1,4 @@
-app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig, calendarEventTitle, $mdDialog) {
+app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendarConfig, calendarEventTitle, $mdDialog) {
 
     calendarConfig.templates.calendarMonthCellEvents = '/customCalendarTemplates/calendarMonthCellEvents.html';
     calendarConfig.templates.calendarSlideBox = '/customCalendarTemplates/calendarSlideBox.html';
@@ -73,6 +73,29 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
 
     vm.calendarView = 'month';
     vm.viewDate = moment().startOf('month').toDate();
+    $scope.event_Suggestions = false;
+    $scope.eventPost = {
+      eventArray: [],
+    };
+
+    $scope.eventSuggestions = function() {
+       $scope.event_Suggestions = !$scope.event_Suggestions
+      $scope.eventPost.eventArray = angular.copy($scope.eventOrgList);
+      if($scope.event_Suggestions){
+        $http.post('data/events', $scope.eventPost).
+          then(function(response) {
+            $scope.Events = response.data;
+            console.log("Event Filter posted: " + $scope.eventPost.eventArray);
+            console.log("Events: " + $scope.Events);
+          },
+          function(data){
+            console.log("ERROR POSTING");
+          });
+      }
+      vm.events.push($scope.Events);
+      console.log("Event suggestions pressed: " + $scope.event_Suggestions);
+    }
+
 
     vm.timespanClicked = function(date, cellInfo) {
       if (cellInfo.badgeTotal == 0) {
@@ -109,6 +132,7 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
           .ok('Close')
       );
     }
+
 
     // required so other demos work as before
     $scope.$on('$destroy', function() {
@@ -206,8 +230,8 @@ app.controller('CalendarCtrl', function($scope, $window, moment, calendarConfig,
     }
 
     $scope.addToCalendar = function () {
-      $scope.addClassToCalendar();
-      $scope.addEventToCalendar();
+       $scope.addClassToCalendar();
+       $scope.addEventToCalendar();
     }
 
   });

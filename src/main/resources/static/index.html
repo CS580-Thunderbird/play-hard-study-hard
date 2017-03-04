@@ -81,9 +81,7 @@
 
     <!-- Calendar -->
     <md-content layout-padding>
-      <!-- {{ Events | json }} -->
-      <!-- <pre>{{ eventOrgList }}</pre> <br> -->
-      <!-- <pre>{{ orgList | json}}</pre> -->
+
         <!-- <td><md-input-container><input type="time"></md-input-container></td> -->
         <div ng-controller="CalendarCtrl as vm" class="mainCalendar">
             <h1 class="text-center">{{ vm.viewTitle }}</h1>
@@ -99,8 +97,8 @@
             <!-- Temporary fix -->
             </br>
             <button ng-click="addToCalendar()">Update Calendar</button>
+            <!-- {{ Events | json }} -->
         </div>
-
     </md-content>
 </body>
 
