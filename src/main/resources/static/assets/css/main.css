@@ -172,6 +172,15 @@
     }
 
     h1.text-center{
-        font-size: 100%;
+        margin: 0px;
+    }
+    
+    .layout-padding{
+        padding: 0px;
+        padding-top: 8px;
+    }
+
+    .mainCalendar{
+        padding: 0px;
     }
 }

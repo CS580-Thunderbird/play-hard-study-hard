@@ -2,105 +2,105 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Bronco-Planner - CPP Student Organizer</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width" />
-    <base href="/" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bronco-Planner - CPP Student Organizer</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width" />
+  <base href="/" />
 
-    <!-- Add Icons -->
-    <link rel="icon" href="assets/images/calendarCPP.ico">
+  <!-- Add Icons -->
+  <link rel="icon" href="assets/images/calendarCPP.ico">
 
-    <!-- BootStrap scripts -->
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
-    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+  <!-- BootStrap scripts -->
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Angular scripts -->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
-    <script type="text/javascript" src="/assets/scripts/angular.min.js" th:src="@{/angular.min.js}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js"></script>
+  <!-- Angular scripts -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+  <script type="text/javascript" src="/assets/scripts/angular.min.js" th:src="@{/angular.min.js}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="http://ngmaterial.assets.s3.amazonaws.com/svg-assets-cache.js"></script>
 
-    <script type="text/javascript" src="/assets/app/app.module.js" th:src="@{/app/app.module.js}"></script>
-    <script type="text/javascript" src="/assets/app/main.controller.js" th:src="@{/app/main.controller.js}"></script>
-    <script type="text/javascript" src="/assets/app/user.controller.js" th:src="@{/app/main.controller.js}"></script>
+  <script type="text/javascript" src="/assets/app/app.module.js" th:src="@{/app/app.module.js}"></script>
+  <script type="text/javascript" src="/assets/app/main.controller.js" th:src="@{/app/main.controller.js}"></script>
+  <script type="text/javascript" src="/assets/app/user.controller.js" th:src="@{/app/main.controller.js}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
 
-    <!-- Calendar scripts -->
-    <script src="https://unpkg.com/moment@2.17.1"></script>
-    <script src="https://momentjs.com/downloads/moment-timezone.js"></script>
-    <script src="https://unpkg.com/interactjs@1"></script>
-    <script src="https://unpkg.com/angular@1.6.1/angular.js"></script>
-    <script src="https://unpkg.com/angular-animate@1.6.1/angular-animate.js"></script>
-    <script src="https://unpkg.com/angular-ui-bootstrap@2/dist/ui-bootstrap-tpls.js"></script>
-    <script src="https://unpkg.com/rrule@2"></script>
-    <script src="https://unpkg.com/angular-bootstrap-colorpicker@3"></script>
-    <script src="https://unpkg.com/angular-bootstrap-calendar"></script>
-    <link href="https://unpkg.com/bootstrap@3/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="https://unpkg.com/angular-bootstrap-colorpicker@3/css/colorpicker.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
-    <script src="/assets/app/calendar.js"></script>
-    <script src="/assets/app/calendar.helpers.js"></script>
+  <!-- Calendar scripts -->
+  <script src="https://unpkg.com/moment@2.17.1"></script>
+  <script src="https://momentjs.com/downloads/moment-timezone.js"></script>
+  <script src="https://unpkg.com/interactjs@1"></script>
+  <script src="https://unpkg.com/angular@1.6.1/angular.js"></script>
+  <script src="https://unpkg.com/angular-animate@1.6.1/angular-animate.js"></script>
+  <script src="https://unpkg.com/angular-ui-bootstrap@2/dist/ui-bootstrap-tpls.js"></script>
+  <script src="https://unpkg.com/rrule@2"></script>
+  <script src="https://unpkg.com/angular-bootstrap-colorpicker@3"></script>
+  <script src="https://unpkg.com/angular-bootstrap-calendar"></script>
+  <link href="https://unpkg.com/bootstrap@3/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="https://unpkg.com/angular-bootstrap-colorpicker@3/css/colorpicker.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
+  <script src="/assets/app/calendar.js"></script>
+  <script src="/assets/app/calendar.helpers.js"></script>
 
-    <!-- Style sheets -->
-    <link rel="stylesheet" href="/assets/css/main.css?v={random number/string}">
-    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
-    <script src="https://use.fontawesome.com/821313b0f0.js"></script>
+  <!-- Style sheets -->
+  <link rel="stylesheet" href="/assets/css/main.css?v={random number/string}">
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+  <script src="https://use.fontawesome.com/821313b0f0.js"></script>
 
 </head>
 
 <body ng-app="myApp" ng-controller="mainController">
 
-    <md-toolbar class="md-warn" color="primary" flex>
-        <div class="md-toolbar-tools" ng-controller="userInfo">
-            <span class="ico"></span>
-            <h2> Welcome {{ getUser.name }}</h2>
-            <span flex></span>
-            <div class="dropdown" layout="row" layout-wrap="" layout-margin="" layout-align="right" ng-controller="userInfo">
-                <img src="assets/images/userSettings.png" ng-click="showTabDialog($event, 0)" class="menuBtn">
-                <md-menu>
-                    <img src="{{ getUser.picture }}" class="img-circle" ng-click="$mdOpenMenu()">
-                    <md-menu-content>
+  <md-toolbar class="md-warn" color="primary" flex>
+    <div class="md-toolbar-tools" ng-controller="userInfo">
+      <span class="ico"></span>
+      <h2> Welcome {{ getUser.name }}</h2>
+      <span flex></span>
+      <div class="dropdown" layout="row" layout-wrap="" layout-margin="" layout-align="right" ng-controller="userInfo">
+        <img src="assets/images/userSettings.png" ng-click="showTabDialog($event, 0)" class="menuBtn">
+        <md-menu>
+          <img src="{{ getUser.picture }}" class="img-circle" ng-click="$mdOpenMenu()">
+          <md-menu-content>
 
-                        <md-button ng-click="logout()">
-                            Log Out
-                        </md-button>
+            <md-button ng-click="logout()">
+              Log Out
+            </md-button>
 
-                    </md-menu-content>
-                </md-menu>
-            </div>
-        </div>
-    </md-toolbar>
+          </md-menu-content>
+        </md-menu>
+      </div>
+    </div>
+  </md-toolbar>
 
-    <!-- Calendar -->
-    <md-content layout-padding>
+  <!-- Calendar -->
+  <md-content layout-padding>
 
-        <!-- <td><md-input-container><input type="time"></md-input-container></td> -->
-        <div ng-controller="CalendarCtrl as vm" class="mainCalendar">
-            <h1 class="text-center">{{ vm.viewTitle }}</h1>
-            <ng-include src="'calendarControls.html'"></ng-include>
-            <mwl-calendar
-                events="eventList"
-                view="vm.calendarView"
-                view-title="vm.viewTitle"
-                view-date="vm.viewDate"
-                on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)"
-                on-view-change-click="vm.dateClicked(calendarDate, calendarCell)">
-            </mwl-calendar>
+    <!-- <td><md-input-container><input type="time"></md-input-container></td> -->
+    <div ng-controller="CalendarCtrl as vm" class="mainCalendar">
+      <h1 class="text-center">{{ vm.viewTitle }}</h1>
+      <ng-include src="'calendarControls.html'"></ng-include>
+      <mwl-calendar 
+        events="eventList" 
+        view="vm.calendarView" 
+        view-title="vm.viewTitle" 
+        view-date="vm.viewDate" 
+        on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)"
+        on-view-change-click="vm.dateClicked(calendarDate, calendarCell)">
+      </mwl-calendar>
 
-            <!-- Temporary fix -->
-            </br>
-            <button ng-click="addToCalendar()">Update Calendar</button>
-            <!-- {{ Events | json }} -->
-        </div>
-    </md-content>
+        <!-- Temporary fix -->
+        </br>
+        <button ng-click="addToCalendar()">Update Calendar</button>
+        <!-- {{ Events | json }} -->
+    </div>
+  </md-content>
 </body>
 
 </html>
