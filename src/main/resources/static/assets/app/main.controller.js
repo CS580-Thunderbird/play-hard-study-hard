@@ -90,8 +90,8 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
 
       $scope.addBtn = function(){
 
-        $scope.momentStartTime = moment(this.usrDialog.sTime2.startTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
-        $scope.momentEndTime = moment(this.usrDialog.sTime2.endTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
+          $scope.momentStartTime = moment(this.usrDialog.sTime2.startTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
+          $scope.momentEndTime = moment(this.usrDialog.sTime2.endTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
 
           // $scope.usrDialog.days2 = this.usrDialog.days2;
           // for(var i = 0; i < $scope.usrDialog.days2.length; i++){

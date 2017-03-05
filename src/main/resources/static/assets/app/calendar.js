@@ -100,6 +100,9 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
       if (cellInfo.badgeTotal == 0 || $scope.dateClicked == true) {
         $scope.showTabDialog(this, 1);
         $scope.dateClicked == false;
+
+        $scope.usrDialog.sTime2.startTime = date;
+        $scope.usrDialog.sTime2.endTime = date;
       }
     }
 
