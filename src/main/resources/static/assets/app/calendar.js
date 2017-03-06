@@ -203,7 +203,7 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
         var momentObjStart = moment(item.startsAt, moment.ISO_8601);
         var momentObjEnd = moment(item.endsAt, moment.ISO_8601);
 
-        var addedEvent = $scope.makeEvent(item.title, momentObjStart, momentObjEnd, eval(item.orgColor), item.actions);
+        var addedEvent = $scope.makeEvent(item.title, momentObjStart, momentObjEnd, eval(item.orgColor), eval(item.actions));
         $scope.eventList.push(addedEvent);
       }
     }
