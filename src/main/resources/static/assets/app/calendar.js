@@ -38,6 +38,7 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
     };
 
     $scope.eventSuggestions = function() {
+      $scope.Events = [];
       $scope.event_Suggestions = !$scope.event_Suggestions;
       $scope.eventPost.eventArray = angular.copy($scope.eventOrgList);
       if($scope.event_Suggestions){
@@ -226,6 +227,7 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
 
     $scope.addToCalendar = function () {
 //       $scope.addClassToCalendar();
+       $scope.eventList= [];
        $scope.addClassToCalendarDummy();
        $scope.addEventToCalendar();
 
