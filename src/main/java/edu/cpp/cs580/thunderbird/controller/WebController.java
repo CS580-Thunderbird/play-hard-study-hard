@@ -263,7 +263,7 @@ public class WebController {
       //String getEventByOrgs() throws FileNotFoundException{
      //boolean addPreferenceOrganizer(@RequestBody List<String> lists){
      	
-    	String dummy_event = new Scanner(new File("src/main/resources/static/data/sampleEvents.json")).useDelimiter("\\Z").next();
+    	String dummy_event = new Scanner(new File("data/sampleEvents.json")).useDelimiter("\\Z").next();
 
     	//"src/main/resources/static/data/sampleEvents.json"
     	
@@ -272,13 +272,13 @@ public class WebController {
       
       @RequestMapping(value = "/data/event_dummy", method = RequestMethod.GET)
       String getDummyEvent() throws FileNotFoundException{
-    	  String dummy_event = new Scanner(new File("src/main/resources/static/data/dummy_event.json")).useDelimiter("\\Z").next();
+    	  String dummy_event = new Scanner(new File("data/dummy_event.json")).useDelimiter("\\Z").next();
     	  return dummy_event;
       }
       
       @RequestMapping(value = "/data/dummy_class", method = RequestMethod.GET)
       String getDummyClass() throws FileNotFoundException{
-    	  String dummy_clss = new Scanner(new File("src/main/resources/static/data/dummy_class.json")).useDelimiter("\\Z").next();
+    		  String dummy_clss = new Scanner(new File("data/dummy_class.json")).useDelimiter("\\Z").next();
     	  return dummy_clss;
       }
     
@@ -355,7 +355,6 @@ public class WebController {
     @ResponseBody
     boolean addPreferenceOrganizer(@RequestBody UserOrganizerSettingList preferSet){
     //boolean addPreferenceOrganizer(@RequestBody List<String> lists){
-    	userSettingManager.setEventPreference(preferSet.preferSet, userManager.getUserId());
     	return true;
     }
     

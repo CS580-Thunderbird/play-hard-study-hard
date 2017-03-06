@@ -38,39 +38,7 @@
   "location": "Building 8",
   "orgColor": "classColor",
   "details": "Advanced Software Engineer"
-}, {
-  "title": "CS580",
-  "startsAt": "2017-03-20T16:00:00",
-  "endsAt": "2017-03-20T18:00:00",
-  "org": "Class",
-  "location": "Building 8",
-  "orgColor": "classColor",
-  "details": "Advanced Software Engineer"
-}, {
-  "title": "CS580",
-  "startsAt": "2017-03-22T16:00:00",
-  "endsAt": "2017-03-22T18:00:00",
-  "org": "Class",
-  "location": "Building 8",
-  "orgColor": "classColor",
-  "details": "Advanced Software Engineer"
-}, {
-  "title": "CS580",
-  "startsAt": "2017-03-27T16:00:00",
-  "endsAt": "2017-03-27T18:00:00",
-  "org": "Class",
-  "location": "Building 8",
-  "orgColor": "classColor",
-  "details": "Advanced Software Engineer"
-}, {
-  "title": "CS580",
-  "startsAt": "2017-03-29T16:00:00",
-  "endsAt": "2017-03-29T18:00:00",
-  "org": "Class",
-  "location": "Building 8",
-  "orgColor": "classColor",
-  "details": "Advanced Software Engineer"
-}, {
+},{
   "title": "CS599",
   "startsAt": "2017-03-01T18:00:00",
   "endsAt": "2017-03-01T20:00:00",
@@ -106,38 +74,6 @@
   "title": "CS599",
   "startsAt": "2017-03-15T18:00:00",
   "endsAt": "2017-03-15T20:00:00",
-  "org": "Class",
-  "location": "Building 8",
-  "orgColor": "classColor",
-  "details": "Advanced Software Engineer"
-}, {
-  "title": "CS599",
-  "startsAt": "2017-03-20T18:00:00",
-  "endsAt": "2017-03-20T20:00:00",
-  "org": "Class",
-  "location": "Building 8",
-  "orgColor": "classColor",
-  "details": "Advanced Software Engineer"
-}, {
-  "title": "CS599",
-  "startsAt": "2017-03-22T18:00:00",
-  "endsAt": "2017-03-22T20:00:00",
-  "org": "Class",
-  "location": "Building 8",
-  "orgColor": "classColor",
-  "details": "Advanced Software Engineer"
-}, {
-  "title": "CS599",
-  "startsAt": "2017-03-27T18:00:00",
-  "endsAt": "2017-03-27T20:00:00",
-  "org": "Class",
-  "location": "Building 8",
-  "orgColor": "classColor",
-  "details": "Advanced Software Engineer"
-}, {
-  "title": "CS599",
-  "startsAt": "2017-03-29T18:00:00",
-  "endsAt": "2017-03-29T20:00:00",
   "org": "Class",
   "location": "Building 8",
   "orgColor": "classColor",
