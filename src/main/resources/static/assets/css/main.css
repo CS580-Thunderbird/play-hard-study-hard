@@ -173,11 +173,17 @@
 
     h1.text-center{
         margin: 0px;
+        padding-bottom: 6px;
+    }
+
+    div.text-center{
+        padding-top: 1px;
+        padding-bottom: 1px;
     }
     
     .layout-padding{
         padding: 0px;
-        padding-top: 8px;
+        padding-top: 6px;
     }
 
     .mainCalendar{
