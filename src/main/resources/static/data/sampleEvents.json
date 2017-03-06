@@ -4,27 +4,31 @@
   "endsAt": "2017-03-01T06:06:07",
   "org": "ASI",
   "orgColor": "asiColor",
-  "details": "some details"
+  "details": "some details",
+  "actions" : "actions"
 }, {
   "title": "ASI Event 2",
   "startsAt": "2017-03-03T05:06:07",
   "endsAt": "2017-03-03T06:06:07",
   "org": "ASI",
   "orgColor": "asiColor",
-  "details": ""
+  "details": "",
+  "actions" : "actions"
 },{
   "title": "Fitness Event 1",
   "startsAt": "2017-03-03T15:06:07",
   "endsAt": "2017-03-03T17:06:07",
   "org": "Fitness",
   "orgColor": "fitnessColor",
-  "details": ""
+  "details": "",
+  "actions" : "actions"
 }, {
   "title": "Intl Club Event 1",
   "startsAt": "2017-03-06T15:06:07",
   "endsAt": "2017-03-06T17:06:07",
   "org": "International Club",
   "orgColor": "intlClubColor",
-  "details": ""
+  "details": "",
+  "actions" : "actions"
 }
 ]
