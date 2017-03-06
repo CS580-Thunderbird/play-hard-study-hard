@@ -11,7 +11,7 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
     var fitnessColor = '#efe9c1';
     var secondaryColor = '#ffffff';
     $scope.actionIcon= {
-     icon: '<i class=\'glyphicon glyphicon-plus\'></i>',
+      icon: '<i class=\'glyphicon glyphicon-plus\'></i>',
       eventAdded: false,
     }
 
@@ -41,17 +41,25 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
       $scope.Events = [];
       $scope.event_Suggestions = !$scope.event_Suggestions;
       $scope.eventPost.eventArray = angular.copy($scope.eventOrgList);
-      if($scope.event_Suggestions){
-        // $http.post('data/events', $scope.eventPost).
-        //   then(function(response) {
-        //     $scope.Events = response.data;
-        //     console.log("Event Filter posted: " + $scope.eventPost.eventArray);
-        //     console.log("Events: " + $scope.Events[0]);
-        //   },
+      console.log("OrgList: " + $scope.orgList[0].prefCk);
+      if($scope.event_Suggestions && $scope.orgList[0].prefCk && $scope.orgList[1].prefCk){
+        $http.post('data/events', $scope.eventPost).
+          then(function(response) {
+            $scope.Events = response.data;
+            // console.log("Event Filter posted: " + $scope.eventPost.eventArray);
+            // console.log("Events: " + $scope.Events[0]);
+          },function(data){
+                  console.log("ERROR POSTING");
+          });
+      }
+      else if($scope.event_Suggestions && !$scope.orgList[0].prefCk && $scope.orgList[1].prefCk){
           $http.get("data/event_dummy").then(function(response) {
             $scope.Events = response.data;
             console.log("Events length: " + $scope.Events.length);
           });
+      }
+      else{
+        console.log("something went wrong with the demo");
       }
       // vm.events.push($scope.Events);
       // $scope.eventList.push($scope.Events);
@@ -97,14 +105,16 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
         );
       }
       else if ($scope.actionIcon.eventAdded == false) {
+
         $scope.actionIcon.icon='<i class=\'glyphicon glyphicon-remove\'></i>';
         $scope.actionIcon.eventAdded=true;
+
         $mdDialog.show(
           $mdDialog.alert()
             .parent(angular.element(document.querySelector('#popupContainer')))
             .clickOutsideToClose(true)
             .title('Event Added')
-            .textContent('The event has been deleted.')
+            .textContent('The event has been added.')
             .ariaLabel('Alert Dialog Demo')
             .ok('Close')
         );
