@@ -86,11 +86,11 @@
     <div ng-controller="CalendarCtrl as vm" class="mainCalendar">
       <h1 class="text-center">{{ vm.viewTitle }}</h1>
       <ng-include src="'calendarControls.html'"></ng-include>
-      <mwl-calendar 
-        events="eventList" 
-        view="vm.calendarView" 
-        view-title="vm.viewTitle" 
-        view-date="vm.viewDate" 
+      <mwl-calendar
+        events="eventList"
+        view="vm.calendarView"
+        view-title="vm.viewTitle"
+        view-date="vm.viewDate"
         on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)"
         on-view-change-click="vm.dateClicked(calendarDate, calendarCell)">
       </mwl-calendar>
