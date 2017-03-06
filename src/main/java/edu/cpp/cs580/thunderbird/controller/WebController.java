@@ -269,6 +269,12 @@ public class WebController {
     	
      	return dummy_event;
      }
+      
+      @RequestMapping(value = "/data/event_dummy", method = RequestMethod.GET)
+      String getDummyEvent() throws FileNotFoundException{
+    	  String dummy_event = new Scanner(new File("src/main/resources/static/data/dummy_event.json")).useDelimiter("\\Z").next();
+    	  return dummy_event;
+      }
     
     @RequestMapping(value = "data/classes", method = RequestMethod.GET)
     public String getListClasses() throws FileNotFoundException, IOException{
