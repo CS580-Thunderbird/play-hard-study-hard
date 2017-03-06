@@ -186,11 +186,15 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
       //   });
       //
       // });
-//      $scope.eventList.push($scope.Events);
       for (var i = 0; i < $scope.Events.length; i++) {
         // console.log("EVENT LIST: " + $scope.Events[i]);
         //   temp.push(angular.extend({}, $scope.orgList[i], {prefCk: true}));
-        $scope.eventList.push(angular.extend({}, $scope.Events[i], {actions: eval("actions")}));
+        var item = $scope.Events[i];
+        var momentObjStart = moment(item.startsAt, moment.ISO_8601);
+        var momentObjEnd = moment(item.endsAt, moment.ISO_8601);
+
+        var addedEvent = $scope.makeEvent(item.title, momentObjStart, momentObjEnd, eval(item.orgColor), item.actions);
+        $scope.eventList.push(addedEvent);
       }
     }
 
@@ -220,7 +224,12 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
             console.log("Events length: " + response.data.length);
             $scope.Classes = response.data;
             for(var i = 0; i < $scope.Classes.length; i++) {
-              $scope.eventList.push($scope.Classes[i]);
+              var item = $scope.Classes[i];
+              var momentObjStart = moment(item.startsAt, moment.ISO_8601);
+              var momentObjEnd = moment(item.endsAt, moment.ISO_8601);
+              var addedClass = $scope.makeEvent(item.title, momentObjStart, momentObjEnd, eval(item.orgColor), []);
+
+              $scope.eventList.push(addedClass);
             }
           });
     }
@@ -230,14 +239,6 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
        $scope.eventList= [];
        $scope.addClassToCalendarDummy();
        $scope.addEventToCalendar();
-
-       $scope.eventList= [];
-       for(var i = 0; i < $scope.Classes.length; i++) {
-         $scope.eventList.push($scope.Classes[i]);
-       }
-       for(var i = 0; i < $scope.Events.length; i++) {
-         $scope.eventList.push($scope.Events[i]);
-       }
     }
 
   });
