@@ -86,6 +86,10 @@
     <div ng-controller="CalendarCtrl as vm" class="mainCalendar">
       <h1 class="text-center">{{ vm.viewTitle }}</h1>
       <ng-include src="'calendarControls.html'"></ng-include>
+      <!--
+      <button ng-click="addToCalendar()">Update Calendar</button>
+       -->
+      <br>
       <mwl-calendar
         events="eventList"
         view="vm.calendarView"
@@ -97,7 +101,7 @@
 
         <!-- Temporary fix -->
         </br>
-        <button ng-click="addToCalendar()">Update Calendar</button>
+
         <!-- {{ Events | json }} -->
     </div>
   </md-content>

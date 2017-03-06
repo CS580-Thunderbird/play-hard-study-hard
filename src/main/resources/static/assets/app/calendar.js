@@ -26,50 +26,7 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
       },
     ];
 
-    vm.events = [{
-      title: 'ASI Event',
-      color: {
-        primary: asiColor, // the primary event color (should be darker than secondary)
-        secondary: secondaryColor // the secondary event color (should be lighter than primary)
-      },
-
-      startsAt: moment().startOf('week').add(8, 'hours').toDate(),
-      endsAt: moment().startOf('week').add(9, 'hours').toDate(),
-      actions: actions
-    },
-    {
-        title: 'CS 580',
-        color: {
-          primary: classColor, // the primary event color (should be darker than secondary)
-          secondary: secondaryColor // the secondary event color (should be lighter than primary)
-        },
-        actions: null,
-        // startsAt: moment().startOf('month').toDate(),
-        startsAt: moment(),
-        endsAt: moment().add(3, 'hours'),
-      },
-      {
-        title: 'International Student Club',
-        color: {
-          primary: intlClubColor, // the primary event color (should be darker than secondary)
-          secondary: 'secondaryColor' // the secondary event color (should be lighter than primary)
-        },
-        // startsAt: moment().startOf('month').toDate(),
-        actions: actions,
-        startsAt: moment(),
-        endsAt: moment().add(3, 'hours'),
-      },
-      {
-        title: $scope.orgList[0].org,
-        color: {
-          primary: fitnessColor, // the primary event color (should be darker than secondary)
-          secondary: 'secondaryColor' // the secondary event color (should be lighter than primary)
-        },
-        actions: actions,
-        startsAt: moment(),
-        endsAt: moment().add(3, 'hours'),
-      }
-    ];
+    vm.events = [];
 
     $scope.eventList = vm.events;
 
