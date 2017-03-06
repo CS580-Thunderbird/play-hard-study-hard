@@ -2,14 +2,12 @@
   
   <modelVersion>4.0.0</modelVersion>
   
-  <groupId>study-hard-play-hard</groupId>
-  <artifactId>study-hard-play-hard</artifactId>
   <version>2.0</version>
   <packaging>jar</packaging>
   
   <name>study-hard-play-hard</name>
   <description>Cpp student's personal organizer</description>
-  
+       
   <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -176,4 +174,6 @@
 		</plugin>
 		</plugins>
 	</build>
+	<artifactId>bronco-planner</artifactId>
+	<groupId>bronco-planner     </groupId>
 </project>
