@@ -213,6 +213,7 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
     }
 
     $scope.addClassToCalendarDummy = function() {
+      $scope.Classes = [];
         $http.get("data/dummy_class").then(function(response) {
             var d = response.data;
             console.log("Events length: " + response.data.length);
@@ -227,6 +228,14 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
 //       $scope.addClassToCalendar();
        $scope.addClassToCalendarDummy();
        $scope.addEventToCalendar();
+
+       $scope.eventList= [];
+       for(var i = 0; i < $scope.Classes.length; i++) {
+         $scope.eventList.push($scope.Classes[i]);
+       }
+       for(var i = 0; i < $scope.Events.length; i++) {
+         $scope.eventList.push($scope.Events[i]);
+       }
     }
 
   });
