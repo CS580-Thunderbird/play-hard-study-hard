@@ -2,7 +2,7 @@ var app = angular.module("myApp", ['ngMaterial', 'ngMessages', 'mwl.calendar', '
 
 
 
-myApp.factory("UserInput", function(){
+app.factory("UserInput", function(){
 
   var addtionalEvent = {};
 
