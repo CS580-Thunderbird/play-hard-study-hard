@@ -38,7 +38,7 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
     };
 
     $scope.eventSuggestions = function() {
-      $scope.event_Suggestions = !$scope.event_Suggestions
+      $scope.event_Suggestions = !$scope.event_Suggestions;
       $scope.eventPost.eventArray = angular.copy($scope.eventOrgList);
       if($scope.event_Suggestions){
         // $http.post('data/events', $scope.eventPost).
@@ -113,7 +113,6 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
         $scope.actionIcon.eventAdded=false;
       }
 
-
       console.log("Added: " + $scope.actionIcon.eventAdded);
       console.log("Icon is:  " + $scope.actionIcon.icon);
     }
@@ -132,15 +131,12 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
       for(var i = 0; i < ca.length; i++) {
           var c = ca[i];
           c = c.split("=")[1];
-
           var addedClass = $scope.makeEvent(c, moment().startOf('week').add(8, 'hours').toDate(),
               moment().startOf('week').add(9, 'hours').toDate(), classColor);
-
           if (!ca[i].split("=")[0].includes("expires")) {
             vm.events.push(addedClass);
           }
       }
-
       document.cookie = "12345=;expires=Thu, 01 Jan 1970 00:00:00 UTC";
     }
 
@@ -204,7 +200,6 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
       $scope.loadJSON($scope.cppClassJSON, function(response) {
 
         var actual_JSON = JSON.parse(response);
-
         actual_JSON.forEach(function(item) {
           var momentObjStart = moment(item.start_date, 'YYYY-MM-DD');
           var momentObjEnd = moment(item.end_date, 'YYYY-MM-DD');
@@ -213,14 +208,24 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
 
           console.log(addedClass);
           $scope.eventList.push(addedClass);
-
         });
-
       });
     }
 
+    $scope.addClassToCalendarDummy = function() {
+        $http.get("data/dummy_class").then(function(response) {
+            var d = response.data;
+            console.log("Events length: " + response.data.length);
+            $scope.Classes = response.data;
+            for(var i = 0; i < $scope.Classes.length; i++) {
+              $scope.eventList.push($scope.Classes[i]);
+            }
+          });
+    }
+
     $scope.addToCalendar = function () {
-       $scope.addClassToCalendar();
+//       $scope.addClassToCalendar();
+       $scope.addClassToCalendarDummy();
        $scope.addEventToCalendar();
     }
 
