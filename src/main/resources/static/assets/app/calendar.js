@@ -85,28 +85,28 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
         $scope.actionIcon.icon='<i class=\'glyphicon glyphicon-plus\'></i>';
         $scope.actionIcon.eventAdded=false;
 
-        // $mdDialog.show(
-        //   $mdDialog.alert()
-        //     .parent(angular.element(document.querySelector('#popupContainer')))
-        //     .clickOutsideToClose(true)
-        //     .title('Delete Event')
-        //     .textContent('The event has been deleted.')
-        //     .ariaLabel('Alert Dialog Demo')
-        //     .ok('Close')
-        // );
+        $mdDialog.show(
+          $mdDialog.alert()
+            .parent(angular.element(document.querySelector('#popupContainer')))
+            .clickOutsideToClose(true)
+            .title('Delete Event')
+            .textContent('The event has been deleted.')
+            .ariaLabel('Alert Dialog Demo')
+            .ok('Close')
+        );
       }
       else if ($scope.actionIcon.eventAdded == false) {
         $scope.actionIcon.icon='<i class=\'glyphicon glyphicon-remove\'></i>';
         $scope.actionIcon.eventAdded=true;
-        // $mdDialog.show(
-        //   $mdDialog.alert()
-        //     .parent(angular.element(document.querySelector('#popupContainer')))
-        //     .clickOutsideToClose(true)
-        //     .title('Event Added')
-        //     .textContent('The event has been deleted.')
-        //     .ariaLabel('Alert Dialog Demo')
-        //     .ok('Close')
-        // );
+        $mdDialog.show(
+          $mdDialog.alert()
+            .parent(angular.element(document.querySelector('#popupContainer')))
+            .clickOutsideToClose(true)
+            .title('Event Added')
+            .textContent('The event has been deleted.')
+            .ariaLabel('Alert Dialog Demo')
+            .ok('Close')
+        );
       }
       else {
         $scope.actionIcon.icon='';
@@ -192,7 +192,8 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
 //      $scope.eventList.push($scope.Events);
       for (var i = 0; i < $scope.Events.length; i++) {
         // console.log("EVENT LIST: " + $scope.Events[i]);
-        $scope.eventList.push($scope.Events[i]);
+        //   temp.push(angular.extend({}, $scope.orgList[i], {prefCk: true}));
+        $scope.eventList.push(angular.extend({}, $scope.Events[i], {actions: eval("actions")}));
       }
     }
 
