@@ -17,7 +17,6 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
     });
   }
 
-
   // console.log("Event Org List: " + $scope.eventOrgList);
   if($scope.orgList == undefined){
     $scope.orgList = [ {
