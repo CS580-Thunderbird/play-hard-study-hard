@@ -13,7 +13,7 @@
             </md-toolbar>
 
             <md-dialog-content style="max-width:800px;max-height:810px;" class="md-dialog-content">
-                <md-tabs md-selected = "selectedTabIndex" md-dynamic-height md-border-bottom>
+                <md-tabs md-dynamic-height md-border-bottom>
 
                     <!-- TAB ONE -->
                     <md-tab label="Event Pref">
@@ -31,7 +31,10 @@
                             <md-button class="md-primary md-raised" ng-click="saveEventPref()">
                                 Save
                             </md-button>
-							 {{ status }}
+
+                            {{ status }}
+
+                            <pre>{{ eventOrgList }}</pre>
                             </br></br>
 
                             <md-input-container ng-controller="mainController">
@@ -67,7 +70,7 @@
                     </md-tab>
 
                      <!-- TAB TWO -->
-                    <md-tab label="Add Event">
+                    <md-tab label="Add Sched.">
                         <md-content class="md-padding">
                             <h4 class="md-display-1">Additional Input</h4>
 

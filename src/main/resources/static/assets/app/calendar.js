@@ -79,21 +79,24 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
     };
 
     $scope.eventSuggestions = function() {
-       $scope.event_Suggestions = !$scope.event_Suggestions
+      $scope.event_Suggestions = !$scope.event_Suggestions
       $scope.eventPost.eventArray = angular.copy($scope.eventOrgList);
       if($scope.event_Suggestions){
         $http.post('data/events', $scope.eventPost).
           then(function(response) {
             $scope.Events = response.data;
             console.log("Event Filter posted: " + $scope.eventPost.eventArray);
-            console.log("Events: " + $scope.Events);
+            console.log("Events: " + $scope.Events[0]);
           },
           function(data){
             console.log("ERROR POSTING");
           });
       }
-      vm.events.push($scope.Events);
+      // vm.events.push($scope.Events);
+      // $scope.eventList.push($scope.Events);
+
       console.log("Event suggestions pressed: " + $scope.event_Suggestions);
+
     }
 
     vm.timespanClicked = function(date, cellInfo) {
@@ -197,22 +200,27 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
     $scope.addEventToCalendar = function() {
 
       // temporary load data from JSON file
-      $scope.asiJSON = "data/sampleEvents.json";
-      $scope.loadJSON($scope.asiJSON, function(response) {
-        var actual_JSON = JSON.parse(response);
-
-        actual_JSON.forEach(function(item) {
-          var momentObjStart = moment(item.startsAt, moment.ISO_8601);
-          var momentObjEnd = moment(item.endsAt, moment.ISO_8601);
-
-          var addedEvent = $scope.makeEvent(item.title, momentObjStart, momentObjEnd, eval(item.orgColor), actions);
-
-          console.log(addedEvent);
-          $scope.eventList.push(addedEvent);
-
-        });
-
-      });
+      // $scope.asiJSON = "data/sampleEvents.json";
+      // $scope.loadJSON($scope.asiJSON, function(response) {
+      //   var actual_JSON = JSON.parse(response);
+      //
+      //   actual_JSON.forEach(function(item) {
+      //     var momentObjStart = moment(item.startsAt, moment.ISO_8601);
+      //     var momentObjEnd = moment(item.endsAt, moment.ISO_8601);
+      //
+      //     var addedEvent = $scope.makeEvent(item.title, momentObjStart, momentObjEnd, eval(item.orgColor), actions);
+      //
+      //     console.log(addedEvent);
+      //     $scope.eventList.push(addedEvent);
+      //
+      //   });
+      //
+      // });
+//      $scope.eventList.push($scope.Events);
+      for (var i = 0; i < $scope.Events.length; i++) {
+        // console.log("EVENT LIST: " + $scope.Events[i]);
+        $scope.eventList.push($scope.Events[i]);
+      }
     }
 
     $scope.addClassToCalendar = function() {

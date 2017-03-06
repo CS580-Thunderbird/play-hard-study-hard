@@ -2,9 +2,8 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
   $scope.status = ' ';
   $scope.customeFullscreen = false;
   $scope.status="";
-  $scope.selectedTabIndex = 0;
   // $scope.event_Suggestions = false;
-  $scope.eventOrgList = [];
+  // $scope.eventOrgList = [];
   /* Need to link checked status */
   // $scope.eventPost = {
   //   eventArray: [],
@@ -15,6 +14,7 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
       console.log("Get Result: " + $scope.eventOrgList);
     });
   }
+
 
   // console.log("Event Org List: " + $scope.eventOrgList);
   if($scope.orgList == undefined){
@@ -54,10 +54,9 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
     ]
   };
 
-  $scope.showTabDialog = function(ev, selectedTab) {
+  $scope.showTabDialog = function(ev) {
     // $scope.getEventOrgList();
     // console.log("Get Result: " + $scope.eventOrgList);
-    $scope.selectedTabIndex = selectedTab;
 
     for (var i = 0; i < $scope.orgList.length; i++) {
       if($scope.eventOrgList.includes((i+1).toString())){
@@ -80,18 +79,16 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
       locals: {
         usrDialog: $scope.usrDialog,
         orgList: $scope.orgList,
-        selectedTabIndex: $scope.selectedTabIndex,
       }
     });
     function DigitalController2($scope, $http, usrDialog, orgList){
       $scope.usrDialog = usrDialog;
       $scope.orgList = orgList;
-      $scope.selectedTabIndex = selectedTab;
 
       $scope.addBtn = function(){
 
-          $scope.momentStartTime = moment(this.usrDialog.sTime2.startTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
-          $scope.momentEndTime = moment(this.usrDialog.sTime2.endTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
+        $scope.momentStartTime = moment(this.usrDialog.sTime2.startTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
+        $scope.momentEndTime = moment(this.usrDialog.sTime2.endTime.toISOString()).format('MMMM Do YYYY, hh:mm:ss a');
 
           // $scope.usrDialog.days2 = this.usrDialog.days2;
           // for(var i = 0; i < $scope.usrDialog.days2.length; i++){
@@ -101,18 +98,19 @@ app.controller("mainController", function($scope, $http, $mdDialog, calendarConf
         $mdDialog.hide();
 
       };
-      $scope.cancel = function() {
-        // $scope.getEventOrgList();
-        $mdDialog.cancel();
-        $window.location.reload();
-      };
 
     }
+  };
+  $scope.cancel = function() {
+    // $scope.getEventOrgList();
+    $mdDialog.cancel();
+    $window.location.reload();
   };
 
   $scope.addorg = {
     preferSet: [],
   };
+
 
   $scope.getEventOrgList = function(){
     $http.get("data/eventOrgList").then(function(response) {
