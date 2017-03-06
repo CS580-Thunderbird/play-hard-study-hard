@@ -32,7 +32,7 @@
                                 Save
                             </md-button>
 
-                            {{ status }}   
+                            {{ status }}
                             </br></br>
 
                             <md-input-container ng-controller="mainController">
@@ -82,11 +82,11 @@
 
                                           <md-input-container>
                                             <label>Start</label>
-                                            <input type="datetime-local" ng-model="usrDialog.sTime2.startTime" aria-label="startTime">
+                                            <input type="datetime-local" ng-model="$parent.usrDialog.sTime2.startTime" aria-label="startTime">
                                           </md-input-container>
                                           <md-input-container>
                                             <label>End</label>
-                                            <input type="datetime-local" ng-model="usrDialog.sTime2.endTime" aria-label="endTime">
+                                            <input type="datetime-local" ng-model="$parent.usrDialog.sTime2.endTime" aria-label="endTime">
                                           </md-input-container>
 
                                         <!-- <td><md-input-container><input type="time"></md-input-container></td> -->
