@@ -11,7 +11,7 @@ Study Hard Play Hard, CPP Student personal organizer.
 - [x] Phase#1 - DUE FEB 6, 207
 - [x] Phase#2 - DUE FEB 13, 207
 - [x] Phase#3 - DUE FEB 20, 207
-- [ ] Phase#4 - DUE FEB 27, 207
+- [x] Phase#4 - DUE FEB 27, 207
 
 ####Developers
 Members | Position 
