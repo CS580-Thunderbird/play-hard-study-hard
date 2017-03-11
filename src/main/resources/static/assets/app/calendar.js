@@ -10,64 +10,23 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
     var intlClubColor = '#d9c1ef';
     var fitnessColor = '#efe9c1';
     var secondaryColor = '#ffffff';
+    $scope.actionIcon= {
+      icon: '<i class=\'glyphicon glyphicon-plus\'></i>',
+      eventAdded: false,
+    }
 
+    // '<i class=\'glyphicon glyphicon-remove\'></i>'
     var actions=[{
-        label: '<i class=\'glyphicon glyphicon-remove\'></i>',
+        label: $scope.actionIcon.icon,
         onClick: function(args) {
-          $scope.deleteEvent();
+          //  $scope.actionIcon.eventAdded = !$scope.actionIcon.eventAdded;
+          //  console.log("Added: " + $scope.actionIcon.eventAdded);
+          $scope.onAction();
         }
       },
-      {
-        label: '<i class=\'glyphicon glyphicon-plus\'></i>',
-        onClick: function(args) {
-          $scope.addSuggestedEvent();
-        }
-      }
     ];
 
-    vm.events = [{
-      title: 'ASI Event',
-      color: {
-        primary: asiColor, // the primary event color (should be darker than secondary)
-        secondary: secondaryColor // the secondary event color (should be lighter than primary)
-      },
-      actions: actions,
-      startsAt: moment().startOf('week').add(8, 'hours').toDate(),
-      endsAt: moment().startOf('week').add(9, 'hours').toDate(),
-    },
-    {
-        title: 'CS 580',
-        color: {
-          primary: classColor, // the primary event color (should be darker than secondary)
-          secondary: secondaryColor // the secondary event color (should be lighter than primary)
-        },
-        actions: null,
-        // startsAt: moment().startOf('month').toDate(),
-        startsAt: moment(),
-        endsAt: moment().add(3, 'hours'),
-      },
-      {
-        title: 'International Student Club',
-        color: {
-          primary: intlClubColor, // the primary event color (should be darker than secondary)
-          secondary: 'secondaryColor' // the secondary event color (should be lighter than primary)
-        },
-        // startsAt: moment().startOf('month').toDate(),
-        actions: actions,
-        startsAt: moment(),
-        endsAt: moment().add(3, 'hours'),
-      },
-      {
-        title: $scope.orgList[0].org,
-        color: {
-          primary: fitnessColor, // the primary event color (should be darker than secondary)
-          secondary: 'secondaryColor' // the secondary event color (should be lighter than primary)
-        },
-        actions: actions,
-        startsAt: moment(),
-        endsAt: moment().add(3, 'hours'),
-      }
-    ];
+    vm.events = [];
 
     $scope.eventList = vm.events;
 
@@ -79,24 +38,33 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
     };
 
     $scope.eventSuggestions = function() {
-      $scope.event_Suggestions = !$scope.event_Suggestions
+      $scope.Events = [];
+      $scope.event_Suggestions = !$scope.event_Suggestions;
       $scope.eventPost.eventArray = angular.copy($scope.eventOrgList);
-      if($scope.event_Suggestions){
+      console.log("OrgList: " + $scope.orgList[0].prefCk);
+      if($scope.event_Suggestions && $scope.orgList[0].prefCk && $scope.orgList[1].prefCk){
         $http.post('data/events', $scope.eventPost).
           then(function(response) {
             $scope.Events = response.data;
-            console.log("Event Filter posted: " + $scope.eventPost.eventArray);
-            console.log("Events: " + $scope.Events[0]);
-          },
-          function(data){
-            console.log("ERROR POSTING");
+            // console.log("Event Filter posted: " + $scope.eventPost.eventArray);
+            // console.log("Events: " + $scope.Events[0]);
+          },function(data){
+                  console.log("ERROR POSTING");
           });
+      }
+      else if($scope.event_Suggestions && !$scope.orgList[0].prefCk && $scope.orgList[1].prefCk){
+          $http.get("data/event_dummy").then(function(response) {
+            $scope.Events = response.data;
+            console.log("Events length: " + $scope.Events.length);
+          });
+      }
+      else{
+        console.log("something went wrong with the demo");
       }
       // vm.events.push($scope.Events);
       // $scope.eventList.push($scope.Events);
 
       console.log("Event suggestions pressed: " + $scope.event_Suggestions);
-
     }
 
     vm.timespanClicked = function(date, cellInfo) {
@@ -120,30 +88,45 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
       return '';
     };
 
-    $scope.deleteEvent = function() {
-      $mdDialog.show(
-        $mdDialog.alert()
-          .parent(angular.element(document.querySelector('#popupContainer')))
-          .clickOutsideToClose(true)
-          .title('Event Deleted')
-          .textContent('You have decided to delete this event.')
-          .ariaLabel('Alert Dialog Demo')
-          .ok('Close')
-      );
-    }
+    $scope.onAction = function() {
 
-    $scope.addSuggestedEvent = function() {
-      $mdDialog.show(
-        $mdDialog.alert()
-          .parent(angular.element(document.querySelector('#popupContainer')))
-          .clickOutsideToClose(true)
-          .title('Added Event')
-          .textContent('This event has been added to your Calendar.')
-          .ariaLabel('Alert Dialog Demo')
-          .ok('Close')
-      );
-    }
+      if ($scope.actionIcon.eventAdded == true) {
+        $scope.actionIcon.icon='<i class=\'glyphicon glyphicon-plus\'></i>';
+        $scope.actionIcon.eventAdded=false;
 
+        $mdDialog.show(
+          $mdDialog.alert()
+            .parent(angular.element(document.querySelector('#popupContainer')))
+            .clickOutsideToClose(true)
+            .title('Delete Event')
+            .textContent('The event has been deleted.')
+            .ariaLabel('Alert Dialog Demo')
+            .ok('Close')
+        );
+      }
+      else if ($scope.actionIcon.eventAdded == false) {
+
+        $scope.actionIcon.icon='<i class=\'glyphicon glyphicon-remove\'></i>';
+        $scope.actionIcon.eventAdded=true;
+
+        $mdDialog.show(
+          $mdDialog.alert()
+            .parent(angular.element(document.querySelector('#popupContainer')))
+            .clickOutsideToClose(true)
+            .title('Event Added')
+            .textContent('The event has been added.')
+            .ariaLabel('Alert Dialog Demo')
+            .ok('Close')
+        );
+      }
+      else {
+        $scope.actionIcon.icon='';
+        $scope.actionIcon.eventAdded=false;
+      }
+
+      console.log("Added: " + $scope.actionIcon.eventAdded);
+      console.log("Icon is:  " + $scope.actionIcon.icon);
+    }
 
     // required so other demos work as before
     $scope.$on('$destroy', function() {
@@ -159,15 +142,12 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
       for(var i = 0; i < ca.length; i++) {
           var c = ca[i];
           c = c.split("=")[1];
-
           var addedClass = $scope.makeEvent(c, moment().startOf('week').add(8, 'hours').toDate(),
               moment().startOf('week').add(9, 'hours').toDate(), classColor);
-
           if (!ca[i].split("=")[0].includes("expires")) {
             vm.events.push(addedClass);
           }
       }
-
       document.cookie = "12345=;expires=Thu, 01 Jan 1970 00:00:00 UTC";
     }
 
@@ -216,10 +196,15 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
       //   });
       //
       // });
-//      $scope.eventList.push($scope.Events);
       for (var i = 0; i < $scope.Events.length; i++) {
         // console.log("EVENT LIST: " + $scope.Events[i]);
-        $scope.eventList.push($scope.Events[i]);
+        //   temp.push(angular.extend({}, $scope.orgList[i], {prefCk: true}));
+        var item = $scope.Events[i];
+        var momentObjStart = moment(item.startsAt, moment.ISO_8601);
+        var momentObjEnd = moment(item.endsAt, moment.ISO_8601);
+
+        var addedEvent = $scope.makeEvent(item.title, momentObjStart, momentObjEnd, eval(item.orgColor), eval(item.actions));
+        $scope.eventList.push(addedEvent);
       }
     }
 
@@ -230,7 +215,6 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
       $scope.loadJSON($scope.cppClassJSON, function(response) {
 
         var actual_JSON = JSON.parse(response);
-
         actual_JSON.forEach(function(item) {
           var momentObjStart = moment(item.start_date, 'YYYY-MM-DD');
           var momentObjEnd = moment(item.end_date, 'YYYY-MM-DD');
@@ -239,14 +223,31 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
 
           console.log(addedClass);
           $scope.eventList.push(addedClass);
-
         });
-
       });
     }
 
+    $scope.addClassToCalendarDummy = function() {
+      $scope.Classes = [];
+        $http.get("data/user_class").then(function(response) {
+            var d = response.data;
+            console.log("Events length: " + response.data.length);
+            $scope.Classes = response.data;
+            for(var i = 0; i < $scope.Classes.length; i++) {
+              var item = $scope.Classes[i];
+              var momentObjStart = moment(item.startsAt, moment.ISO_8601);
+              var momentObjEnd = moment(item.endsAt, moment.ISO_8601);
+              var addedClass = $scope.makeEvent(item.title, momentObjStart, momentObjEnd, eval(item.orgColor), []);
+
+              $scope.eventList.push(addedClass);
+            }
+          });
+    }
+
     $scope.addToCalendar = function () {
-       $scope.addClassToCalendar();
+//       $scope.addClassToCalendar();
+       $scope.eventList= [];
+       $scope.addClassToCalendarDummy();
        $scope.addEventToCalendar();
     }
 

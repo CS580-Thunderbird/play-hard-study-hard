@@ -5,13 +5,13 @@ Study Hard Play Hard, CPP Student personal organizer.
 
 ####DEMO
 [Bronco Planner](http://bronco-planner.com/) <br />
-[Latest Version - Latest from GitHub] (http://ec2-52-27-156-64.us-west-2.compute.amazonaws.com:8080/)
+
 
 ####Progress
 - [x] Phase#1 - DUE FEB 6, 207
-- [ ] Phase#2 - DUE FEB 13, 207
-- [ ] Phase#3 - DUE FEB 20, 207
-- [ ] Phase#4 - DUE FEB 27, 207
+- [x] Phase#2 - DUE FEB 13, 207
+- [x] Phase#3 - DUE FEB 20, 207
+- [x] Phase#4 - DUE FEB 27, 207
 
 ####Developers
 Members | Position 

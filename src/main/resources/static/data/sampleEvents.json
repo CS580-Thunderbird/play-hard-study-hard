@@ -1,30 +1,254 @@
 [{
-  "title": "ASI Event 1",
-  "startsAt": "2017-03-01T05:06:07",
-  "endsAt": "2017-03-01T06:06:07",
+  "title": "ASI Elections Info Sessions",
+  "startsAt": "2017-03-07T12:00:00",
+  "endsAt": "2017-03-07T13:00:00",
   "org": "ASI",
+  "location": "BSC - Orain AB (BLDG.35 - 2319)",
   "orgColor": "asiColor",
-  "details": "some details"
+  "details": "Run for student government, Mandatory info session",
+  "actions" : "actions"
 }, {
-  "title": "ASI Event 2",
-  "startsAt": "2017-03-03T05:06:07",
-  "endsAt": "2017-03-03T06:06:07",
+  "title": "Puppies in the Park",
+  "startsAt": "2017-03-09T11:00:00",
+  "endsAt": "2017-03-09T11:00:00",
   "org": "ASI",
+  "location": "University Park",
   "orgColor": "asiColor",
-  "details": ""
+  "details": "",
+  "actions" : "actions"
 },{
-  "title": "Fitness Event 1",
-  "startsAt": "2017-03-03T15:06:07",
-  "endsAt": "2017-03-03T17:06:07",
-  "org": "Fitness",
-  "orgColor": "fitnessColor",
-  "details": ""
+  "title": "Girl Rising Film Screening",
+  "startsAt": "2017-03-09T13:00:00",
+  "endsAt": "2017-03-09T15:00:00",
+  "org": "ASI",
+  "location": "BSC - Ursa Major AB (BLDG. 35 - 2611)",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions"
 }, {
-  "title": "Intl Club Event 1",
-  "startsAt": "2017-03-06T15:06:07",
-  "endsAt": "2017-03-06T17:06:07",
-  "org": "International Club",
-  "orgColor": "intlClubColor",
-  "details": ""
+  "title": "International Women's Symposium",
+  "startsAt": "2017-03-10T09:00:00",
+  "endsAt": "2017-03-10T13:00:00",
+  "org": "ASI",
+  "location": "BSC - URSA Minor (BLDG. 35 - 2135)",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "ASI Elections Info Sessions",
+  "startsAt": "2017-03-10T14:00:00",
+  "endsAt": "2017-03-10T15:00:00",
+  "org": "ASI",
+  "location": "BSC - Orion AB (BLDG. 35 - 2319)",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Midnight Madness",
+  "startsAt": "2017-03-10T10:00:00",
+  "endsAt": "2017-03-10T12:00:00",
+  "org": "ASI",
+  "location": "BSC (BLDG. 35)",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "ASI Elections Info Sessions",
+  "startsAt": "2017-03-27T17:00:00",
+  "endsAt": "2017-03-27T18:00:00",
+  "org": "ASI",
+  "location": "Multipurpose Room - (Bldg. 52)",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "ASI Elections Info Sessions",
+  "startsAt": "2017-03-30T12:00:00",
+  "endsAt": "2017-03-30T13:00:00",
+  "org": "ASI",
+  "location": "BSC - Orion AB (BLDG. 35 - 2319)",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "ASI Elections Info Sessions",
+  "startsAt": "2017-04-04T12:00:00",
+  "endsAt": "2017-04-04T13:00:00",
+  "org": "ASI",
+  "location": "BSC - Orion AB (BLDG. 35 - 2319)",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Yoga w/Kristin",
+  "startsAt": "2017-03-06T08:30:00",
+  "endsAt": "2017-03-06T09:20:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+},{
+  "title": "Spinning w/Meg",
+  "startsAt": "2017-03-06T09:00:00",
+  "endsAt": "2017-03-06T09:00:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Bootcamp w/Makayla",
+  "startsAt": "2017-03-06T11:00:00",
+  "endsAt": "2017-03-06T11:00:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Tabata w/Christian",
+  "startsAt": "2017-03-06T12:00:00",
+  "endsAt": "2017-03-06T12:00:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Trim n Tone w/ Christian",
+  "startsAt": "2017-03-07T10:00:00",
+  "endsAt": "2017-03-07T10:00:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "TRX w/ Christian",
+  "startsAt": "2017-03-07T11:00:00",
+  "endsAt": "2017-03-07T11:00:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Yoga w/ Eric",
+  "startsAt": "2017-03-07T16:30:00",
+  "endsAt": "2017-03-07T16:30:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Yoga w/ Eric",
+  "startsAt": "2017-03-08T16:30:00",
+  "endsAt": "2017-03-08T16:30:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Yoga w/ Kristin",
+  "startsAt": "2017-03-09T16:30:00",
+  "endsAt": "2017-03-09T16:30:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Bootcamp with David",
+  "startsAt": "2017-03-09T16:30:00",
+  "endsAt": "2017-03-09T16:30:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "TRX with David",
+  "startsAt": "2017-03-10T16:30:00",
+  "endsAt": "2017-03-10T16:30:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Yoga w/ Shally",
+  "startsAt": "2017-03-11T16:30:00",
+  "endsAt": "2017-03-11T16:30:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "TRX with David",
+  "startsAt": "2017-03-11T16:30:00",
+  "endsAt": "2017-03-11T16:30:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Yoga w/ Shally",
+  "startsAt": "2017-03-11T16:30:00",
+  "endsAt": "2017-03-11T16:30:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Zumba w/ Katrina",
+  "startsAt": "2017-03-13T16:30:00",
+  "endsAt": "2017-03-13T16:30:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Yoga w/Eric",
+  "startsAt": "2017-03-15T16:30:00",
+  "endsAt": "2017-03-15T16:30:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Yoga w/ Shally",
+  "startsAt": "2017-03-15T16:30:00",
+  "endsAt": "2017-03-15T16:30:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "TRX with David",
+  "startsAt": "2017-03-16T16:30:00",
+  "endsAt": "2017-03-16T16:30:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
+}, {
+  "title": "Yoga w/ Shally",
+  "startsAt": "2017-03-11T16:30:00",
+  "endsAt": "2017-03-11T16:30:00",
+  "org": "Fitness",
+  "location": "BRIC",
+  "orgColor": "fitnessColor",
+  "details": "",
+  "actions" : "actions"
 }
 ]

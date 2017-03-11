@@ -1,0 +1,92 @@
+[{
+  "title": "ASI Elections Info Sessions",
+  "startsAt": "2017-03-07T12:00:00",
+  "endsAt": "2017-03-07T13:00:00",
+  "org": "ASI",
+  "location": "BSC - Orain AB (BLDG.35 - 2319)",
+  "orgColor": "asiColor",
+  "details": "Run for student government, Mandatory info session",
+  "actions" : "actions",
+  "added": "true"
+}, {
+  "title": "Puppies in the Park",
+  "startsAt": "2017-03-09T11:00:00",
+  "endsAt": "2017-03-09T11:00:00",
+  "org": "ASI",
+  "location": "University Park",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions",
+  "added": "true"
+},{
+  "title": "Girl Rising Film Screening",
+  "startsAt": "2017-03-09T13:00:00",
+  "endsAt": "2017-03-09T15:00:00",
+  "org": "ASI",
+  "location": "BSC - Ursa Major AB (BLDG. 35 - 2611)",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions",
+  "added": "true"
+}, {
+  "title": "International Women's Symposium",
+  "startsAt": "2017-03-10T09:00:00",
+  "endsAt": "2017-03-10T13:00:00",
+  "org": "ASI",
+  "location": "BSC - URSA Minor (BLDG. 35 - 2135)",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions",
+  "added": "true"
+}, {
+  "title": "ASI Elections Info Sessions",
+  "startsAt": "2017-03-10T14:00:00",
+  "endsAt": "2017-03-10T15:00:00",
+  "org": "ASI",
+  "location": "BSC - Orion AB (BLDG. 35 - 2319)",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions",
+  "added": "true"
+}, {
+  "title": "Midnight Madness",
+  "startsAt": "2017-03-10T10:00:00",
+  "endsAt": "2017-03-10T12:00:00",
+  "org": "ASI",
+  "location": "BSC (BLDG. 35)",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions",
+  "added": "true"
+}, {
+  "title": "ASI Elections Info Sessions",
+  "startsAt": "2017-03-27T17:00:00",
+  "endsAt": "2017-03-27T18:00:00",
+  "org": "ASI",
+  "location": "Multipurpose Room - (Bldg. 52)",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions",
+  "added": "true"
+}, {
+  "title": "ASI Elections Info Sessions",
+  "startsAt": "2017-03-30T12:00:00",
+  "endsAt": "2017-03-30T13:00:00",
+  "org": "ASI",
+  "location": "BSC - Orion AB (BLDG. 35 - 2319)",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions",
+  "added": "true"
+}, {
+  "title": "ASI Elections Info Sessions",
+  "startsAt": "2017-04-04T12:00:00",
+  "endsAt": "2017-04-04T13:00:00",
+  "org": "ASI",
+  "location": "BSC - Orion AB (BLDG. 35 - 2319)",
+  "orgColor": "asiColor",
+  "details": "",
+  "actions" : "actions",
+  "added": "true"
+}
+]

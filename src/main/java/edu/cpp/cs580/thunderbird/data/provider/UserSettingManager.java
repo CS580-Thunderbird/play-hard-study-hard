@@ -44,6 +44,59 @@ public class UserSettingManager {
 		userSettingRepo.save(user);
 	}
 	
+	public String getCppClasses(String userID) throws IOException{
+		
+		//DEBUG
+		if(userID == null) userID = "104397633282085651478";
+		UserSetting user = userSettingRepo.findOne(userID);
+		List<CppClassSchedule> classList = user.getClasses();
+		
+		StringWriter json = new StringWriter();
+		JsonGenerator jsonGenerator = new JsonFactory().createGenerator(json);
+		
+		
+			
+		boolean first = true;
+		for(CppClassSchedule c: classList){
+			
+			if(!first) jsonGenerator.writeRaw(",");
+			else first = false;
+			jsonGenerator.writeStartObject();
+			jsonGenerator.writeStringField("title", c.getCode());
+			jsonGenerator.writeStringField("startsAt", c.getClassTime().getStartDate().toString()+"T00:00:00");
+			jsonGenerator.writeStringField("endsAt", c.getClassTime().getEndDate().toString()+"T00:00:00");
+			jsonGenerator.writeStringField("org", "Class");
+			jsonGenerator.writeStringField("location", c.getLocation());
+			jsonGenerator.writeStringField("orgColor", "classColor");
+			jsonGenerator.writeStringField("details", c.getDescription());
+			jsonGenerator.writeEndObject();
+			
+		}
+		
+		
+		
+		jsonGenerator.flush();
+		jsonGenerator.close();
+		/**
+		 * Pattern
+		 * {
+			  "title": "CS580",
+			  "startsAt": "2017-03-01T16:00:00",
+			  "endsAt": "2017-03-01T18:00:00",
+			  "org": "Class",
+			  "location": "Building 8",
+			  "orgColor": "classColor",
+			  "details": "Advanced Software Engineer"
+			}
+		 */
+		
+	
+		
+		
+				
+		return "[" + json.toString() + "]";
+	}
+	
 	public String getJsonOfPreferenceSetting(String userID) throws IOException{
 		StringWriter json = new StringWriter();
 		JsonGenerator jsonGenerator = new JsonFactory().createGenerator(json);
