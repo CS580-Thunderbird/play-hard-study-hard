@@ -276,10 +276,10 @@ public class WebController {
     	  return dummy_event;
       }
       
-      @RequestMapping(value = "/data/dummy_class", method = RequestMethod.GET)
-      String getDummyClass() throws FileNotFoundException{
-    		  String dummy_clss = new Scanner(new File("data/dummy_class.json")).useDelimiter("\\Z").next();
-    	  return dummy_clss;
+      @RequestMapping(value = "/data/user_class", method = RequestMethod.GET)
+      String getDummyClass() throws IOException{
+    	 String classList = userSettingManager.getCppClasses(userManager.getUserId());
+         return classList;
       }
     
     @RequestMapping(value = "data/classes", method = RequestMethod.GET)

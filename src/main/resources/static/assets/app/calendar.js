@@ -229,7 +229,7 @@ app.controller('CalendarCtrl', function($scope, $http, $window, moment, calendar
 
     $scope.addClassToCalendarDummy = function() {
       $scope.Classes = [];
-        $http.get("data/dummy_class").then(function(response) {
+        $http.get("data/user_class").then(function(response) {
             var d = response.data;
             console.log("Events length: " + response.data.length);
             $scope.Classes = response.data;
