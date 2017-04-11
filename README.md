@@ -4,6 +4,7 @@ Study Hard Play Hard, CPP Student personal organizer.
 ......
 
 ####DEMO
+####Due to cost of maintenence, we need to stop our web service 
 [Bronco Planner](http://bronco-planner.com/) <br />
 
 
@@ -14,8 +15,9 @@ Study Hard Play Hard, CPP Student personal organizer.
 - [x] Phase#4 - DUE FEB 27, 207
 
 ####Developers
+
 Members | Position 
---- | --- | ---
+--- | --- 
 Diana | Front-End developer 
 Kushal | Front-End developer
 Nanwarin | Project Manager and Full-Stack Developer
